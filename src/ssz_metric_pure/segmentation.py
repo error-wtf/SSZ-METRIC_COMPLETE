@@ -31,18 +31,29 @@ def segment_density_xi(
     varphi: float = PHI
 ) -> ArrayLike:
     """
-    Segment density Ξ(r) - CORRECTED formula from ssz-metric-final.
+    Segment density Ξ(r) - DEPRECATED formula.
     
-    Formula:
+    ⚠️ DEPRECATED: This formula is NOT canonical.
+    
+    The canonical formula is:
+        Ξ(r) = 1 - exp(-φ·r/r_s)    [Strong Field]
+        Ξ(r) = r_s/(2r)              [Weak Field]
+    
+    This function uses an alternative formula:
         Ξ(r) = (r_s/r)² × exp(-r/r_φ)
     
     where r_φ = (φ/2) × r_s × (1 + Δ(M)/100)
     
+    ⚠️ WARNING: This formula produces different results than the canonical
+    formula and should NOT be used for new code. It is kept only for
+    backward compatibility with existing code that depends on this behavior.
+    
+    For new code, use the canonical formulas from ssz-qubits or maxwell
+    repositories which use: Ξ(r) = 1 - exp(-φ·r/r_s)
+    
     Physical Meaning:
-    - Ξ(r) represents spacetime discretization level
-    - Ξ → 1 near r=0 (maximum segmentation)
-    - Ξ → 0 for r→∞ (asymptotically continuous)
-    - Natural boundary at r_φ where A(r_φ) > 0
+    - Ξ(r) represents spacetime discretization level (alternative interpretation)
+    - This formula has different asymptotic behavior than canonical formula
     
     Args:
         r: Radius (scalar or array) [m]
@@ -52,14 +63,24 @@ def segment_density_xi(
     Returns:
         Segment density 0 ≤ Ξ(r) ≤ 1
     
-    Examples:
-        >>> xi = segment_density_xi(r_s, r_s)  # At Schwarzschild radius
-        >>> xi = segment_density_xi(np.array([r_s, 2*r_s, 10*r_s]), r_s)
-    
     References:
         - SSZ_Black_Hole_Stability.md
         - ssz-metric-final/viz_ssz_metric/segment_density.py
+        - maxwell/OPEN_ISSUES.md (ISS-01: RESOLVED - Formel A is canonical)
+        - todo/RESOLUTION_ROADMAP.md (Formel B deprecated)
+    
+    .. deprecated:: 2025-12-28
+        This function is deprecated. Use canonical formulas instead.
     """
+    import warnings
+    warnings.warn(
+        "segment_density_xi() uses DEPRECATED formula. "
+        "Use canonical formula: Ξ(r) = 1 - exp(-φ·r/r_s) for Strong Field "
+        "or Ξ(r) = r_s/(2r) for Weak Field. "
+        "See maxwell/OPEN_ISSUES.md ISS-01 and todo/RESOLUTION_ROADMAP.md",
+        DeprecationWarning,
+        stacklevel=2
+    )
     r = np.asarray(r, dtype=float)
     
     # Avoid division by zero
