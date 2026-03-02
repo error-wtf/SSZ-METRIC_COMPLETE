@@ -198,7 +198,7 @@ class SSZCalibratedMetric:
         
         elif method == 'simps':
             # For validation: full Simpson's rule
-            T_total = simps(gamma_squared, r_path) / C_SI
+            T_total = simps(gamma_squared, x=r_path) / C_SI
             # Return cumulative (approximate)
             return np.linspace(0, T_total, len(r_path))
         
