@@ -7,6 +7,7 @@ Implements strong-field structure and photon-sphere dynamics under canonical SSZ
 Licensed under the Anti-Capitalist Software License v1.4
 """
 
+import numpy as np
 from .core import xi_canonical, D_from_xi, s_from_xi, characteristic_radius
 
 
@@ -47,3 +48,74 @@ def Xi_at_characteristic_radius(M: float) -> float:
     Alias for Xi_at_schwarzschild_radius.
     """
     return Xi_at_schwarzschild_radius(M)
+
+
+def D_at_schwarzschild_radius(M: float) -> float:
+    """
+    Evaluate clock scaling factor D(r_s) exactly at r = r_s.
+    D_at_r_s = 1 / (1 + Xi(r_s)) ≈ 1 / (2 - e^-phi) ≈ 0.55502
+    """
+    xi_rs = Xi_at_schwarzschild_radius(M)
+    return float(D_from_xi(xi_rs))
+
+
+def strong_field_regime_report(r: float, M: float) -> dict:
+    """
+    Generate a scale-domain regime report for radius r.
+    Categorizes radial distance according to SSZ's physical boundaries.
+    """
+    r_s = characteristic_radius(M)
+    x = r / r_s
+    if x < 1.8:
+        regime = "STRONG_FIELD_CORE"
+    elif x <= 2.2:
+        regime = "BLEND_ZONE"
+    else:
+        regime = "WEAK_FIELD"
+    return {
+        "radius": r,
+        "x_compactness": x,
+        "regime": regime,
+        "xi": float(xi_canonical(r, M)),
+        "D": float(D_from_xi(xi_canonical(r, M))),
+        "s": float(s_from_xi(xi_canonical(r, M)))
+    }
+
+
+def compactness_report(R: float, M: float) -> dict:
+    """
+    Evaluate geometric compactness C_g = r_s / R of a static spherical boundary R.
+    """
+    r_s = characteristic_radius(M)
+    return {
+        "characteristic_radius": r_s,
+        "boundary_radius": R,
+        "compactness_ratio": r_s / R
+    }
+
+
+def finite_boundary_report(M: float) -> dict:
+    """
+    Provide boundary evaluation at characteristic radius r_s.
+    """
+    r_s = characteristic_radius(M)
+    return {
+        "r_s": r_s,
+        "Xi_boundary": Xi_at_schwarzschild_radius(M),
+        "D_boundary": D_at_schwarzschild_radius(M)
+    }
+
+
+def energy_condition_regime(coords, M: float) -> float:
+    """
+    Evaluates weak and strong energy conditions at coordinate location coords.
+    Returns 1.0 if satisfied, 0.0 otherwise. Scoped as diagnostic proxy.
+    """
+    from .energy import check_weak_energy_condition, check_strong_energy_condition
+    if isinstance(coords, (list, tuple, np.ndarray)):
+        r = coords[1]
+    else:
+        r = coords
+    wec = check_weak_energy_condition(r, M)
+    sec = check_strong_energy_condition(r, M)
+    return 1.0 if (wec and sec) else 0.0

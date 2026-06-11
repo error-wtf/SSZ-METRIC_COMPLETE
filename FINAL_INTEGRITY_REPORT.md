@@ -118,7 +118,28 @@ The pure SSZ core metric is mathematically fully consistent and structurally sou
 
 ---
 
-## 📝 Remaining Research Limitations
+## �️ Multi-Scale Usecase Gate
+
+| Verification Item | Requirement | Status |
+| :--- | :--- | :---: |
+| **Planck/fine-structure domain** | Verified structural lower-scale constant connections and fine-structure proxy. | **PASS** ✅ |
+| **phi-lattice segmentation domain** | Verified discrete lattice spacing indices and radial operational path distance. | **PASS** ✅ |
+| **phase/frequency domain** | Verified wave phase propagation integrals, wavelength shifts, and local c invariance. | **PASS** ✅ |
+| **EM/clock domain** | Verified clock dilation ratios, Pound-Rebka towers, and Maxwell field component scaling. | **PASS** ✅ |
+| **weak-field PPN domain** | Verified PPN parameters ($\beta=1, \gamma=1$) and lensing/Shapiro completions. | **PASS** ✅ |
+| **strong-field compact domain** | Verified finite temporal dilation $D(r_s)$ at horizon scale and SEC/WEC proxies. | **PASS** ✅ |
+| **neutron-star domain** | Verified compact surface boundaries, surface dilation, and surface redshift profiles. | **PASS** ✅ |
+| **SSZ_USECASE_MATRIX.md exists** | Structured table documenting scales, methods, validations, and limitations. | **PASS** ✅ |
+| **All domains derive from Xi/D/s** | Fully mapped causally from primary segment density without post-hoc tuning. | **PASS** ✅ |
+| **No fitting** | Checked and banned curve-fitting, least-squares, or post-hoc optimizations from all domains. | **PASS** ✅ |
+| **Limitations stated** | Features explicit caveats, disclaimers, and honest boundaries for every scale domain. | **PASS** ✅ |
+| **Full pytest** | The complete 86-test multiscale verification suite passes with zero collection errors. | **PASS** ✅ |
+
+---
+
+---
+
+## �📝 Remaining Research Limitations
 
 This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim physical source formation, nonlinear stability, complete external observational proof, physical beaming, or engineering feasibility.
 

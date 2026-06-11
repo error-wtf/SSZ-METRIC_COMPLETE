@@ -57,7 +57,22 @@ To run only the forward observable validation and anti-circular protocols:
 python -m pytest tests/test_observable_predictions_forward.py tests/test_forward_anticircular_protocol.py tests/test_no_fitting_in_canonical_validation.py -q
 ```
 
-### 3. Guidelines on External Observational Data
+### 3. Optional Domain-Specific Verification Commands
+
+To verify specific multi-scale scale domains individually, you can execute targeted pytest modules:
+
+```bash
+# Verify Multi-Scale Usecase Matrix Integration
+python -m pytest tests/test_multiscale_usecase_matrix.py -q
+
+# Verify Neutron Star Scale Domain Usecases
+python -m pytest tests/test_neutron_star_domain.py -q
+
+# Verify Quantum Frequency & Phase Transport Scale Domain Usecases
+python -m pytest tests/test_phase_frequency_domain.py -q
+```
+
+### 4. Guidelines on External Observational Data
 
 - **External Data Tests**: Any actual observational data validation tests added in the future must live inside `tests_data/` to keep them cleanly separated from the core analytical identities.
 - **LIGO / GW / Template-Bound Data Warning**: Exploratory analysis of gravitational wave events or rotating black hole candidates cannot be classified as canonical validation if it relies on general relativistic templates or template-derived posterior parameter values. Doing so introduces circular template bias. Genuine alternative-metric validation in these domains requires full, raw strain analysis under an independent, anti-circular raw pipeline. Until then, these items remain strictly exploratory.

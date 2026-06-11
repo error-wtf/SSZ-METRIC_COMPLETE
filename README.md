@@ -8,7 +8,9 @@
 
 ## 📖 Overview
 
-This repository implements the canonical, mathematically rigorous **canonical pure SSZ core metric research framework**. The physical source formation, nonlinear stability, and complete external observational validation remain separate research tasks.
+This repository implements a canonical Xi-primary SSZ metric kernel and multi-scale usecase framework from Planck-/fine-structure-adjacent segmentation through phase/frequency, EM/clock, weak-field PPN, strong-field compact-object, and neutron-star domains.
+
+The framework is complete as a structured implementation scaffold for the declared domains. It does not claim complete quantum gravity, complete matter-source formation, complete nonlinear stability, complete external observational proof, or engineering feasibility.
 
 Unlike hybrid approaches that disguise standard General Relativity (GR) solutions with external scaling parameters, this codebase is designed from first principles around the **segment density field representation of gravity**, completely isolated from Kerr, Schwarzschild, or General Relativity scaffolding in the core package.
 

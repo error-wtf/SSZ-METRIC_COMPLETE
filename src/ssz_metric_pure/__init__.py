@@ -129,6 +129,54 @@ from .repo_consistency import (
     verify_core_purity,
 )
 
+from .scale_domains import (
+    SCALE_DOMAINS,
+    get_scale_domain,
+    list_scale_domains,
+)
+
+from .fine_structure import (
+    phi_constant,
+    alpha_reference,
+    fine_structure_proxy,
+    planck_scale_context,
+)
+
+from .phi_lattice import (
+    phi_lattice_points,
+    segment_index_from_radius,
+    radius_from_segment_index,
+    segment_density_profile,
+    segment_distance,
+    segment_count_proxy,
+)
+
+from .phase_frequency import (
+    local_c_invariance_check,
+    frequency_ratio_from_D,
+    wavelength_ratio_from_s,
+    phase_path_integral,
+    frequency_curvature_proxy,
+    clock_ratio,
+)
+
+from .clock_observables import (
+    time_dilation_D,
+    redshift_static,
+    gps_clock_proxy,
+    radial_scaling_factor,
+    scale_electric_field,
+    scale_magnetic_field,
+)
+
+from .neutron_star import (
+    neutron_star_compactness,
+    neutron_star_regime,
+    neutron_star_redshift_prediction,
+    neutron_star_surface_D,
+    neutron_star_usecase_report,
+)
+
 from .observable_registry import (
     OBSERVABLE_REGISTRY,
     get_observable,
@@ -260,4 +308,36 @@ __all__ = [
     "predict_energy_condition_diagnostic",
     "run_full_validation_suite",
     "validate_observable",
+    
+    # Multi-Scale Domains Layer
+    "SCALE_DOMAINS",
+    "get_scale_domain",
+    "list_scale_domains",
+    "phi_constant",
+    "alpha_reference",
+    "fine_structure_proxy",
+    "planck_scale_context",
+    "phi_lattice_points",
+    "segment_index_from_radius",
+    "radius_from_segment_index",
+    "segment_density_profile",
+    "segment_distance",
+    "segment_count_proxy",
+    "local_c_invariance_check",
+    "frequency_ratio_from_D",
+    "wavelength_ratio_from_s",
+    "phase_path_integral",
+    "frequency_curvature_proxy",
+    "clock_ratio",
+    "time_dilation_D",
+    "redshift_static",
+    "gps_clock_proxy",
+    "radial_scaling_factor",
+    "scale_electric_field",
+    "scale_magnetic_field",
+    "neutron_star_compactness",
+    "neutron_star_regime",
+    "neutron_star_redshift_prediction",
+    "neutron_star_surface_D",
+    "neutron_star_usecase_report",
 ]
