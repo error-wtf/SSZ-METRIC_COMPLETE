@@ -64,10 +64,22 @@ Thus, local light-speed remains strictly invariant and equal to $c$.
 │       ├── energy.py            # Energy conditions (WEC, SEC)
 │       ├── frequency.py         # Clock ratios and radial wave phase
 │       ├── falsification.py     # Astrophysical constraints and bounds
+│       ├── nicer_fetch.py       # HEASARC catalog parser & downloader
+│       ├── alma_fetch.py        # ALMA catalog parser & downloader
+│       ├── external_parameter_manifest.py # Independent target parameter loading
+│       ├── external_exact_comparison.py    # Metric exact comparison standard
+│       ├── external_prediction_bindings.py # Canonical prediction bindings
+│       ├── external_observable_derivation.py # Deterministic observable extraction
+│       ├── external_countertests.py        # 10-rule anti-circular orchestrator
+│       ├── external_countertest_report.py  # Report markdown & JSON compilers
 │       └── repo_consistency.py  # Core purity verification engine
+├── scripts/                     # CLI fetch and gauntlet runners
+├── external_validation/         # Parameters, data manifests & benchmarks
 ├── comparison/                  # GR comparisons (isolated reference code)
 ├── legacy/                      # Legacy/comparison models (isolated)
-├── tests/                       # Complete pytest suite
+├── tests/                       # Complete pytest suite (26 internal files)
+├── tests_external/              # Astroquery contract tests (9 files)
+├── tests_external_countertests/ # Exact countertest and negative controls (11 files)
 └── pyproject.toml               # Unified PEP 517 build configuration
 ```
 
