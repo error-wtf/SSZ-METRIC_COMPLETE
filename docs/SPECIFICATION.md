@@ -1,8 +1,18 @@
 # SSZ Metric Pure - Mathematical Specification
 
-**Version:** 1.0.0  
-**Date:** 2025-10-31  
+**Version:** 1.1.0-canonical-pure  
+**Date:** June 2026  
 **Authors:** Carmen Wrede & Lino Casu
+
+---
+
+## ⚠️ Canonical Definition Update (v1.1.0-canonical-pure)
+
+In order to resolve the conflict between various legacy representations of Segment Density $\Xi(r)$ (e.g. the toy exponential growth $1 - e^{-\varphi r / r_s}$ versus the strong field decay $1 - e^{-\varphi r_s / r}$), the canonical core theory of SSZ has been mathematically unified:
+
+- **Canonical Core Segment Density**: Defined directly as $\Xi(r) = \gamma(r) - 1$, where $\gamma(r) = \cosh(\varphi_G(r))$ is the Lorentz-like rapidity factor.
+- **Physical Identities**: All core identities ($\gamma \ge 1$, $|\beta| < 1$, $D \cdot s = 1$) are derived directly from this core definition.
+- **Regime Transition Models**: The smooth blend zone models are preserved as alternative representations (e.g., strong/weak boundary transitions), with the legacy forms clearly segregated from the core.
 
 ---
 

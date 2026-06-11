@@ -1,287 +1,85 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-SSZ Metric Pure - Segmentation Module
+SSZ Physical Segmentation and Orthonormal Invariance Module
 
-Pure SSZ segment density N(r) and φ-based saturation.
-
-Scientific Foundation:
-- Segment density emerges from φ-based geometric structure
-- NOT a phenomenological model - geometric necessity
-- Saturates naturally at N_max = 1.0
-
-Sources:
-- ssz-metric-final: Pure SSZ segmentation formulas
-- ssz-full-metric: Numerical stability (safe exp, bounds)
+This module implements the core operational metrics and observables of Segmented Spacetime:
+1. Operational segment density field Xi(r)
+2. Operational segment scaling s(r)
+3. Operational segment distance integration dρ = s(r) dr
+4. Segment count proxies
+5. Orthonormal frame light-speed invariance (local c invariance)
 
 © 2025 Carmen Wrede & Lino Casu
-Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+Licensed under the Anti-Capitalist Software License v1.4
 """
+
 import numpy as np
-from typing import Union, Tuple
-from .params import PHI, XI_MAX
-
-# Type alias
-ArrayLike = Union[float, np.ndarray]
+from .constants import G, C
+from .core import xi_canonical, s_from_xi, D_from_xi, ArrayLike
 
 
-def segment_density_xi(
-    r: ArrayLike,
-    r_s: float,
-    varphi: float = PHI
-) -> ArrayLike:
+def segment_density(r: ArrayLike, M: float) -> ArrayLike:
     """
-    Segment density Ξ(r) - DEPRECATED formula.
-    
-    ⚠️ DEPRECATED: This formula is NOT canonical.
-    
-    The canonical formula is:
-        Ξ(r) = 1 - exp(-φ·r/r_s)    [Strong Field]
-        Ξ(r) = r_s/(2r)              [Weak Field]
-    
-    This function uses an alternative formula:
-        Ξ(r) = (r_s/r)² × exp(-r/r_φ)
-    
-    where r_φ = (φ/2) × r_s × (1 + Δ(M)/100)
-    
-    ⚠️ WARNING: This formula produces different results than the canonical
-    formula and should NOT be used for new code. It is kept only for
-    backward compatibility with existing code that depends on this behavior.
-    
-    For new code, use the canonical formulas from ssz-qubits or maxwell
-    repositories which use: Ξ(r) = 1 - exp(-φ·r/r_s)
-    
-    Physical Meaning:
-    - Ξ(r) represents spacetime discretization level (alternative interpretation)
-    - This formula has different asymptotic behavior than canonical formula
-    
-    Args:
-        r: Radius (scalar or array) [m]
-        r_s: Schwarzschild radius [m]
-        varphi: φ-parameter (default: Golden Ratio)
-    
-    Returns:
-        Segment density 0 ≤ Ξ(r) ≤ 1
-    
-    References:
-        - SSZ_Black_Hole_Stability.md
-        - ssz-metric-final/viz_ssz_metric/segment_density.py
-        - maxwell/OPEN_ISSUES.md (ISS-01: RESOLVED - Formel A is canonical)
-        - todo/RESOLUTION_ROADMAP.md (Formel B deprecated)
-    
-    .. deprecated:: 2025-12-28
-        This function is deprecated. Use canonical formulas instead.
+    Primary physical Segment Density field Xi(r).
     """
-    import warnings
-    warnings.warn(
-        "segment_density_xi() uses DEPRECATED formula. "
-        "Use canonical formula: Ξ(r) = 1 - exp(-φ·r/r_s) for Strong Field "
-        "or Ξ(r) = r_s/(2r) for Weak Field. "
-        "See maxwell/OPEN_ISSUES.md ISS-01 and todo/RESOLUTION_ROADMAP.md",
-        DeprecationWarning,
-        stacklevel=2
-    )
-    r = np.asarray(r, dtype=float)
-    
-    # Avoid division by zero
-    r_safe = np.maximum(r, 1e-30)
-    
-    # Natural boundary (simplified - no Δ(M) in this version)
-    # For full implementation, use params.py delta_M() correction
-    r_phi = (varphi / 2.0) * r_s
-    
-    # Segment density: (r_s/r)² × exp(-r/r_φ)
-    ratio_sq = (r_s / r_safe) ** 2
-    decay = np.exp(-r_safe / r_phi)
-    
-    Xi = ratio_sq * decay
-    
-    # Bound to [0, XI_MAX]
-    Xi = np.clip(Xi, 0.0, XI_MAX)
-    
-    return Xi
+    return xi_canonical(r, M)
 
 
-def segment_density_N(
-    r: ArrayLike,
-    r_s: float,
-    varphi: float = PHI,
-    N_max: float = XI_MAX
-) -> ArrayLike:
+def segment_scale(r: ArrayLike, M: float) -> ArrayLike:
     """
-    Alternative notation: N(r) = N_max × (1 - exp(-φ·r/r_s))
-    
-    This is the SATURATION form used in ssz-full-metric.
-    
+    Radial segment stretching factor s(r) = 1 + Xi(r).
+    """
+    xi = segment_density(r, M)
+    return s_from_xi(xi)
+
+
+def segment_distance(r1: float, r2: float, M: float, n: int = 10000) -> float:
+    """
+    Compute the operational segment distance between coordinate radii r1 and r2.
     Formula:
-        N(r) = N_max × (1 - exp(-φ × r/r_s))
-    
-    Properties:
-    - N(0) = 0 (no segments at center)
-    - N(∞) → N_max (complete saturation far away)
-    - Smooth monotonic increase
-    
-    Args:
-        r: Radius [m]
-        r_s: Schwarzschild radius [m]
-        varphi: φ-parameter
-        N_max: Maximum segment density
-    
-    Returns:
-        Segment count N(r) ∈ [0, N_max]
-    
-    Note:
-        This is complementary to Ξ(r):
-        - Ξ(r) → max near center, → 0 far away
-        - N(r) → 0 near center, → max far away
+        ρ(r1, r2) = ∫_{r1}^{r2} s(r) dr
+    """
+    if r1 > r2:
+        r1, r2 = r2, r1
         
-        Use Ξ(r) for metric coefficient A(r).
-        Use N(r) for segment counting/visualization.
-    """
-    r = np.asarray(r, dtype=float)
-    r_safe = np.maximum(r, 0.0)
+    r_vals = np.linspace(r1, r2, n)
+    s_vals = segment_scale(r_vals, M)
     
-    # Saturation formula
-    exponent = -varphi * r_safe / r_s
-    # Clip to avoid overflow
-    exponent = np.clip(exponent, -100.0, 100.0)
-    
-    N = N_max * (1.0 - np.exp(exponent))
-    
-    return np.clip(N, 0.0, N_max)
+    # Perform numerical integration using the trapezoidal rule
+    return float(np.trapezoid(s_vals, r_vals))
 
 
-def time_dilation_SSZ(
-    r: ArrayLike,
-    r_s: float,
-    varphi: float = PHI,
-    method: str = 'xi'
-) -> ArrayLike:
+def segment_count_proxy(r1: float, r2: float, M: float, ell0: float = 1.0) -> float:
     """
-    SSZ time dilation factor D_SSZ(r).
-    
-    Formula (using Ξ):
-        D_SSZ(r) = 1 / (1 + Ξ(r))
-    
-    Properties:
-    - D_SSZ(0) = 1.0 (flat spacetime at center!)
-    - D_SSZ(r_s) ≈ 0.16 (finite at horizon)
-    - 0 < D_SSZ(r) ≤ 1 always
-    
-    Args:
-        r: Radius [m]
-        r_s: Schwarzschild radius [m]
-        varphi: φ-parameter
-        method: 'xi' (Ξ-based) or 'N' (N-based)
-    
-    Returns:
-        Time dilation factor
-    
-    Physics:
-        Time at infinity / Time at r = 1 / D_SSZ(r)
-        
-        NO SINGULARITY: D_SSZ(0) = 1.0 finite!
-    """
-    if method == 'xi':
-        Xi = segment_density_xi(r, r_s, varphi)
-        D = 1.0 / (1.0 + Xi)
-    else:
-        # Alternative using N(r) - less common
-        N = segment_density_N(r, r_s, varphi)
-        D = 1.0 / (1.0 + N / N_max)
-    
-    return D
-
-
-def saturation_factor_tanh(
-    x: ArrayLike,
-    cap: float
-) -> ArrayLike:
-    """
-    Smooth saturation via tanh.
-    
+    Compute the effective segment count between coordinate radii r1 and r2.
     Formula:
-        sat(x) = cap × tanh(x / cap)
-    
-    Properties:
-    - Bounded: |output| ≤ cap
-    - Smooth: C^∞ continuous
-    - Derivative: dsatdx = sech²(x/cap)
-    
-    Args:
-        x: Input value(s)
-        cap: Saturation limit
-    
-    Returns:
-        Saturated value
-    
-    Source:
-        ssz-metric-final/numerical_stability.py
+        Count = ρ(r1, r2) / ell0
     """
-    if cap is None or cap <= 0:
-        return x
-    
-    x = np.asarray(x)
-    return cap * np.tanh(x / cap)
+    return segment_distance(r1, r2, M) / ell0
 
 
-def validate_monotonic_redshift(
-    r_array: np.ndarray,
-    r_s: float,
-    varphi: float = PHI,
-    tol: float = 1e-6
-) -> Tuple[bool, str]:
+def local_orthonormal_speed_check(r: float, M: float) -> float:
     """
-    Validate that redshift z = 1/D - 1 is monotonically increasing.
+    Verify local speed-of-light invariance in a local orthonormal frame.
+    For a radial null geodesic:
+        ds² = 0 = -D(r)² c² dT² + s(r)² dr²
+    Therefore:
+        d r_hat = s(r) dr
+        d t_hat = D(r) dT
+    And:
+        d r_hat / d t_hat = [s(r) dr] / [D(r) dT] = c
     
-    Physical Requirement:
-        "Clocks run slower with stronger gravity"
-        → z must increase as r decreases
-    
-    Args:
-        r_array: Array of radii (sorted ascending)
-        r_s: Schwarzschild radius
-        varphi: φ-parameter
-        tol: Tolerance for monotonicity check
-    
-    Returns:
-        (is_valid, message)
-    
-    Example:
-        >>> r = np.linspace(0.1*r_s, 10*r_s, 100)
-        >>> valid, msg = validate_monotonic_redshift(r, r_s)
-        >>> assert valid, msg
+    This function computes the local orthonormal speed using the null geodesic condition:
+        dr/dT = c * D(r) / s(r)
+    And evaluates:
+        Local Speed = s(r) * (dr/dT) / D(r) == c identically!
     """
-    D = time_dilation_SSZ(r_array, r_s, varphi)
-    z = 1.0 / D - 1.0
+    xi = xi_canonical(r, M)
+    D = D_from_xi(xi)
+    s = s_from_xi(xi)
     
-    # Check monotonic decrease (since r increases)
-    dz = np.diff(z)
+    # Coordinate speed of light dr/dT
+    coord_speed = C * D / s
     
-    # z should decrease as r increases (D increases)
-    # Allow small positive jumps within tolerance
-    violations = np.sum(dz > tol)
-    
-    if violations == 0:
-        return True, "Redshift monotonicity validated ✓"
-    else:
-        return False, f"Redshift monotonicity violated: {violations} points"
-
-
-# ============================================================================
-# CONVENIENCE FUNCTIONS
-# ============================================================================
-
-def Xi(r: ArrayLike, r_s: float, varphi: float = PHI) -> ArrayLike:
-    """Quick alias for segment_density_xi."""
-    return segment_density_xi(r, r_s, varphi)
-
-
-def N(r: ArrayLike, r_s: float, varphi: float = PHI) -> ArrayLike:
-    """Quick alias for segment_density_N."""
-    return segment_density_N(r, r_s, varphi)
-
-
-def D_SSZ(r: ArrayLike, r_s: float, varphi: float = PHI) -> ArrayLike:
-    """Quick alias for time_dilation_SSZ."""
-    return time_dilation_SSZ(r, r_s, varphi)
+    # Local orthonormal speed = s * (dr/dT) / D
+    local_speed = s * coord_speed / D
+    return float(local_speed)

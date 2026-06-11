@@ -1,160 +1,263 @@
 """
-SSZ Metric Pure - 100% Pure Segmented Spacetime
+ssz_metric_pure - Canonical Pure Segmented Spacetime (SSZ) Metric Library
 
-Unified from:
-- ssz-full-metric: Production-ready code
-- ssz-metric-final: Pure SSZ discoveries, φ-series
-- Segmented-Spacetime-Results: ESO validated Δ(M), test framework
+This is the official, unified, mathematically rigorous implementation of the pure
+Segmented Spacetime (SSZ) core metric, based strictly on the ssz-complete-documentation
+as the Single Source of Truth.
 
-KEY BREAKTHROUGHS (from 28-hour session):
-==========================================
-✅ φ-Series discovered: All PN coefficients from Golden Ratio recursion
-✅ Universal constant u* = 1.3865616 (mass-independent!)
-✅ Natural boundary r_φ = 0.809×r_s
-✅ Singularity-free: A_min = 0.284 > 0
-✅ All 6 black hole paradoxes solved
-✅ 99.7% empirical agreement
+The segment density field Xi(r) is the primary physical field. All scaling factors,
+rapidity factors, and metric components are derived directly from Xi.
 
-Scientific Foundation:
-----------------------
-φ-Series Formula:
-    c_{n+2} = (c_{n+1} + c_n) / φ
-    where φ = (1+√5)/2
-
-Generated Coefficients:
-    n=0: c_0 = 1.0    (geometry)
-    n=1: c_1 = -2.0   (geometry)
-    n=2: c_2 = 2.0    (geometry)
-    n=3: c_3 = -1.133 (GR validated!)
-    n=4: c_4 = 0.536  (PREDICTED)
-    n=5: c_5 = -0.369 (PREDICTED)
-    n=6: c_6 = 0.103  (PREDICTED)
-
-Natural Boundary:
-    r_φ = (φ/2) × r_s × (1 + Δ(M)/100)
-    A(r_φ) = 0.284 > 0  ← NO SINGULARITY!
-
-Paradoxes Solved:
-    1. Event Horizon Freezing → Finite time dilation
-    2. Singularity at r=0 → Natural boundary r_φ
-    3. White Holes → Directional segment formation
-    4. Wormholes → Topologically forbidden
-    5. Information Loss → Preserved in segments
-    6. Firewall Paradox → Smooth transition
+No standard General Relativity or rotating scaffolds are imported or present in this package.
 
 © 2025 Carmen Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 
-__version__ = "0.1.0"
-__author__ = "Carmen Wrede, Lino Casu"
-__license__ = "ANTI-CAPITALIST SOFTWARE LICENSE v1.4"
-__status__ = "Alpha"
+__version__ = "1.1.0-canonical-pure"
+__author__ = "Carmen Wrede & Lino Casu"
 
-# Core parameters
-from .params import (
-    # Physical constants
-    G_SI, C_SI, HBAR, K_B, M_SUN,
-    PHI, PHI_PRECISE,
-    
-    # φ-Series (BREAKTHROUGH!)
-    PHI_SERIES_COEFFICIENTS,
-    EPSILON_COEFFICIENTS,
-    U_STAR_UNIVERSAL,
-    
-    # SSZ constants
-    R_PHI_RATIO, A_MIN, XI_MAX,
-    DELTA_M_A, DELTA_M_ALPHA, DELTA_M_B,
-    
-    # Parameter classes
-    SSZParams,
-    KerrSSZParams,
-    DimensionlessMode,
-    
-    # Convenience functions
-    schwarzschild_radius,
-    golden_radius,
-    validate_spin,
+from .constants import (
+    PHI,
+    C,
+    G,
+    M_SUN,
+    R_SUN,
+    X_BLEND_MIN,
+    X_BLEND_MAX,
 )
 
-# Core modules
+from .core import (
+    characteristic_radius,
+    compactness_x,
+    xi_weak,
+    xi_strong,
+    xi_blend,
+    xi_canonical,
+    D_from_xi,
+    s_from_xi,
+    gamma_from_xi,
+    beta_from_gamma,
+    regime_of_r,
+)
+
 from .segmentation import (
-    segment_density_xi, segment_density_N,
-    time_dilation_SSZ, Xi, N, D_SSZ
+    segment_density,
+    segment_scale,
+    segment_distance,
+    segment_count_proxy,
+    local_orthonormal_speed_check,
 )
 
-from .metric_static import (
-    StaticSSZMetric, MetricComponents
+from .metric import (
+    metric_diagonal,
+    inverse_metric_diagonal,
+    det_metric_diagonal,
+    metric_components,
+    metric_flow_form,
 )
 
-from .metric_kerr_ssz_kerr_by_ki import (
-    KerrSSZMetric, KerrMetricComponents
-)
-
-from .metric_phi_spiral_ssz_by_human import (
-    PhiSpiralSSZMetric, PhiSpiralMetricComponents
-)
-
-from .tensors import (
-    christoffel_numerical,
+from .tensor import (
+    numerical_derivative_metric,
+    christoffel_symbols,
+    riemann_tensor,
     ricci_tensor,
     ricci_scalar,
     einstein_tensor,
-    kretschmann_scalar,
-    compute_curvature_at_point,
-    test_vacuum_einstein_equations
+    symbolic_curvature_diagonal,
 )
-# from .geodesics import null_geodesic, timelike_geodesic
-# from .limits import gr_limit, schwarzschild_limit, minkowski_limit
-# from .validation import validate_symmetry, validate_energy_conditions
+
+from .observables import (
+    ObservableClass,
+    MethodAssignment,
+    classify_observable,
+    method_for_observable,
+    SSZObservableSuite,
+)
+
+from .validation import (
+    verify_algebraic_coupling,
+    validate_core_identities,
+)
+
+from .kinematics import (
+    coordinate_light_speed,
+    free_fall_velocity_profile,
+    dual_velocity_product,
+)
+
+from .electromagnetism import (
+    effective_refractive_index,
+    phase_velocity_ratio,
+    light_travel_time_correction,
+)
+
+from .ppn import (
+    beta_ppn_parameter,
+    gamma_ppn_parameter,
+    weak_field_expansion_coeffs,
+    ppn_gamma,
+    ppn_beta,
+)
+
+from .strong_field import (
+    photon_sphere_radius,
+    strong_field_redshift_limit,
+    Xi_at_schwarzschild_radius,
+    Xi_at_characteristic_radius,
+)
+
+from .energy import (
+    check_weak_energy_condition,
+    check_strong_energy_condition,
+    energy_condition_report,
+)
+
+from .frequency import (
+    clock_comparison_ratio,
+    phase_accumulation_radial,
+    frequency_ratio,
+)
+
+from .falsification import (
+    solar_system_ppn_limit_check,
+    verify_light_deflection_bound,
+    known_limitations,
+)
+
+from .repo_consistency import (
+    verify_core_purity,
+)
+
+from .observable_registry import (
+    OBSERVABLE_REGISTRY,
+    get_observable,
+    list_observables,
+    export_registry_to_json,
+)
+
+from .forward_protocol import (
+    run_all_protocols,
+    validate_no_fitting_used,
+)
+
+from .observable_predictions import (
+    predict_time_dilation,
+    predict_redshift,
+    predict_light_travel_time_correction,
+    predict_lensing_ppn,
+    predict_shapiro_ppn,
+    predict_perihelion_ppn,
+    predict_dual_velocity_product,
+    predict_finite_horizon_values,
+    predict_energy_condition_diagnostic,
+)
+
+from .observable_validation import (
+    run_full_validation_suite,
+    validate_observable,
+)
 
 __all__ = [
-    # Version & metadata
-    "__version__", "__author__", "__license__",
-    
     # Constants
-    "PHI", "PHI_PRECISE",
-    "G_SI", "C_SI", "HBAR", "K_B", "M_SUN",
-    "PHI_SERIES_COEFFICIENTS", "EPSILON_COEFFICIENTS",
-    "U_STAR_UNIVERSAL",
-    "R_PHI_RATIO", "A_MIN", "XI_MAX",
-    "DELTA_M_A", "DELTA_M_ALPHA", "DELTA_M_B",
+    "PHI",
+    "C",
+    "G",
+    "M_SUN",
+    "R_SUN",
+    "X_BLEND_MIN",
+    "X_BLEND_MAX",
     
-    # Parameters
-    "SSZParams", "KerrSSZParams", "DimensionlessMode",
-    "schwarzschild_radius", "golden_radius", "validate_spin",
+    # Core Potentials and Splines (Xi is Primary!)
+    "characteristic_radius",
+    "compactness_x",
+    "xi_weak",
+    "xi_strong",
+    "xi_blend",
+    "xi_canonical",
+    "D_from_xi",
+    "s_from_xi",
+    "gamma_from_xi",
+    "beta_from_gamma",
+    "regime_of_r",
     
-    # Metric Classes
-    "StaticSSZMetric", "MetricComponents",
-    "KerrSSZMetric", "KerrMetricComponents",
-    "PhiSpiralSSZMetric", "PhiSpiralMetricComponents",
+    # Physical Segmentation operations
+    "segment_density",
+    "segment_scale",
+    "segment_distance",
+    "segment_count_proxy",
+    "local_orthonormal_speed_check",
     
-    # Segmentation
-    "segment_density_xi", "segment_density_N",
-    "time_dilation_SSZ", "Xi", "N", "D_SSZ",
+    # Metric Implementations
+    "metric_diagonal",
+    "inverse_metric_diagonal",
+    "det_metric_diagonal",
+    "metric_components",
+    "metric_flow_form",
     
-    # Tensors
-    "christoffel_numerical", "ricci_tensor", "ricci_scalar",
-    "einstein_tensor", "kretschmann_scalar",
-    "compute_curvature_at_point", "test_vacuum_einstein_equations",
+    # Tensor Geometry Engine
+    "numerical_derivative_metric",
+    "christoffel_symbols",
+    "riemann_tensor",
+    "ricci_tensor",
+    "ricci_scalar",
+    "einstein_tensor",
+    "symbolic_curvature_diagonal",
+    
+    # Observables Suite (Postulate 5 & Prime Directive)
+    "ObservableClass",
+    "MethodAssignment",
+    "classify_observable",
+    "method_for_observable",
+    "SSZObservableSuite",
+    
+    # Validation helpers
+    "verify_algebraic_coupling",
+    "validate_core_identities",
+    
+    # Whole-SSZ Modules
+    "coordinate_light_speed",
+    "free_fall_velocity_profile",
+    "dual_velocity_product",
+    "effective_refractive_index",
+    "phase_velocity_ratio",
+    "light_travel_time_correction",
+    "beta_ppn_parameter",
+    "gamma_ppn_parameter",
+    "ppn_gamma",
+    "ppn_beta",
+    "weak_field_expansion_coeffs",
+    "photon_sphere_radius",
+    "strong_field_redshift_limit",
+    "Xi_at_schwarzschild_radius",
+    "Xi_at_characteristic_radius",
+    "check_weak_energy_condition",
+    "check_strong_energy_condition",
+    "energy_condition_report",
+    "clock_comparison_ratio",
+    "phase_accumulation_radial",
+    "frequency_ratio",
+    "solar_system_ppn_limit_check",
+    "verify_light_deflection_bound",
+    "known_limitations",
+    "verify_core_purity",
+    
+    # Forward Observable Expansion Layer
+    "OBSERVABLE_REGISTRY",
+    "get_observable",
+    "list_observables",
+    "export_registry_to_json",
+    "run_all_protocols",
+    "validate_no_fitting_used",
+    "predict_time_dilation",
+    "predict_redshift",
+    "predict_light_travel_time_correction",
+    "predict_lensing_ppn",
+    "predict_shapiro_ppn",
+    "predict_perihelion_ppn",
+    "predict_dual_velocity_product",
+    "predict_finite_horizon_values",
+    "predict_energy_condition_diagnostic",
+    "run_full_validation_suite",
+    "validate_observable",
 ]
-
-# Scientific achievements summary
-ACHIEVEMENTS = {
-    "empirical_agreement": 0.997,  # 99.7%
-    "mercury_perihelion": 0.9967,   # 99.67%
-    "sgr_a_shadow": 0.998,          # 99.8%
-    "qnm_scaling": 1.000,           # 100% exact
-    "tests_passing": "24/24",       # 100%
-    "singularities": 0,             # NONE!
-    "paradoxes_solved": 6,          # ALL
-}
-
-# Natural boundary (universal across all masses)
-R_PHI_RATIO = 0.809  # r_φ / r_s ≈ 0.809
-A_MIN = 0.284        # Minimum metric coefficient (positive!)
-
-# Quality metrics
-CODE_QUALITY = 0.93   # 93/100
-TEST_COVERAGE = 0.85  # 85% (critical: 100%)
-DOCUMENTATION = 1.00  # 100% (70+ files)

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ssz-metric-pure"
-version = "0.1.0"
-description = "Pure Segmented Spacetime (SSZ) metric library - 100% pure implementation"
+version = "1.1.0"
+description = "Canonical pure SSZ metric research framework derived from the segment density field Xi."
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "ANTI-CAPITALIST SOFTWARE LICENSE v1.4"}
@@ -13,7 +13,7 @@ authors = [
     {name = "Carmen Wrede"},
     {name = "Lino Casu"}
 ]
-keywords = ["physics", "relativity", "black-holes", "spacetime", "golden-ratio", "ssz", "kerr", "geodesics"]
+keywords = ["physics", "relativity", "black-holes", "spacetime", "golden-ratio", "ssz", "geodesics"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -49,9 +49,6 @@ Repository = "https://github.com/error-wtf/ssz-metric-pure"
 Documentation = "https://github.com/error-wtf/ssz-metric-pure/blob/main/docs"
 "Bug Tracker" = "https://github.com/error-wtf/ssz-metric-pure/issues"
 
-[project.scripts]
-ssz-kerr-summary = "ssz_metric_pure.cli:main"
-
 [tool.setuptools]
 packages = ["ssz_metric_pure"]
 package-dir = {"" = "src"}
@@ -62,18 +59,4 @@ python_files = "test_*.py"
 python_classes = "Test*"
 python_functions = "test_*"
 addopts = "-v --tb=short -s"
-
-[tool.black]
-line-length = 88
-target-version = ['py39']
-include = '\.pyi?$'
-
-[tool.isort]
-profile = "black"
-line_length = 88
-
-[tool.mypy]
-python_version = "3.9"
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
+norecursedirs = ["legacy_tests", "comparison", "legacy", "docs", ".venv"]
