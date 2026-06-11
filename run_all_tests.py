@@ -21,9 +21,57 @@ def run_tests():
     
     # Test categories
     test_categories = [
-        ("Canonical Internal & Multiscale pytest Suite", "tests"),
-        ("External Pipeline & Fetcher pytest Suite", "tests_external"),
-        ("NICER/ALMA Exact Countertest pytest Suite", "tests_external_countertests"),
+        # Internal / multiscale tests
+        ("Package Installation and Imports", "tests/test_package_import.py"),
+        ("Canonical Xi Primary Principles", "tests/test_canonical_xi_primary.py"),
+        ("Operational Segmentation Concepts", "tests/test_segmentation_concept.py"),
+        ("Metric Diagonal & Inverse from Xi", "tests/test_metric_from_xi.py"),
+        ("Strict Core Purity Verification", "tests/test_no_kerr_in_core.py"),
+        ("Curvature Tensor Pipeline Stability", "tests/test_tensor_no_freeze.py"),
+        ("Observable Prime Directive Routing", "tests/test_observable_prime_directive.py"),
+        ("Final SSZ Core Integrity Gate", "tests/test_final_ssz_integrity_gate.py"),
+        ("Repository Metadata and Install Docs", "tests/test_repo_metadata_and_install_docs.py"),
+        ("Whole-SSZ System Architecture", "tests/test_whole_ssz_architecture.py"),
+        ("Multiscale Forward Anti-Circularity", "tests/test_multiscale_forward_anticircularity.py"),
+        ("Multiscale Use-Case Matrix Check", "tests/test_multiscale_usecase_matrix.py"),
+        ("EM/Clock & Redshift Domain Check", "tests/test_em_clock_domain.py"),
+        ("Fine Structure Scale Domain Check", "tests/test_fine_structure_domain.py"),
+        ("Neutron Star Scaling Proxies", "tests/test_neutron_star_domain.py"),
+        ("Weak Field PPN Approximations", "tests/test_weak_field_ppn.py"),
+        ("Weak Field PPN Scale Domain", "tests/test_weak_field_ppn_domain.py"),
+        ("Anti-Circular Fitting Scan", "tests/test_no_fitting_in_canonical_validation.py"),
+        ("Observable Registry & Binding", "tests/test_observable_registry.py"),
+        ("Forward Observable Predictions", "tests/test_observable_predictions_forward.py"),
+        ("Observable Validation Report Gate", "tests/test_observable_validation_report.py"),
+        ("Strong Field Compact Diagnostics", "tests/test_strong_field_compact_domain.py"),
+        ("Lattice Spacing Segmentation", "tests/test_phi_lattice_segmentation.py"),
+        ("General Covariance Orthonormal Speed", "tests/test_metric_diagonal.py"),
+        ("Tensor Pipeline Verification", "tests/test_tensor_pipeline.py"),
+        ("Forward Anti-Circular Protocol Gate", "tests/test_forward_anticircular_protocol.py"),
+        
+        # External fetch tests
+        ("NICER Astroquery Fetch Contract", "tests_external/test_nicer_fetch_contract.py"),
+        ("ALMA Astroquery Fetch Contract", "tests_external/test_alma_fetch_contract.py"),
+        ("Fetch Scripts CLI Smoke", "tests_external/test_fetch_scripts_cli.py"),
+        ("External Data Manifest Contract", "tests_external/test_external_data_manifest.py"),
+        ("External Anti-Circularity Scan", "tests_external/test_external_forward_anticircularity.py"),
+        ("External Validation Report Contract", "tests_external/test_external_validation_report.py"),
+        ("Fetch Common Methods Check", "tests_external/test_fetch_common.py"),
+        ("NICER Pipeline Fetch Contract", "tests_external/test_nicer_pipeline_contract.py"),
+        ("ALMA Pipeline Fetch Contract", "tests_external/test_alma_pipeline_contract.py"),
+        
+        # External exact countertests
+        ("Exact Comparison Modes Contract", "tests_external_countertests/test_exact_comparison_modes.py"),
+        ("Parameter Manifest Schema", "tests_external_countertests/test_parameter_manifest.py"),
+        ("Observable Derivation Layer Contract", "tests_external_countertests/test_observable_derivation_contract.py"),
+        ("Prediction Binding Layer Contract", "tests_external_countertests/test_prediction_binding_contract.py"),
+        ("NICER Exact Countertest Contract", "tests_external_countertests/test_nicer_exact_countertest_contract.py"),
+        ("ALMA Exact Countertest Contract", "tests_external_countertests/test_alma_exact_countertest_contract.py"),
+        ("Countertest Anti-Circularity Scan", "tests_external_countertests/test_no_circular_external_validation.py"),
+        ("Countertest Negative Controls Gate", "tests_external_countertests/test_negative_controls.py"),
+        ("Countertest Report Generation Gate", "tests_external_countertests/test_countertest_report_generation.py"),
+        ("Countertest CLI Smoke", "tests_external_countertests/test_cli_countertest_runner.py"),
+        ("Exact Benchmark Replay Verification", "tests_external_countertests/test_exact_benchmark_replay.py"),
     ]
     
     results = []
@@ -55,7 +103,7 @@ def run_tests():
             if "passed" in output:
                 # Extract number of passed tests
                 import re
-                match = re.search(r"(\\d+) passed", output)
+                match = re.search(r"(\d+) passed", output)
                 if match:
                     passed = int(match.group(1))
                     passed_tests += passed
