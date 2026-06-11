@@ -94,4 +94,6 @@ python -m pytest -q
 
 ## ⚠️ Current Limitations
 
+The kanonische SSZ-Metrik ist als Xi-primärer Core vollständig definiert und für die dokumentierten Observablenklassen forward/antizirkulär testbar. Für dynamische, rotierende, mehrkörper-, quanten- und engineeringbezogene Usecases ist sie ein Ausgangspunkt, aber noch keine vollständige Lösung.
+
 This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim physical source formation, nonlinear stability, complete external observational proof, physical beaming, or engineering feasibility.
