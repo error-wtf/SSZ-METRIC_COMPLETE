@@ -7,7 +7,7 @@ strictly derived from the canonical Xi-primary SSZ metric.
 No curve fitting, parameter tuning, or post-hoc regression allowed here. All values
 are evaluated forward from analytical definitions.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

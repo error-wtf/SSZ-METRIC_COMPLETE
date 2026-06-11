@@ -744,5 +744,5 @@ CLEAR_CACHE.sh   # Linux/Mac
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4

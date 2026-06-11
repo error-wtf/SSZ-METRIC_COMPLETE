@@ -2,7 +2,7 @@
 
 **Complete 10-Point Validation Against Lino's Specification**
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025
 
 ---
@@ -356,7 +356,7 @@ All 10 validation points from Lino's specification **PASSED**, with:
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4**
 
 *"Complete Validation. High Precision. φ-Driven."* 🔬✨🏆

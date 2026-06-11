@@ -5,7 +5,7 @@ Verifies:
 - For U << 1, γ ≈ 1 + U + O(U²)
 - Weak-field limit is close to GR PPN limits.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

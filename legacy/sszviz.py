@@ -9,7 +9,7 @@ Usage:
     sszviz --plot=curvature --mass=4.3e6 --compare
     sszviz --plot=metric_a --metric=MirrorBlend
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 
 import argparse

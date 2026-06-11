@@ -2,7 +2,7 @@
 
 Complete guide for symbolic tensor computation using SymPy.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 
 ---
 
@@ -277,7 +277,7 @@ results = ssz.compute_all()
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 *Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4*
 
 **"Symbolic Tensors. LaTeX-Ready. φ-Driven."** 📐✨

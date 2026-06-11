@@ -3,7 +3,7 @@ SSZ Strong Field Module
 
 Implements strong-field structure and photon-sphere dynamics under canonical SSZ.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

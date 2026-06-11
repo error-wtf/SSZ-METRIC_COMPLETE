@@ -20,7 +20,7 @@ Usage:
     # With parameters:
     python ssz_metric_pipeline.py --metric phi-spiral --mass 1e30 --k 1.5
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
 import sys

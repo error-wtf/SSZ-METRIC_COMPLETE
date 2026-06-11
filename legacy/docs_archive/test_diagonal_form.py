@@ -6,7 +6,7 @@ Test: Diagonal Form Transformation
 Verify that the time coordinate transformation correctly eliminates
 the cross term g_tr and produces the diagonal metric.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import sys
 import os
@@ -184,4 +184,4 @@ This is the CORRECT diagonal form for the φ-Spiral metric!
 """)
 
 print("="*80)
-print("\n© 2025 Carmen Wrede & Lino Casu\n")
+print("\n© 2025 Carmen N. Wrede & Lino Casu\n")

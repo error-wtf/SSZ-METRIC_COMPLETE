@@ -4,7 +4,7 @@ SSZ Observable Registry Module
 Defines the structured observable registry and its validation metadata under the
 canonical Xi-primary forward-prediction framework.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

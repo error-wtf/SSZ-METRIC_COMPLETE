@@ -2,7 +2,7 @@
 
 **Complete Implementation with 2PN Calibration & Full Validation**
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025, 14:50 UTC+1  
 Status: **97% COMPLETE - PUBLICATION READY**
 
@@ -564,7 +564,7 @@ Generated Reports:        4 files (auto-generated)
 
 ### Authors
 
-**Carmen Wrede**  
+**Carmen N. Wrede**  
 - Theory development
 - Mathematical formulation
 - Numerical implementation
@@ -644,7 +644,7 @@ QUALITY:   ⭐⭐⭐⭐⭐ (5/5 stars)
 
 **Lino Casu**: Complete mathematical specification, 2PN calibration formula, GPS log-form solution, Pound-Rebka derivative formula, physical interpretation guidance.
 
-**Carmen Wrede**: Implementation, numerical validation, symbolic computation tools, testing framework, documentation.
+**Carmen N. Wrede**: Implementation, numerical validation, symbolic computation tools, testing framework, documentation.
 
 ### Tools & Libraries
 
@@ -709,7 +709,7 @@ The **SSZ φ-Spiral Metric v2.1.0** represents a **complete, validated, and publ
 **Report Version**: Final  
 **Project Status**: 97% Complete, Publication Ready
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **"SSZ φ-Spiral Metric v2.1.0. Complete. Validated. Publication-Ready. φ-Driven."**
 
 ---

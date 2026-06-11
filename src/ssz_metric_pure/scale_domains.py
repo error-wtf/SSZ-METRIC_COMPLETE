@@ -4,7 +4,7 @@ SSZ Scale Domains Registry
 Defines the seven canonical physical and mathematical scale domains of the
 multi-scale Segmented Spacetime (SSZ) framework.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

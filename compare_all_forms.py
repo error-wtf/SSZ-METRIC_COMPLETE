@@ -9,7 +9,7 @@ Compares:
 3. Static SSZ
 4. Numerical values and differences
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import sys
 import os
@@ -333,4 +333,4 @@ Invariante:
 """)
 
 print("="*80)
-print("\n© 2025 Carmen Wrede & Lino Casu\n")
+print("\n© 2025 Carmen N. Wrede & Lino Casu\n")

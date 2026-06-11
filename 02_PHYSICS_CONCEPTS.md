@@ -1032,7 +1032,7 @@ Future: More sensitive to SSZ effects
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4  
 **Updated:** 2025-12-19 12:35 UTC+01:00  
 **Extended:** Time dilation physics, quantum gravity connections, cosmological implications

@@ -2,7 +2,7 @@
 
 **Version:** 1.1.0-canonical-pure  
 **Date:** June 2026  
-**Authors:** Carmen Wrede & Lino Casu
+**Authors:** Carmen N. Wrede & Lino Casu
 
 ---
 
@@ -433,7 +433,7 @@ def A_safe(r, r_s, use_mirror_blend=True):
 
 ---
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the Anti-Capitalist Software License v1.4
 
 **Status:** Complete Mathematical Specification v1.0

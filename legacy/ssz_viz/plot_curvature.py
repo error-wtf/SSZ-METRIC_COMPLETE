@@ -3,7 +3,7 @@ Curvature Proxy Visualization
 
 Plot curvature proxy showing singularity-free nature of SSZ.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 
 import numpy as np

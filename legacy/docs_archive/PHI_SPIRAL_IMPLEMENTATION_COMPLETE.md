@@ -461,7 +461,7 @@ pip install matplotlib scipy  # Optional
 ## 📞 Contact & Collaboration
 
 **Authors:**  
-- Carmen Wrede (Lead Scientist)  
+- Carmen N. Wrede (Lead Scientist)  
 - Lino Casu (Co-Author & Theoretical Development)
 
 **Repository:**  
@@ -495,7 +495,7 @@ Key achievements:
 
 ---
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 **🌀 Spiral All The Way Down 🌀**

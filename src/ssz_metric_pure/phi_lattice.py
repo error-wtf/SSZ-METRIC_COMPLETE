@@ -4,7 +4,7 @@ SSZ Phi-Lattice & Segmentation Scale Module
 Implements segmentation-lattice calculations, radial indexing, operational path lengths,
 and local geometric segment counting.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

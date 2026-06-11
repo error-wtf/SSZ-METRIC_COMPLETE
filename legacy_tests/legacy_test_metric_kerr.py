@@ -9,7 +9,7 @@ Validates:
 - Frame dragging ω(r,θ) non-zero
 - Schwarzschild limit (â=0)
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import pytest
 import numpy as np

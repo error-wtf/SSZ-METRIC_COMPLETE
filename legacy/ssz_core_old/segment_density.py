@@ -9,7 +9,7 @@ Mathematical Foundation:
 - SSZ time dilation: D_SSZ(r) = 1 / (1 + Ξ(r))
 - GR time dilation: D_GR(r) = √(1 - r_s/r)
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

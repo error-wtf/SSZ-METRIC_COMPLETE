@@ -370,7 +370,7 @@ ANITA anomalies explained!
 
 **Title:** *Segmented Spacetime φ-Spiral Metric: A Singularity-Free Alternative to General Relativity*
 
-**Authors:** Carmen Wrede & Lino Casu
+**Authors:** Carmen N. Wrede & Lino Casu
 
 **Status:** Ready for submission
 
@@ -480,7 +480,7 @@ python generate_validation_report.py
 
 ## 📞 Contact & License
 
-**Authors:** Carmen Wrede & Lino Casu  
+**Authors:** Carmen N. Wrede & Lino Casu  
 **Year:** 2025  
 **License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
@@ -515,4 +515,4 @@ STATUS: ✅ PUBLICATION-READY & SCIENTIFICALLY VALIDATED
 
 *"No Singularities. Pure Physics. φ-Driven."* 🌀✨🏆
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu

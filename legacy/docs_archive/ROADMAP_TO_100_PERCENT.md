@@ -4,7 +4,7 @@
 **Target**: 10/10 PASS (100% complete)  
 **Timeline**: 2-3 weeks
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025
 
 ---
@@ -522,5 +522,5 @@ Target Date: November 22, 2025 (3 weeks)
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **"Roadmap to 100%. Only 2 integrators needed. 2 weeks to perfection. φ-Driven."**

@@ -4,7 +4,7 @@ Rigorous Code Scanning Test for Banned Fitting Terms.
 Verifies that no curve fitting, least-squares, parameter tuning, polyfit, or regression
 is used inside the canonical validation pipelines.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

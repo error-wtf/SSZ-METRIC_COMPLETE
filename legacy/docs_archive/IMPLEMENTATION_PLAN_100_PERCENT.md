@@ -4,7 +4,7 @@
 **Current**: 8/10 PASS, 2/10 CAUTION  
 **Goal**: 10/10 PASS (100% validation)
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025, 15:37 UTC+1
 
 ---

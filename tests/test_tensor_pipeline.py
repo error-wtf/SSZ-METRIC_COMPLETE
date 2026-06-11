@@ -6,7 +6,7 @@ Verifies:
 - The tensor engine actually evaluates the metric function at perturbed coordinates
   rather than using static/frozen variables (No-Freeze-Tensor-Test).
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

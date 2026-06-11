@@ -9,7 +9,7 @@ only on φ_G rotation, not classical GR curvature.
 
 Requires: sympy
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import sympy as sp
 from sympy import symbols, Function, diff, simplify, sqrt, cosh, sinh, tanh
@@ -230,4 +230,4 @@ This is FUNDAMENTALLY DIFFERENT from GR:
 """)
 
 print("="*80)
-print("\n© 2025 Carmen Wrede & Lino Casu\n")
+print("\n© 2025 Carmen N. Wrede & Lino Casu\n")

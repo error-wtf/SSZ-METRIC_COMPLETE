@@ -4,7 +4,7 @@ SSZ Frequency Framework Module
 Implements the frequency, clock comparison, and wave phase transport
 regimes of Segmented Spacetime (SSZ).
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

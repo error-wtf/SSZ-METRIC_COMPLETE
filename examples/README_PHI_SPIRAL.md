@@ -419,7 +419,7 @@ pip install matplotlib
 
 ---
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 **100% Pure SSZ. No Singularities. Spiral All The Way Down.** 🌀

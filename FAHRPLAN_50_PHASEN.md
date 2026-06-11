@@ -117,5 +117,5 @@
 
 ---
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the MIT License (ANTI-CAPITALIST compatible)

@@ -4,7 +4,7 @@ SSZ Neutron Star Domain Module
 Defines compactness, surface dilation, regime classification, and redshift predictions
 characterizing neutron star scale systems in the static diagonal SSZ core.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

@@ -6,7 +6,7 @@ For canonical SSZ, we recover standard GR limits in the weak field:
     beta_PPN = 1.0
     gamma_PPN = 1.0
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

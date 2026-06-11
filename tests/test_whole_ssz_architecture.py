@@ -9,7 +9,7 @@ Verifies:
 - No-freeze connection/curvature solvers and repository consistency validators
   guarantee the strict purity of the codebase.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

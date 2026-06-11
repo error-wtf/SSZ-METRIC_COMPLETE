@@ -263,7 +263,7 @@ We have attempted to implement a **pure SSZ rotating (Kerr-like) metric** with:
 
 ## 👥 Authors & Contact
 
-**Carmen Wrede** - Lead Scientist  
+**Carmen N. Wrede** - Lead Scientist  
 **Lino Casu** - Co-Author & Theoretical Development
 
 ### For Questions:
@@ -374,7 +374,7 @@ Archive scheduled: Within hours
 Next update: Upon paper submission  
 Future development: Conditional on scientific findings
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ---

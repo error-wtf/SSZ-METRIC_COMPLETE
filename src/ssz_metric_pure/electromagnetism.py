@@ -4,7 +4,7 @@ SSZ Electromagnetism Module
 Implements electromagnetic propagation properties and effective refractive index
 in the canonical Segmented Spacetime (SSZ) metric.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

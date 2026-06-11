@@ -2,7 +2,7 @@
 
 **Alle numerischen Ergebnisse für Lino's Pass/Fail-Check**
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025
 
 ---
@@ -536,4 +536,4 @@ where $\alpha \sim 0.01-0.05$ might improve weak-field convergence.
 
 **AWAITING LINO'S PASS/FAIL MARKINGS & CALIBRATION RECOMMENDATIONS**
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu

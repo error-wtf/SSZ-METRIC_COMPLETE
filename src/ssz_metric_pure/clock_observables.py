@@ -4,7 +4,7 @@ SSZ Electromagnetic & Clock Observables Scale Module
 Implements static gravitational time dilation, redshifts, GPS clock rate adjustments,
 and electromagnetic field component scaling factors.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

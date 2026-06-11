@@ -2,7 +2,7 @@
 
 **Version:** `v1.1.0-canonical-pure`  
 **License:** Anti-Capitalist Software License v1.4  
-**Authors:** Carmen Wrede & Lino Casu  
+**Authors:** Carmen N. Wrede & Lino Casu  
 
 ---
 

@@ -15,7 +15,7 @@ from the primary Segment Density Xi(r):
 
 All functions are NumPy-vectorized to support both float scalars and NumPy arrays.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

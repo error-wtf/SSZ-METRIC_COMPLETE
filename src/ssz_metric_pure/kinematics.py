@@ -4,7 +4,7 @@ SSZ Kinematics Module
 Implements particle and photon kinematics in the canonical Segmented Spacetime (SSZ) metric.
 All kinematical quantities are derived strictly from the primary segment density field Xi(r).
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

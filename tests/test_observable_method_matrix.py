@@ -4,7 +4,7 @@ Tests for the Prime Directive Method Matrix Routing.
 Verifies that physical observables map to the mathematically correct and allowed
 method routing paths as specified by the Matrix guidelines.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

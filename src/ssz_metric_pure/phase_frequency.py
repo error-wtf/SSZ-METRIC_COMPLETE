@@ -4,7 +4,7 @@ SSZ Quantum Frequency & Phase Transport Scale Module
 Defines nonlocal phase accumulation integrals, local c invariance, and clock rates
 governing wavelength/frequency scaling.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

@@ -3,7 +3,7 @@ SSZ Visualization Module
 
 Modular plotting functions for SSZ metric analysis.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 
 __version__ = "1.0.0"

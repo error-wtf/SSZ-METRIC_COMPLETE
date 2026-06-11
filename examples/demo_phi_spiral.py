@@ -9,7 +9,7 @@ Demonstrates the pure φ-spiral metric implementation with:
 - Spiral embedding plots
 - Schwarzschild limit comparison
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
 import numpy as np
@@ -382,7 +382,7 @@ def main():
     print("- No singularities (space folds into new layers)")
     print("- Diagonal form available via coordinate transformation")
     print("- Compatible with Schwarzschild in weak field limit")
-    print("\n© 2025 Carmen Wrede & Lino Casu")
+    print("\n© 2025 Carmen N. Wrede & Lino Casu")
     print("="*80 + "\n")
 
 

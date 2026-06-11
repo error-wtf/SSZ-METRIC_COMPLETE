@@ -3,7 +3,7 @@ Time Dilation Visualization
 
 Plot D_SSZ(r) vs D_GR(r) with intersection point.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 
 import numpy as np

@@ -6,7 +6,7 @@ SSZ Metric Deviation Analysis
 Quantitative analysis of differences between Kerr-SSZ and φ-Spiral metrics.
 Shows percentage deviations, statistical analysis, and convergence behavior.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
 import sys
@@ -376,7 +376,7 @@ Use BOTH if:
     """)
     
     print("="*80)
-    print("\n© 2025 Carmen Wrede & Lino Casu")
+    print("\n© 2025 Carmen N. Wrede & Lino Casu")
     print("Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4\n")
 
 

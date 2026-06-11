@@ -2,7 +2,7 @@
 
 **All outputs, validations, and comparisons**
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025 - 14:30 UTC+1
 
 ---
@@ -564,7 +564,7 @@ Files:                 21
   • Config:            1
 
 Commits (today):       13
-Authors:               Carmen Wrede, Lino Casu
+Authors:               Carmen N. Wrede, Lino Casu
 License:               ANTI-CAPITALIST v1.4
 ```
 
@@ -678,7 +678,7 @@ Report Collection:     23 files, 750 KB
 
 ### Authors
 
-**Carmen Wrede**
+**Carmen N. Wrede**
 - Theory development
 - Mathematical formulation
 - Numerical implementation
@@ -729,7 +729,7 @@ Overall Status:      🟢 ON TRACK
 **Report Type**: Final Complete Summary  
 **Version**: v2.0.0
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **"SSZ φ-Spiral Metric. Complete Implementation. Ready for Validation. φ-Driven."**
 
 ---

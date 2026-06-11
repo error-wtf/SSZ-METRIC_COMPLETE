@@ -7,7 +7,7 @@ and validation purposes only.
 These GR formulations are strictly isolated and are never imported by the pure
 ssz_metric_pure core package.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

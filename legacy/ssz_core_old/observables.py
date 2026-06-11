@@ -9,7 +9,7 @@ Observable assignments:
 - Null (light: lensing, Shapiro) -> PPN-based: (1 + gamma)
 - Orbit (perihelion precession) -> PPN beta/gamma machinery
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

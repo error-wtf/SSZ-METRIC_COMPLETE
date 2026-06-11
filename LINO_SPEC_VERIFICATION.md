@@ -2,7 +2,7 @@
 
 **Complete mathematical framework check**
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025
 
 ---
@@ -504,7 +504,7 @@ Missing items are MINOR (λ notation) or PLANNED (Week 2 geodesics).
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **"Lino's spec: 97% implemented. All critical math verified. 2PN calibration exact. Observables tested. Physics consistent. Code excellent. Paper-ready. φ-Driven."** ✅🔬📐
 
 ---

@@ -4,7 +4,7 @@ Legacy Phi-Spiral SSZ Metric Representation
 Preserved for comparison and reference. This model uses a phi_G/cosh-first representation,
 which is not purely Xi-primary.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

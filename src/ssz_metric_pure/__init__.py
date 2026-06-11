@@ -10,12 +10,12 @@ rapidity factors, and metric components are derived directly from Xi.
 
 No standard General Relativity or rotating scaffolds are imported or present in this package.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 
 __version__ = "1.1.0-canonical-pure"
-__author__ = "Carmen Wrede & Lino Casu"
+__author__ = "Carmen N. Wrede & Lino Casu"
 
 from .constants import (
     PHI,

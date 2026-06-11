@@ -4,7 +4,7 @@ SSZ Planck & Fine-Structure Adjacent Scale Module
 Encodes structural segmentation constants (phi) and fine-structure-adjacent relations
 characterizing the lower boundary of Segmented Spacetime.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

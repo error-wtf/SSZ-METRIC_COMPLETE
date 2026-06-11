@@ -233,5 +233,5 @@ E:\clone\ssz-metric-pure\
 **Next Milestone:** Phase 2 completion (50%)  
 **ETA:** 2-3 hours of focused work
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the Anti-Capitalist Software License v1.4

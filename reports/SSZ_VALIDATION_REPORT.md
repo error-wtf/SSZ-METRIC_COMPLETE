@@ -2,7 +2,7 @@
 
 **φ-Spiral Metric: Mathematical & Experimental Validation**
 
-**Authors:** Carmen Wrede & Lino Casu  
+**Authors:** Carmen N. Wrede & Lino Casu  
 **Date:** November 1, 2025  
 **Version:** 1.0.0 FINAL
 
@@ -365,7 +365,7 @@ The SSZ φ-Spiral metric has been rigorously validated through:
 
 ## License
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ---

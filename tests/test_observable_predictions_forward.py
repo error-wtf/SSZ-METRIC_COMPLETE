@@ -10,7 +10,7 @@ Verifies:
 6. Light travel time correction.
 7. Energy condition diagnostics proxy.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

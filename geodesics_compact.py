@@ -7,7 +7,7 @@ Pure numpy + matplotlib, no dependencies
 Implements null and timelike geodesics for φ-Spiral SSZ metric
 using the diagonal form.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Based on Lino's compact geodesic solver
 """
 import sys

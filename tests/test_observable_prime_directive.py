@@ -6,7 +6,7 @@ Verifies:
 - Observable classes route to correct PPN_COMPLETION, XI_DIRECT, or PPN_ORBIT methods.
 - Value evaluation using correct PPN factor completion.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

@@ -9,7 +9,7 @@ Direct comparison of the two main metric implementations:
 
 Shows differences, similarities, and use cases for each.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
 import sys
@@ -453,7 +453,7 @@ The SSZ pipeline (ssz_metric_pipeline.py) allows easy switching between them.
     """)
     
     print("="*80)
-    print("\n© 2025 Carmen Wrede & Lino Casu")
+    print("\n© 2025 Carmen N. Wrede & Lino Casu")
     print("Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4\n")
 
 

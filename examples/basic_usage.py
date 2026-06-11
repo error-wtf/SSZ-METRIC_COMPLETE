@@ -3,7 +3,7 @@ Basic Usage Example for SSZ Metric Pure
 
 Demonstrates core functionality of the SSZ metric.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 
 import numpy as np

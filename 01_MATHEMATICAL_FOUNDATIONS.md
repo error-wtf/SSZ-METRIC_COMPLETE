@@ -1013,7 +1013,7 @@ PSR J0740+6620:
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4  
 **Updated:** 2025-12-19 12:00 UTC+01:00  
 **Extended:** Time dilation formulas, energy decomposition, experimental validation

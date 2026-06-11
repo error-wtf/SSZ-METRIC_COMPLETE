@@ -156,7 +156,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Contributors
 
-- **Carmen Wrede** - Lead Scientist & Author
+- **Carmen N. Wrede** - Lead Scientist & Author
 - **Lino Casu** - Co-Author & Theoretical Development
 
 ---
@@ -178,5 +178,5 @@ If you use this software in your research, please cite:
 
 ---
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4

@@ -11,7 +11,7 @@ Compares ALL implemented forms:
 
 Provides complete physical interpretation and validation summary.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import sys
 import os
@@ -410,5 +410,5 @@ Both are valid—it's a choice of φ_G(r) profile!
 print("\n" + "="*80)
 print("COMPARISON COMPLETE")
 print("="*80)
-print("\n© 2025 Carmen Wrede & Lino Casu")
+print("\n© 2025 Carmen N. Wrede & Lino Casu")
 print("Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4\n")

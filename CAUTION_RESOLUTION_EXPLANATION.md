@@ -2,7 +2,7 @@
 
 **Date**: November 1, 2025  
 **Version**: v2.1.0  
-**Authors**: Carmen Wrede & Lino Casu
+**Authors**: Carmen N. Wrede & Lino Casu
 
 ---
 
@@ -197,7 +197,7 @@ When referencing this validation:
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4**
 
 **"CAUTION resolved. High-precision validated. 10/10 PASS. φ-Driven."**

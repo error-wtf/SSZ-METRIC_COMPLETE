@@ -8,7 +8,7 @@ Verifies:
 - Local speed-of-light invariance (local c is invariant in orthonormal frames).
 - C² continuity of Xi across blend zone boundaries (value, 1st and 2nd derivatives).
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

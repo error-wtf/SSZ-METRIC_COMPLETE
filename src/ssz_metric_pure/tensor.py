@@ -12,7 +12,7 @@ This module provides symbolic and numerical calculations of:
 The numerical engine operates on any coordinate-dependent 4D metric function g_func(x)
 by performing exact finite differences around the 4-vector coordinate x.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

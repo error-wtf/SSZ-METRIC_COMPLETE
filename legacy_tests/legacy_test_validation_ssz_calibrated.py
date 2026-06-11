@@ -14,7 +14,7 @@ Tests SSZ metric against experimental/observational data:
 
 All tests MUST PASS for calibrated metric to be considered valid.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Based on Lino's validation specification
 """
 import sys

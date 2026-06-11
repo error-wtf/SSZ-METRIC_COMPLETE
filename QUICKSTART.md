@@ -395,4 +395,4 @@ See `LICENSE` file for full terms.
 
 **Ready to explore singularity-free spacetimes? Let's go!** 🚀🌌
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu

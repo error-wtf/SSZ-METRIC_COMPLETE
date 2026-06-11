@@ -3,7 +3,7 @@ SSZ Validation Module
 
 Contains verification utilities for the pure SSZ metric and its axiomatic foundation.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

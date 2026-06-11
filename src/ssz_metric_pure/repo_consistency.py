@@ -4,7 +4,7 @@ SSZ Repository Consistency Engine
 Utility to programmatically ensure that no forbidden GR or Kerr scaffolding
 has crept into the pure core package files.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

@@ -5,7 +5,7 @@ SSZ φ-Spiral Metric - Complete Report Generator
 
 Generates all validation reports, summaries, and outputs.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import os
 import sys
@@ -150,7 +150,7 @@ where α ~ 0.01-0.05
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4**
 
 *Generated: {date}*
@@ -164,7 +164,7 @@ def generate_quick_reference():
     
     ref = """# SSZ φ-Spiral Metric - Quick Reference Card
 
-**Version 2.0.0** | © 2025 Carmen Wrede & Lino Casu
+**Version 2.0.0** | © 2025 Carmen N. Wrede & Lino Casu
 
 ---
 
@@ -309,7 +309,7 @@ phi_squared = (2*G*M / (r*c**2)) * (1 + alpha * r_g/r)
 
 **For detailed information, see full documentation.**
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
     
     return ref

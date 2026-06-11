@@ -12,7 +12,7 @@ Symbolic computation of:
 
 Requires: sympy
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Based on Lino's symbolic computation script
 """
 import sys
@@ -304,5 +304,5 @@ print("""
 """)
 
 print("="*80)
-print("\n© 2025 Carmen Wrede & Lino Casu")
+print("\n© 2025 Carmen N. Wrede & Lino Casu")
 print("Based on Lino's symbolic computation\n")

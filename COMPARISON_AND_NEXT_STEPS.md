@@ -2,7 +2,7 @@
 
 **Comprehensive comparison of all validation tests with next action items**
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Date: November 1, 2025
 
 ---
@@ -613,5 +613,5 @@ Mathematical:
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **"Complete Analysis. Clear Path Forward. φ-Driven."** 📊✨🎯

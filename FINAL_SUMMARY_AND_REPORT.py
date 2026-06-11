@@ -5,7 +5,7 @@ FINAL SUMMARY AND REPORT - Complete SSZ Implementation
 
 Compares ALL components, generates complete summary, and reports status.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import sys
 import os
@@ -496,7 +496,7 @@ Ready for:
   • Further research
   • Experimental testing
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """)
 

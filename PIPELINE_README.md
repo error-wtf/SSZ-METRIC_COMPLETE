@@ -402,6 +402,6 @@ Prohibited:
 
 ---
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 
 **Choose Your Metric. Explore Spacetime. No Singularities.** 🌀⚫🔄

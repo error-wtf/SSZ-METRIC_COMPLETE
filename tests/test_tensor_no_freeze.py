@@ -6,7 +6,7 @@ Verifies:
 - Evaluates the metric dynamically at varied coordinate offsets x +/- h.
 - Confirms frozen metrics produce distinct, degenerate results.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

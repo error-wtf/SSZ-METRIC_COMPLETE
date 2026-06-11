@@ -1,6 +1,6 @@
 # SSZ φ-Spiral Metric - Quick Reference Card
 
-**Version 2.0.0** | © 2025 Carmen Wrede & Lino Casu
+**Version 2.0.0** | © 2025 Carmen N. Wrede & Lino Casu
 
 ---
 
@@ -145,4 +145,4 @@ phi_squared = (2*G*M / (r*c**2)) * (1 + alpha * r_g/r)
 
 **For detailed information, see full documentation.**
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu

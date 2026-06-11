@@ -12,7 +12,7 @@ Generates complete scientific validation report with:
 - Comparison with GR
 - Publication-ready PDF output
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Based on Lino's validation & report specification
 """
 import sys
@@ -317,5 +317,5 @@ print("✅ SSZ VALIDATION COMPLETE — Metric fully consistent.")
 print("   GR-limit preserved, curvature regular, light cone closure confirmed.")
 print("="*80 + "\n")
 
-print("© 2025 Carmen Wrede & Lino Casu")
+print("© 2025 Carmen N. Wrede & Lino Casu")
 print("Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4\n")

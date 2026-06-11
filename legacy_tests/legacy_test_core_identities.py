@@ -9,7 +9,7 @@ Verifies:
 - D == 1/γ
 - s == γ
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

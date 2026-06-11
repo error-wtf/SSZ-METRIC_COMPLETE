@@ -296,7 +296,7 @@ z = exp(ln_diff) - 1  # accurate result
 - Defined Pound-Rebka derivative formula
 - Complete review and fix specification
 
-**Carmen Wrede**:
+**Carmen N. Wrede**:
 - Implementation of calibration module
 - Numerical validation
 - Documentation
@@ -372,10 +372,10 @@ Target: 100% in 2 weeks (geodesic integration)
 
 Based on Lino Casu's review (Nov 1, 2025)
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 ```
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **"2PN calibration. Faster convergence. Better physics. φ-Driven."**

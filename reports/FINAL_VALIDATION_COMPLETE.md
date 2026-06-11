@@ -4,7 +4,7 @@
 **Date**: November 1, 2025  
 **Version**: 2.1.0 (Publication Ready)
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 
 ---
 
@@ -267,7 +267,7 @@ The **SSZ φ-Spiral Metric v2.1.0** has achieved **100% validation** with:
 
 **Generated**: November 1, 2025, 15:45 UTC+1  
 **Version**: 2.1.0 Final  
-**Authors**: Carmen Wrede & Lino Casu
+**Authors**: Carmen N. Wrede & Lino Casu
 
 **"100% Validation. 10/10 PASS. No CAUTION. φ-Driven. Complete."**
 
@@ -301,5 +301,5 @@ Wrede, C., & Casu, L. (2025). Segmented Spacetime φ-Spiral Metric:
 
 ---
 
-**© 2025 Carmen Wrede & Lino Casu**  
+**© 2025 Carmen N. Wrede & Lino Casu**  
 **Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4**

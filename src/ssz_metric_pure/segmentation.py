@@ -8,7 +8,7 @@ This module implements the core operational metrics and observables of Segmented
 4. Segment count proxies
 5. Orthonormal frame light-speed invariance (local c invariance)
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

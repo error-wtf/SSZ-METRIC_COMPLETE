@@ -5,7 +5,7 @@
 **Version**: 2.1.0 (Publication Ready)  
 **Status**: ✅ 100% COMPLETE
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 
 ---
 
@@ -367,7 +367,7 @@ The SSZ φ-Spiral Metric v2.1.0 project has achieved **100% validation** with:
 
 ---
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 **End of Session Summary**

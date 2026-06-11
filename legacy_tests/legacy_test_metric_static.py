@@ -9,7 +9,7 @@ Validates:
 - A(∞) → 1.0 (asymptotically flat)
 - Redshift monotonicity
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import pytest
 import numpy as np

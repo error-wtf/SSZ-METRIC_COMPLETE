@@ -8,7 +8,7 @@ Implements the complete SSZ metric with:
 - Δ(M) mass correction
 - Full metric tensor export
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

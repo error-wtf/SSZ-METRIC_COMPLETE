@@ -1,6 +1,6 @@
 # SSZ φ-Spiral Metric - Complete Tensor Package
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ---
@@ -302,7 +302,7 @@ If you use this tensor package in your research, please cite:
 
 ## 📧 Contact
 
-Carmen Wrede & Lino Casu  
+Carmen N. Wrede & Lino Casu  
 **GitHub:** [error-wtf/ssz-metric-pure](https://github.com/error-wtf/ssz-metric-pure)
 
 ---

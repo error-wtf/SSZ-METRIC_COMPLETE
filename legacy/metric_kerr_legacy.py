@@ -5,7 +5,7 @@ Implements the rotating (Kerr-like) SSZ metric in Boyer-Lindquist-like coordinat
     ds² = -A(r,θ)dt² + B(r,θ)dr² + C(r,θ)dθ² + D(r,θ)dφ² + 2E(r,θ)dt dφ
 including frame dragging, ergosphere, horizons, and physical properties.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

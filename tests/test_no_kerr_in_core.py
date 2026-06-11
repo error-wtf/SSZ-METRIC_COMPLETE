@@ -4,7 +4,7 @@ Test of strict isolation of the SSZ-Core package.
 Guarantees that no forbidden General Relativity, Schwarzschild, or Kerr Boyer-Lindquist
 scaffolding terms or functions are present in the core package source files.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

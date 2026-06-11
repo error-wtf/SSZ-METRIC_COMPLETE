@@ -383,7 +383,7 @@ The **φ-Spiral Segmented Spacetime Metric** is:
 
 ## 📞 Contact & License
 
-**Authors:** Carmen Wrede & Lino Casu  
+**Authors:** Carmen N. Wrede & Lino Casu  
 **Year:** 2025  
 **License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
@@ -413,4 +413,4 @@ The **φ-Spiral Segmented Spacetime Metric** is:
 
 **No Singularities. Pure Physics. φ-Driven.** 🌀✨
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu

@@ -8,7 +8,7 @@ Tests:
 - Energy conservation along geodesics
 - Earth and Solar mass cases
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 """
 import pytest
 import sys

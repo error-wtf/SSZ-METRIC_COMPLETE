@@ -3,7 +3,7 @@
 **Project:** Pure Segmented Spacetime (SSZ) Metric Library  
 **Version:** 0.1.0 (Alpha)  
 **Date:** 2025-10-31  
-**Authors:** Carmen Wrede & Lino Casu  
+**Authors:** Carmen N. Wrede & Lino Casu  
 **License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ---
@@ -335,10 +335,10 @@ Full license text in `LICENSE` file.
 
 ## 👥 Authors
 
-**Carmen Wrede** - Lead Scientist  
+**Carmen N. Wrede** - Lead Scientist  
 **Lino Casu** - Co-Author
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 
 ---
 

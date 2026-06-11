@@ -373,7 +373,7 @@ Die **φ-Spiral Segmented Spacetime Metric** ist:
 **Date:** 2025-11-01  
 **Version:** 1.0.0 FINAL
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 **No Singularities. Pure Physics. φ-Driven.** 🌀✨

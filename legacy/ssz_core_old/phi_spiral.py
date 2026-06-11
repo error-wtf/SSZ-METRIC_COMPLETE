@@ -13,7 +13,7 @@ Line Element (with cross term):
 Diagonal Form (time coordinate transformation dT = dt - (β·γ²/c) dr):
     ds² = -c²/γ² dT² + γ² dr² + r²dΩ²
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

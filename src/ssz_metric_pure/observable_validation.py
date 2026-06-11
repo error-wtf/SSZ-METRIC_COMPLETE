@@ -6,7 +6,7 @@ against canonical Xi-primary SSZ core predictions.
 
 Strictly enforces the Prime Directive routing and the forward/anti-circular protocol.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

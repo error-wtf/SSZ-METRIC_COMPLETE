@@ -5,7 +5,7 @@ Verifies:
 - Determinant of diagonal form: det(g) == -c² * r⁴ * sin²θ (relative tolerance 1e-10)
 - Inverse of diagonal form: g @ g_inv == I (tolerance 1e-10)
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 

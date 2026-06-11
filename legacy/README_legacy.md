@@ -448,7 +448,7 @@ src/ssz_metric_pure/ssz_symbolic_sparse.py        # Symbolic + validators
 
 **Title:** *SSZ φ-Spiral Metric: Complete 4D Tensor Formulation*
 
-**Authors:** Carmen Wrede & Lino Casu
+**Authors:** Carmen N. Wrede & Lino Casu
 
 **Status:** Publication-ready (v2.0.0)
 
@@ -535,10 +535,10 @@ See [LICENSE](LICENSE) for complete terms.
 
 ## 👥 Authors
 
-**Carmen Wrede** - Lead Scientist  
+**Carmen N. Wrede** - Lead Scientist  
 **Lino Casu** - Co-Author & Theoretical Development
 
-© 2025 Carmen Wrede & Lino Casu  
+© 2025 Carmen N. Wrede & Lino Casu  
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ---

@@ -3,7 +3,7 @@ Physical Constants for the Pure SSZ Metric
 
 All values in standard SI units.
 
-© 2025 Carmen Wrede & Lino Casu
+© 2025 Carmen N. Wrede & Lino Casu
 Licensed under the Anti-Capitalist Software License v1.4
 """
 
