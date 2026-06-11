@@ -118,7 +118,7 @@ The pure SSZ core metric is mathematically fully consistent and structurally sou
 
 ---
 
-## �️ Multi-Scale Usecase Gate
+## 🗺️ Multi-Scale Usecase Gate
 
 | Verification Item | Requirement | Status |
 | :--- | :--- | :---: |
@@ -137,10 +137,42 @@ The pure SSZ core metric is mathematically fully consistent and structurally sou
 
 ---
 
+## 🔭 NICER / ALMA Fetch Integration Gate
+
+| Verification Item | Requirement | Status |
+| :--- | :--- | :---: |
+| **astroquery optional dependency** | Added clean `external-data` optional group to `pyproject.toml` and updated `requirements.txt`. | **PASS** ✅ |
+| **NICER HEASARC fetcher exists** | Implemented `nicer_fetch.py` querying `nicermastr` master-catalog with cones and exposure filters. | **PASS** ✅ |
+| **NICER manifest generation** | Builds standard, serializable JSON manifests containing targets, obsids, and size estimates. | **PASS** ✅ |
+| **NICER dry-run safe** | CLI script queries and builds schemas without carrying out any network file transfer. | **PASS** ✅ |
+| **NICER download confirmation** | Enforces a strict authorization rule (`--confirm-download`) and limits transfers with size guards. | **PASS** ✅ |
+| **ALMA astroquery fetcher exists** | Implemented `alma_fetch.py` querying science observation tables and extracting Member OUS UIDs. | **PASS** ✅ |
+| **ALMA manifest generation** | Creates detailed lists of accessible calibrated file targets mapped with spatial metrics. | **PASS** ✅ |
+| **ALMA FITS-only default** | Restricts filters to FITS image products/documentation, avoiding huge multi-gigabyte tar downloads. | **PASS** ✅ |
+| **ALMA large-data guard** | Halts transfers above `max_gb` parameters, warning users explicitly before attempting raw downloads. | **PASS** ✅ |
+| **ALMA verify-only supported** | Uses astropy header verification checks to index locally downloaded file health. | **PASS** ✅ |
+| **Tests mock network** | Contract and CLI tests monkeypatch HEASARC/ALMA queries, running fully offline. | **PASS** ✅ |
+| **Default pytest remains green** | Normal suite `python -m pytest -q` passes without needing external dependencies installed. | **PASS** ✅ |
+| **External tests pass** | Robust tests in `tests_external/` verify manifests, anti-circularity and fetchers to 100% success. | **PASS** ✅ |
+
+---
+
+## � NICER / ALMA External Exact Countertest Gauntlet Gate
+
+| Verification Item | Requirement | Status |
+| :--- | :--- | :---: |
+| **Parameter Manifest Schema** | Independent physical parameters decoupled and read from JSON. | **PASS** ✅ |
+| **Exact Benchmark Replay** | Replays exact core benchmarks matching prior verified numerical values. | **PASS** ✅ |
+| **Observable Derivation Layer** | Deterministic derived values computed separately from predictions. | **PASS** ✅ |
+| **Prediction Bindings Layer** | Computes forward predictions directly from the canonical metric chain. | **PASS** ✅ |
+| **Exact Comparison Layer** | Enforces EXACT_IDENTITY_MODE and EXACT_DERIVED_OBSERVABLE_MODE. | **PASS** ✅ |
+| **Anti-Circularity Asserted** | Checks 10 anti-circular conditions banning curve fitting. | **PASS** ✅ |
+| **Negative Controls Verified** | Proves the suite fails when parameters are corrupted. | **PASS** ✅ |
+| **Markdown & JSON Reports** | Compiles exhaustive report files and hashes. | **PASS** ✅ |
+| **Countertest pytest passes** | Dedicated suite under `tests_external_countertests/` is 100% green. | **PASS** ✅ |
+
 ---
 
 ## �📝 Remaining Research Limitations
 
 This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim physical source formation, nonlinear stability, complete external observational proof, physical beaming, or engineering feasibility.
-
-

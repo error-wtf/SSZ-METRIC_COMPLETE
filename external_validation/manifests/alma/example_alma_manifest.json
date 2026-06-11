@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-06-11T12:00:00Z",
+  "created_by": "scripts/fetch_alma.py",
+  "instrument": "ALMA",
+  "query": {
+    "target_name": "M87",
+    "selected_urls_count": 1
+  },
+  "download_policy": {
+    "dry_run": true,
+    "max_gb": 10.0,
+    "confirm_download": false
+  },
+  "datasets": [
+    {
+      "dataset_id": "uid___A001_X12a_X3b",
+      "target_name": "M87",
+      "obs_id_or_project_code": "2018.1.01234.S",
+      "archive": "ALMA Science Archive",
+      "catalog_or_service": "ALMA Archive Service",
+      "ra_deg": 187.7,
+      "dec_deg": 12.3,
+      "exposure_s": 3600.0,
+      "time_mjd": 58200.0,
+      "data_level": "calibrated_qa2",
+      "product_type": "FITS",
+      "access_url": "https://almascience.eso.org/data/member.uid___A001_X12a_X3b.fits",
+      "estimated_size_gb": 0.1,
+      "local_path": null,
+      "download_status": "NOT_DOWNLOADED",
+      "validation_category": "calibrated_or_qa2_product",
+      "model_dependency": "medium",
+      "allowed_for_canonical_gate": false,
+      "limitations": [
+        "complex interferometric imaging weighting options",
+        "requires self-calibration loops check",
+        "beam resolution limits"
+      ]
+    }
+  ]
+}

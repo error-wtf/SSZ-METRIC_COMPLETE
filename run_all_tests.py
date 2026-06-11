@@ -21,16 +21,9 @@ def run_tests():
     
     # Test categories
     test_categories = [
-        ("Package Installation and Imports", "tests/test_package_import.py"),
-        ("Canonical Xi Primary Principles", "tests/test_canonical_xi_primary.py"),
-        ("Operational Segmentation Concepts", "tests/test_segmentation_concept.py"),
-        ("Metric Diagonal & Inverse from Xi", "tests/test_metric_from_xi.py"),
-        ("Strict Core Purity Verification", "tests/test_no_kerr_in_core.py"),
-        ("Curvature Tensor Pipeline Stability", "tests/test_tensor_no_freeze.py"),
-        ("Observable Prime Directive Routing", "tests/test_observable_prime_directive.py"),
-        ("Final SSZ Core Integrity Gate", "tests/test_final_ssz_integrity_gate.py"),
-        ("Repository Metadata and Install Docs", "tests/test_repo_metadata_and_install_docs.py"),
-        ("Whole-SSZ System Architecture", "tests/test_whole_ssz_architecture.py"),
+        ("Canonical Internal & Multiscale pytest Suite", "tests"),
+        ("External Pipeline & Fetcher pytest Suite", "tests_external"),
+        ("NICER/ALMA Exact Countertest pytest Suite", "tests_external_countertests"),
     ]
     
     results = []
@@ -85,6 +78,59 @@ def run_tests():
         except Exception as e:
             print(f"💥 {category_name}: ERROR - {e}")
             results.append((category_name, 0, 0, "ERROR"))
+            
+    # Executing Exact Benchmark Replay CLI Script
+    print(f"\n{'─' * 80}")
+    print("Running: Exact Benchmark Replay CLI Script")
+    print(f"{'─' * 80}")
+    try:
+        res = subprocess.run(
+            [sys.executable, "scripts/run_exact_benchmark_replay.py",
+             "--benchmark", "external_validation/countertests/benchmarks/exact_benchmark_observables.json"],
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        if res.returncode == 0:
+            print("✅ Exact Benchmark Replay: PASSED")
+            results.append(("Exact Benchmark Replay CLI", 1, 1, "PASS"))
+            passed_tests += 1
+            total_tests += 1
+        else:
+            print("❌ Exact Benchmark Replay: FAILED")
+            print(res.stdout + res.stderr)
+            results.append(("Exact Benchmark Replay CLI", 0, 1, "FAIL"))
+            total_tests += 1
+    except Exception as e:
+        print(f"💥 Benchmark Replay ERROR - {e}")
+        results.append(("Exact Benchmark Replay CLI", 0, 1, "ERROR"))
+        total_tests += 1
+
+    # Executing External Metric Countertest Gauntlet Runner
+    print(f"\n{'─' * 80}")
+    print("Running: External Metric Countertest Gauntlet Runner")
+    print(f"{'─' * 80}")
+    try:
+        res = subprocess.run(
+            [sys.executable, "scripts/run_external_metric_countertests.py"],
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        if res.returncode == 0:
+            print("✅ External Metric Countertest Gauntlet: PASSED")
+            results.append(("Countertest Gauntlet CLI", 1, 1, "PASS"))
+            passed_tests += 1
+            total_tests += 1
+        else:
+            print("❌ External Metric Countertest Gauntlet: FAILED")
+            print(res.stdout + res.stderr)
+            results.append(("Countertest Gauntlet CLI", 0, 1, "FAIL"))
+            total_tests += 1
+    except Exception as e:
+        print(f"💥 Countertest Runner ERROR - {e}")
+        results.append(("Countertest Gauntlet CLI", 0, 1, "ERROR"))
+        total_tests += 1
     
     # Summary
     print("\\n" + "=" * 80)

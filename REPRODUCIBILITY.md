@@ -72,9 +72,45 @@ python -m pytest tests/test_neutron_star_domain.py -q
 python -m pytest tests/test_phase_frequency_domain.py -q
 ```
 
-### 4. Guidelines on External Observational Data
+### 4. Running External Pipeline & Fetcher Tests
 
-- **External Data Tests**: Any actual observational data validation tests added in the future must live inside `tests_data/` to keep them cleanly separated from the core analytical identities.
+To run the offline Astroquery/Astropy contract tests without sending real network requests (which use mocked HEASARC and ALMA client structures):
+
+```bash
+python -m pytest tests_external -q
+python -m pytest tests_external_countertests -q
+```
+
+To run a real metadata catalog query and generate local FITS/event files manifestations:
+```bash
+# Search and write a dry-run local manifest
+python scripts/fetch_nicer.py --target "PSR J0030+0451" --max-rows 1 --dry-run
+python scripts/fetch_alma.py --target "M87" --product-type fits --max-files 1 --dry-run
+
+# Run local directory checksums and size audits
+python scripts/fetch_nicer.py --verify
+python scripts/fetch_alma.py --verify-only
+```
+
+To run exact benchmark replays and execute the complete External Metric Countertest Gauntlet:
+```bash
+# Replay exact core benchmarks
+python scripts/run_exact_benchmark_replay.py --benchmark external_validation/countertests/benchmarks/exact_benchmark_observables.json --output EXACT_BENCHMARK_REPLAY_REPORT.md
+
+# Run full countertests
+python scripts/run_external_metric_countertests.py --nicer-manifest external_validation/manifests/nicer/nicer_manifest.json --alma-manifest external_validation/manifests/alma/alma_manifest.json --parameter-manifest external_validation/countertests/parameter_manifest.json --observable all --comparison-mode exact --output EXTERNAL_METRIC_COUNTERTEST_REPORT.md
+```
+
+### 5. Guidelines on External Observational Data
+
+- **External Data Tests**: Any actual observational data validation tests added live inside `tests_external/` and `tests_external_countertests/` to keep them cleanly separated from the core analytical identities. No massive raw FITS/evt data are downloaded automatically.
+- **Interpreting Statuses**:
+  - `PASS_EXACT`: Prediction matches the derived/benchmark observable exactly within the $1 \cdot 10^{-12}$ absolute / $1 \cdot 10^{-10}$ relative tolerance thresholds.
+  - `PASS_UNCERTAINTY`: Prediction matches a noisy measured observable within its declared experimental error bounds.
+  - `WARN`: Moderate model-dependencies exist or noisy parameters lack completed uncertainty definitions.
+  - `FAIL`: Prediction diverges significantly from the derived observable under independent parameters.
+  - `SKIP`: Raw data are not downloaded locally; no validation is claimed.
+  - `EXPLORATORY`: Parametrizations derive from same-dataset models or high model-dependencies are present.
 - **LIGO / GW / Template-Bound Data Warning**: Exploratory analysis of gravitational wave events or rotating black hole candidates cannot be classified as canonical validation if it relies on general relativistic templates or template-derived posterior parameter values. Doing so introduces circular template bias. Genuine alternative-metric validation in these domains requires full, raw strain analysis under an independent, anti-circular raw pipeline. Until then, these items remain strictly exploratory.
 
 ---

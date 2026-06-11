@@ -1,0 +1,6 @@
+# Optional External Data Pipeline Dependencies
+astroquery>=0.4.7
+astropy>=6.0
+requests>=2.31
+tqdm>=4.66
+pyyaml>=6.0

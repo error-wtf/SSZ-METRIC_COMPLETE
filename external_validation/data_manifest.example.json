@@ -1,0 +1,44 @@
+{
+  "datasets": [
+    {
+      "id": "3012010101",
+      "instrument": "NICER",
+      "target_name": "PSR J0030+0451",
+      "data_source": "https://heasarc.gsfc.nasa.gov/FTP/nicer/data/obs/30/3012010101/",
+      "archive": "HEASARC/NICER",
+      "obs_id_or_project_code": "3012010101",
+      "data_level": "raw",
+      "local_path": null,
+      "download_required": true,
+      "calibration_version": "unknown",
+      "reduction_software": "HEASoft/NICERDAS",
+      "observable_type": "redshift",
+      "validation_category": "raw_data",
+      "model_dependency": "none",
+      "allowed_for_canonical_gate": false,
+      "limitations": [
+        "model-dependent neutron star mass/radius parameters"
+      ]
+    },
+    {
+      "id": "uid___A001_X12a_X3b",
+      "instrument": "ALMA",
+      "target_name": "M87",
+      "data_source": "https://almascience.eso.org/data/member.uid___A001_X12a_X3b.fits",
+      "archive": "ALMA Science Archive",
+      "obs_id_or_project_code": "2018.1.01234.S",
+      "data_level": "calibrated_qa2",
+      "local_path": null,
+      "download_required": true,
+      "calibration_version": "unknown",
+      "reduction_software": "CASA",
+      "observable_type": "frequency_shift",
+      "validation_category": "calibrated_or_qa2_product",
+      "model_dependency": "medium",
+      "allowed_for_canonical_gate": false,
+      "limitations": [
+        "complex interferometric imaging weighting options"
+      ]
+    }
+  ]
+}

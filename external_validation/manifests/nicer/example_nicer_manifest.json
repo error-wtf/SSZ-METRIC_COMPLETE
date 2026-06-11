@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-06-11T12:00:00Z",
+  "created_by": "scripts/fetch_nicer.py",
+  "instrument": "NICER",
+  "query": {
+    "target_name": "PSR J0030+0451",
+    "search_count": 1
+  },
+  "download_policy": {
+    "dry_run": true,
+    "max_gb": 5.0,
+    "confirm_download": false
+  },
+  "datasets": [
+    {
+      "dataset_id": "3012010101",
+      "target_name": "PSR J0030+0451",
+      "obs_id_or_project_code": "3012010101",
+      "archive": "HEASARC",
+      "catalog_or_service": "nicermastr",
+      "ra_deg": 7.58,
+      "dec_deg": 4.86,
+      "exposure_s": 10000.0,
+      "time_mjd": 58000.0,
+      "data_level": "raw",
+      "product_type": "archive_tar",
+      "access_url": "https://heasarc.gsfc.nasa.gov/FTP/nicer/data/obs/30/3012010101/",
+      "estimated_size_gb": 0.5,
+      "local_path": null,
+      "download_status": "NOT_DOWNLOADED",
+      "validation_category": "raw_data",
+      "model_dependency": "none",
+      "allowed_for_canonical_gate": false,
+      "limitations": [
+        "model-dependent neutron star mass/radius parameters",
+        "calibration corrections required for background estimation",
+        "light leak contamination checks necessary"
+      ]
+    }
+  ]
+}

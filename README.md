@@ -81,9 +81,9 @@ Install the package locally in editable mode to bind the path structure:
 python -m pip install -e .
 ```
 
-To install optional developer and visualization dependencies:
+To install optional developer, visualization, and external astroquery dependencies:
 ```bash
-python -m pip install -e ".[dev,viz]"
+python -m pip install -e ".[dev,viz,external-data]"
 ```
 
 ### 2. Running Verification Tests
@@ -91,6 +91,50 @@ Execute the comprehensive verification test suite verifying all identities, dete
 ```bash
 python -m pytest -q
 ```
+
+To run the external pipeline contract and manifest-schema tests:
+```bash
+python -m pytest tests_external -q
+```
+
+---
+
+## 🔭 Fetching & Validating NICER and ALMA Data
+
+The framework contains optional pipelines to fetch public raw astrophysical files and test them forward in an anti-circular manner. Real external data are not downloaded automatically.
+
+### 1. Querying & Manifesting Data
+To search HEASARC's `nicermastr` catalog and generate a safe local dry-run manifest:
+```bash
+python scripts/fetch_nicer.py --target "PSR J0030+0451" --search-only
+python scripts/fetch_nicer.py --target "PSR J0030+0451" --max-rows 3 --dry-run
+```
+
+To search ALMA Science Archive for high-resolution FITS products:
+```bash
+python scripts/fetch_alma.py --target "M87" --search-only --max-rows 10
+python scripts/fetch_alma.py --target "M87" --product-type fits --max-files 5 --dry-run
+```
+
+### 2. Download Execution (Confirmations & Size Guards)
+Downloading requires explicit authorizations (`--confirm-download`) and obeys size guards (`--max-gb`):
+```bash
+python scripts/fetch_nicer.py --manifest external_validation/manifests/nicer/j0030.json --download --confirm-download --max-gb 5
+python scripts/fetch_alma.py --manifest external_validation/manifests/alma/m87_fits.json --download --confirm-download --max-gb 10
+```
+
+### 3. Running the Metric Countertest Gauntlet (Exact Mode)
+To run exact forward replays verifying prior verified numerical SSZ benchmark identities:
+```bash
+python scripts/run_exact_benchmark_replay.py --benchmark external_validation/countertests/benchmarks/exact_benchmark_observables.json --output EXACT_BENCHMARK_REPLAY_REPORT.md
+```
+
+To execute the complete NICER/ALMA External Metric Countertest Gauntlet:
+```bash
+python scripts/run_external_metric_countertests.py --nicer-manifest external_validation/manifests/nicer/nicer_manifest.json --alma-manifest external_validation/manifests/alma/alma_manifest.json --parameter-manifest external_validation/countertests/parameter_manifest.json --observable all --comparison-mode exact --output EXTERNAL_METRIC_COUNTERTEST_REPORT.md
+```
+
+*Note: Real-data external validation gates can be marked as PASS only if data manifests exist, the anti-circular conditions are fully satisfied, and no fitting parameters are used. Otherwise, missing data produces a SKIP status.*
 
 ---
 

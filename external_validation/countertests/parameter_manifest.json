@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-06-11T12:00:00Z",
+  "targets": [
+    {
+      "target_id": "PSR_J0030_0451",
+      "target_name": "PSR J0030+0451",
+      "target_type": "neutron_star",
+      "mass_kg": 2.7846e30,
+      "mass_solar": 1.4,
+      "radius_m": 13000.0,
+      "radius_km": 13.0,
+      "distance_m": 1.018e19,
+      "distance_pc": 330.0,
+      "inclination_deg": 45.0,
+      "systemic_velocity_km_s": 0.0,
+      "reference_frequency_hz": 205.53,
+      "position": {
+        "ra_deg": 7.58,
+        "dec_deg": 4.86
+      },
+      "independent_parameter_sources": [
+        {
+          "parameter": "mass",
+          "source_type": "independent_literature",
+          "citation_or_note": "NICER collaboration reference modeling prior (Riley et al. 2019)",
+          "model_dependency": "none",
+          "allowed_for_hard_gate": true
+        },
+        {
+          "parameter": "radius",
+          "source_type": "independent_literature",
+          "citation_or_note": "NICER collaboration reference modeling prior (Riley et al. 2019)",
+          "model_dependency": "none",
+          "allowed_for_hard_gate": true
+        }
+      ],
+      "allowed_observable_tests": [
+        "nicer_surface_redshift_proxy",
+        "nicer_clock_phase_proxy"
+      ],
+      "comparison_mode_preference": "EXACT_DERIVED_OBSERVABLE_MODE",
+      "limitations": [
+        "model-dependent neutron star mass/radius parameters",
+        "spherical configuration assumed"
+      ]
+    }
+  ]
+}

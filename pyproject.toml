@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "ANTI-CAPITALIST SOFTWARE LICENSE v1.4"}
 authors = [
-    {name = "Carmen Wrede"},
+    {name = "Carmen N. Wrede"},
     {name = "Lino Casu"}
 ]
 keywords = ["physics", "relativity", "black-holes", "spacetime", "golden-ratio", "ssz", "geodesics"]
@@ -41,6 +41,13 @@ dev = [
 ]
 viz = [
     "matplotlib>=3.7.0",
+]
+external-data = [
+    "astroquery>=0.4.7",
+    "astropy>=6.0",
+    "requests>=2.31",
+    "tqdm>=4.66",
+    "pyyaml>=6.0"
 ]
 
 [project.urls]

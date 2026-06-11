@@ -1,19 +1,19 @@
 # SSZ-METRIC-PURE Validation Report
 
-**Generated:** 2026-06-11 09:40:30  
+**Generated:** 2026-06-11 15:36:40  
 **Version:** 1.1.0-canonical-pure  
 
 ## Summary
 
-- **Total Tests:** 10
-- **Passed:** 10
+- **Total Tests:** 5
+- **Passed:** 5
 - **Success Rate:** 100.0%
 
 ## Test Categories
 
 | Category | Status | Count |
 |----------|--------|-------|
-| Package Installation and Imports | ✅ PASS | 1/1 |\n| Canonical Xi Primary Principles | ✅ PASS | 1/1 |\n| Operational Segmentation Concepts | ✅ PASS | 1/1 |\n| Metric Diagonal & Inverse from Xi | ✅ PASS | 1/1 |\n| Strict Core Purity Verification | ✅ PASS | 1/1 |\n| Curvature Tensor Pipeline Stability | ✅ PASS | 1/1 |\n| Observable Prime Directive Routing | ✅ PASS | 1/1 |\n| Final SSZ Core Integrity Gate | ✅ PASS | 1/1 |\n| Repository Metadata and Install Docs | ✅ PASS | 1/1 |\n| Whole-SSZ System Architecture | ✅ PASS | 1/1 |\n
+| Canonical Internal & Multiscale pytest Suite | ✅ PASS | 1/1 |\n| External Pipeline & Fetcher pytest Suite | ✅ PASS | 1/1 |\n| NICER/ALMA Exact Countertest pytest Suite | ✅ PASS | 1/1 |\n| Exact Benchmark Replay CLI | ✅ PASS | 1/1 |\n| Countertest Gauntlet CLI | ✅ PASS | 1/1 |\n
 ## Key Metrics Verified
 
 - ✅ **Primary Field Xi:** The metric is derived directly from the primary segment density field Xi(r).

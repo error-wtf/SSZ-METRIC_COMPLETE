@@ -95,3 +95,25 @@ complete.txt
 reports/summary-output.md
 reports/*.json
 !reports/SSZ_*.md
+
+# External Validation Data & Caches
+external_validation/data/**
+external_validation/cache/**
+*.fits
+*.fits.gz
+*.evt
+*.evt.gz
+*.tar
+*.tar.gz
+*.ms
+*.ms.tar
+*.asdm
+*.asdm.sdm
+*.uvfits
+
+# Keep specific paths
+!external_validation/data/.gitkeep
+!external_validation/cache/.gitkeep
+!external_validation/manifests/**/*.json
+!external_validation/**/*.md
+
