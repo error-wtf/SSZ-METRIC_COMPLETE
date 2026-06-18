@@ -277,6 +277,8 @@ This repository implements a canonical Xi-primary SSZ metric research framework 
 
 All new modules follow the **anti-circular principle**: SSZ parameters are fixed by theory, never optimized to match data.
 
+This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim physical source formation, nonlinear stability, complete external observational proof, physical beaming, or engineering feasibility.
+
 ---
 
 ## 🔗 Related Repositories

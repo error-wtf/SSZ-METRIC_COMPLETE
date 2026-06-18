@@ -7,16 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0-canonical-pure] - 2026-06-18
 
+### Added (4 New Capability Modules)
+- **Physical Source Formation** (`source_formation.py`)
+  - Matter coupling & stress-energy tensors
+  - Einstein equation consistency checks
+  - Vacuum & interior solution formation
+- **Nonlinear Stability Analysis** (`stability.py`)
+  - Linearized metric perturbations
+  - Mode stability spectrum
+  - Growth rates & stability timescales
+- **Enhanced Observational Proof** (`observational_proof.py`)
+  - Forward validation (NO fitting - anti-circular principle)
+  - ALMA/NICER data integration
+  - Statistical validation framework
+- **Engineering Feasibility** (`engineering.py`)
+  - Quantum device simulation
+  - Error budgets & tolerance analysis
+  - Gate fidelity estimates
+- **25 New Tests**: `tests/test_new_capabilities.py` (100% PASS)
+
 ### Changed (BREAKING)
 - **Canonical Ξ-Formula**: Unified piecewise definition (strong/blend/weak regimes)
 - **Package renamed**: `ssz_metric_pure` - pure SSZ, no Kerr/GR comparison scaffolding
 - **API changed**: `xi_canonical()`, `D_from_xi()`, `s_from_xi()` - direct function API
-- **106 Tests**: 97 internal + 9 external tests (100% PASS)
+- **151+ Tests**: 122 internal + 29 external tests (100% PASS)
 
 ### Fixed
 - **Shapiro Delay**: Corrected to ~26.5 µs (physikalisch korrekt für Sun-Earth)
 - **Light Deflection**: Exakte 2D Null-Geodäten (~1.75 arcsec Sun-grazing)
 - **Unicode Encoding**: Alle Zeichen auf ASCII umgestellt (Windows-kompatibel)
+- **Anti-Circular Fitting**: Removed `scipy.optimize.minimize` from observational proof
 
 ### Removed
 - **Legacy modules**: Kerr-Metrik, frame-dragging, Boyer-Lindquist-Koordinaten

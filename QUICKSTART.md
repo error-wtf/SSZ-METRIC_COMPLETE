@@ -311,6 +311,66 @@ python your_script.py
 
 ---
 
+## New Capability Modules (v1.1.0)
+
+Four new modules extend the SSZ framework:
+
+### 1. Physical Source Formation
+```python
+from ssz_metric_pure.source_formation import (
+    matter_coupling, einstein_tensor_from_xi,
+    vacuum_source_formation, interior_solution_formation
+)
+
+# Check Einstein equation consistency
+from ssz_metric_pure import M_SUN
+G = einstein_tensor_from_xi(r=1e7, theta=np.pi/2, mass=M_SUN)
+print(f"Einstein tensor G_munu computed for r=10,000 km")
+```
+
+### 2. Stability Analysis
+```python
+from ssz_metric_pure.stability import (
+    linearize_metric, analyze_stability_spectrum, radial_stability_analysis
+)
+
+# Analyze stability at multiple radii
+radii = np.array([3, 5, 10, 20]) * characteristic_radius(M_SUN)
+stability = analyze_stability_spectrum(M_SUN, radii)
+print(f"Found {len(stability.modes)} stability modes")
+```
+
+### 3. Observational Proof (Forward Validation)
+```python
+from ssz_metric_pure.observational_proof import (
+    ObservationalValidator, ObservationData
+)
+
+# Forward validation (NO fitting - anti-circular)
+validator = ObservationalValidator(data_source="all")
+result = validator.run_full_validation()
+print(f"Validation: {result.num_passed}/{result.num_observations} observations pass")
+```
+
+### 4. Engineering Feasibility
+```python
+from ssz_metric_pure.engineering import (
+    QuantumDeviceSimulator, EXAMPLE_QUBIT_DEVICE,
+    assess_feasibility, device_comparison
+)
+
+# Simulate quantum device with SSZ corrections
+sim = QuantumDeviceSimulator(EXAMPLE_QUBIT_DEVICE)
+fidelity = sim.compute_gate_fidelity(gate_time=10e-9)
+print(f"Gate fidelity with SSZ: {fidelity:.6f}")
+
+# Full feasibility assessment
+feas = assess_feasibility(EXAMPLE_QUBIT_DEVICE)
+print(f"Ready for prototype: {feas.ready_for_prototype}")
+```
+
+---
+
 ## Next Steps
 
 1. **Read Documentation:**
@@ -385,7 +445,7 @@ See `LICENSE` file for full terms.
   author = {Wrede, Carmen and Casu, Lino},
   title = {SSZ Metric Pure: Pure Segmented Spacetime},
   year = {2025},
-  version = {0.1.0},
+  version = {1.1.0-canonical-pure},
   url = {https://github.com/error-wtf/ssz-metric-pure}
 }
 ```

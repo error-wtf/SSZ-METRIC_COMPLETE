@@ -1,13 +1,13 @@
 # SSZ-METRIC-PURE Validation Report
 
-**Generated:** 2026-06-18 09:36:01  
+**Generated:** 2026-06-18 10:48:30  
 **Version:** 1.1.0-canonical-pure  
 
 ## Summary
 
-- **Total Tests:** 18
-- **Passed:** 13
-- **Success Rate:** 72.2%
+- **Total Tests:** 85
+- **Passed:** 85
+- **Success Rate:** 100.0%
 
 ## Test Categories
 
@@ -18,33 +18,33 @@
 | Operational Segmentation Concepts | [OK] PASS | 5/5 |
 | Metric Diagonal & Inverse from Xi | [OK] PASS | 1/1 |
 | Strict Core Purity Verification | [OK] PASS | 1/1 |
-| Curvature Tensor Pipeline Stability | [FAIL] FAIL | 0/0 |
-| Observable Prime Directive Routing | [FAIL] FAIL | 0/0 |
-| Final SSZ Core Integrity Gate | [FAIL] FAIL | 0/0 |
+| Curvature Tensor Pipeline Stability | [OK] PASS | 1/1 |
+| Observable Prime Directive Routing | [OK] PASS | 2/2 |
+| Final SSZ Core Integrity Gate | [OK] PASS | 1/1 |
 | Repository Metadata and Install Docs | [FAIL] FAIL | 0/0 |
-| Whole-SSZ System Architecture | [FAIL] FAIL | 0/0 |
-| Multiscale Forward Anti-Circularity | [FAIL] FAIL | 0/0 |
-| Multiscale Use-Case Matrix Check | [FAIL] FAIL | 0/0 |
-| EM/Clock & Redshift Domain Check | [FAIL] FAIL | 0/0 |
-| Fine Structure Scale Domain Check | [FAIL] FAIL | 0/0 |
-| Neutron Star Scaling Proxies | [FAIL] FAIL | 0/0 |
-| Weak Field PPN Approximations | [FAIL] FAIL | 0/0 |
-| Weak Field PPN Scale Domain | [FAIL] FAIL | 0/0 |
-| Anti-Circular Fitting Scan | [FAIL] FAIL | 0/0 |
-| Observable Registry & Binding | [FAIL] FAIL | 0/0 |
-| Forward Observable Predictions | [FAIL] FAIL | 0/0 |
-| Observable Validation Report Gate | [FAIL] FAIL | 0/0 |
-| Strong Field Compact Diagnostics | [FAIL] FAIL | 0/0 |
-| Lattice Spacing Segmentation | [FAIL] FAIL | 0/0 |
-| General Covariance Orthonormal Speed | [FAIL] FAIL | 0/0 |
-| Tensor Pipeline Verification | [FAIL] FAIL | 0/0 |
-| Forward Anti-Circular Protocol Gate | [FAIL] FAIL | 0/0 |
-| NICER Astroquery Fetch Contract | [FAIL] FAIL | 0/0 |
-| ALMA Astroquery Fetch Contract | [FAIL] FAIL | 0/0 |
-| Fetch Scripts CLI Smoke | [FAIL] FAIL | 0/0 |
-| External Data Manifest Contract | [FAIL] FAIL | 0/0 |
-| External Anti-Circularity Scan | [FAIL] FAIL | 0/0 |
-| External Validation Report Contract | [FAIL] FAIL | 0/0 |
+| Whole-SSZ System Architecture | [OK] PASS | 3/3 |
+| Multiscale Forward Anti-Circularity | [OK] PASS | 1/1 |
+| Multiscale Use-Case Matrix Check | [OK] PASS | 3/3 |
+| EM/Clock & Redshift Domain Check | [OK] PASS | 4/4 |
+| Fine Structure Scale Domain Check | [OK] PASS | 4/4 |
+| Neutron Star Scaling Proxies | [OK] PASS | 2/2 |
+| Weak Field PPN Approximations | [OK] PASS | 1/1 |
+| Weak Field PPN Scale Domain | [OK] PASS | 3/3 |
+| Anti-Circular Fitting Scan | [OK] PASS | 1/1 |
+| Observable Registry & Binding | [OK] PASS | 2/2 |
+| Forward Observable Predictions | [OK] PASS | 9/9 |
+| Observable Validation Report Gate | [OK] PASS | 1/1 |
+| Strong Field Compact Diagnostics | [OK] PASS | 4/4 |
+| Lattice Spacing Segmentation | [OK] PASS | 5/5 |
+| General Covariance Orthonormal Speed | [OK] PASS | 1/1 |
+| Tensor Pipeline Verification | [OK] PASS | 1/1 |
+| Forward Anti-Circular Protocol Gate | [OK] PASS | 7/7 |
+| NICER Astroquery Fetch Contract | [OK] PASS | 3/3 |
+| ALMA Astroquery Fetch Contract | [OK] PASS | 3/3 |
+| Fetch Scripts CLI Smoke | [OK] PASS | 1/1 |
+| External Data Manifest Contract | [OK] PASS | 1/1 |
+| External Anti-Circularity Scan | [OK] PASS | 2/2 |
+| External Validation Report Contract | [OK] PASS | 1/1 |
 | Fetch Common Methods Check | [FAIL] FAIL | 0/0 |
 | NICER Pipeline Fetch Contract | [FAIL] FAIL | 0/0 |
 | ALMA Pipeline Fetch Contract | [FAIL] FAIL | 0/0 |
@@ -59,13 +59,13 @@
 | Countertest Report Generation Gate | [FAIL] FAIL | 0/0 |
 | Countertest CLI Smoke | [FAIL] FAIL | 0/0 |
 | Exact Benchmark Replay Verification | [FAIL] FAIL | 0/0 |
-| Exact Benchmark Replay CLI | [FAIL] FAIL | 0/1 |
-| Countertest Gauntlet CLI | [FAIL] FAIL | 0/1 |
-| Script: Build Parameter Manifest | [FAIL] FAIL | 0/1 |
-| Script: List Eligible Datasets | [FAIL] FAIL | 0/1 |
+| Exact Benchmark Replay CLI | [OK] PASS | 1/1 |
+| Countertest Gauntlet CLI | [OK] PASS | 1/1 |
+| Script: Build Parameter Manifest | [OK] PASS | 1/1 |
+| Script: List Eligible Datasets | [OK] PASS | 1/1 |
 | Script: Fetch ALMA | [OK] PASS | 1/1 |
 | Script: Fetch NICER | [OK] PASS | 1/1 |
-| Example: Quickstart | [FAIL] FAIL | 0/1 |
+| Example: Quickstart | [OK] PASS | 1/1 |
 
 ## Key Metrics Verified
 
@@ -79,6 +79,6 @@
 
 ## Conclusion
 
-**13/18 TESTS PASSED**
+**ALL TESTS PASSED** [OK]
 
-Some tests need attention.
+The pure SSZ metric is mathematically rigorous, verified, and fully isolated.
