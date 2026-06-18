@@ -292,7 +292,7 @@ All SSZ ecosystem repositories are available at [github.com/error-wtf](https://g
 | [**ssz-full-metric**](https://github.com/error-wtf/ssz-full-metric) | Vollständige Observable-Pipeline | `ssz-full-metric/` |
 | [**ssz-paper-plots**](https://github.com/error-wtf/ssz-paper-plots) | Paper-Visualisierungen | `ssz-paper-plots/` |
 | [**ssz-how-to-beam**](https://github.com/error-wtf/SSZ-HOW-TO-BEAM) | Relativistic beaming & jet physics guide | `SSZ-HOW-TO-BEAM/` |
-| [**SSZ Complete Documentation**](https://github.com/error-wtf/ssz-complete-documentation)) | SSZ Complete Documentation | `ssz-complete-documentation/` |
+| [**SSZ Complete Documentation**](https://github.com/error-wtf/ssz-complete-documentation) | SSZ Complete Documentation | `ssz-complete-documentation/` |
 | [**SSZ FULL TEST SUITE**](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results) | SSZ Full TEST SUITE | `Segmented-Spacetime-Mass-Projection-Unified-Results/` |
 | [**SSZ Calculation Suite**](https://github.com/error-wtf/segmented-calculation-suite) | SSZ Calculation Suite| `segmented-calculation-suite/` |
 | [**SSZ Main Segmentation Funktion Visualisation**](https://github.com/error-wtf/SEGMENTED_SPACETIME) | SSZ Main Segmentation Funktion Visualisation| `SEGMENTED_SPACETIME/` |
