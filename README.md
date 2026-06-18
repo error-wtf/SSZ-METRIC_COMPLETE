@@ -295,3 +295,4 @@ All SSZ ecosystem repositories are available at [github.com/error-wtf](https://g
 | **g79-cygnus** | G79 Cygnus A Galactic Core validation | `g79-cygnus-test/` |
 | **Unified-Results** | Segmented Spacetime Mass Projection | `Segmented-Spacetime-Mass-Projection-Unified-Results/` |
 | **Segmented-Spacetime** | Theoretische Grundlagen-Papers | `SEGMENTED-SPACETIME/` |
+| **ssz-how-to-beam** | Relativistic beaming & jet physics guide | `SSZ-HOW-TO-BEAM/` |
