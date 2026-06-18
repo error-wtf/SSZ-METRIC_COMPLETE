@@ -57,7 +57,7 @@ class TestSourceFormation:
         assert equation_of_state_parameter("dust") == 0.0
         assert equation_of_state_parameter("radiation") == pytest.approx(1.0/3.0)
         assert equation_of_state_parameter("vacuum") == -1.0
-        print("  EOS parameters: dust=0, radiation=1/3, vacuum=-1 ✓")
+        print("  EOS parameters: dust=0, radiation=1/3, vacuum=-1 (OK)")
     
     def test_perfect_fluid_construction(self):
         """Test stress-energy tensor construction."""
@@ -71,7 +71,7 @@ class TestSourceFormation:
         
         assert T.T_munu.shape == (4, 4)
         assert T.energy_density > 0
-        print(f"  T_μν constructed: ρ={T.energy_density:.2e}, p={T.pressure:.2e} ✓")
+        print(f"  T_munu constructed: rho={T.energy_density:.2e}, p={T.pressure:.2e} (OK)")
     
     def test_source_consistency_weak_field(self):
         """Test Einstein equations in weak field."""
@@ -87,7 +87,7 @@ class TestSourceFormation:
         result = source_consistency_check(r, np.pi/2, mass, matter, tolerance=1e-2)
         
         assert isinstance(result.consistency_error, float)
-        print(f"  Consistency error at 100r_s: {result.consistency_error:.2e} ✓")
+        print(f"  Consistency error at 100r_s: {result.consistency_error:.2e} (OK)")
     
     def test_vacuum_solution(self):
         """Verify vacuum solution G_μν ≈ 0."""
@@ -99,7 +99,7 @@ class TestSourceFormation:
         assert len(vacuum['results']) == 4
         # Check that G_norm values are computed
         assert all('G_norm' in r for r in vacuum['results'])
-        print(f"  Vacuum solution: {vacuum['test_points']} points computed ✓")
+        print(f"  Vacuum solution: {vacuum['test_points']} points computed (OK)")
     
     def test_interior_solution(self):
         """Test interior solution with matter."""
@@ -110,7 +110,7 @@ class TestSourceFormation:
         
         assert interior['compactness'] > 0
         assert interior['compactness'] < 1
-        print(f"  Interior: compactness={interior['compactness']:.3f} ✓")
+        print(f"  Interior: compactness={interior['compactness']:.3f} (OK)")
 
 
 # =============================================================================
@@ -130,7 +130,7 @@ class TestStability:
             h = standard_perturbation(r, theta, amp, mode)
             assert h.shape == (4, 4)
         
-        print("  Perturbation modes: radial, monopole, dipole, quadrupole ✓")
+        print("  Perturbation modes: radial, monopole, dipole, quadrupole (OK)")
     
     def test_linearization(self):
         """Test metric linearization."""
@@ -147,7 +147,7 @@ class TestStability:
         
         assert pert.h_munu.shape == (4, 4)
         assert pert.gauge == "harmonic"
-        print("  Linearized metric: harmonic gauge, trace-reversed ✓")
+        print("  Linearized metric: harmonic gauge, trace-reversed (OK)")
     
     def test_curvature_perturbation(self):
         """Test perturbed curvature computation."""
@@ -163,7 +163,7 @@ class TestStability:
         
         assert 'delta_R_munu' in curv
         assert 'delta_G_munu' in curv
-        print("  Perturbed curvature: δR_μν, δG_μν computed ✓")
+        print("  Perturbed curvature: deltaR, deltaG computed (OK)")
     
     def test_stability_spectrum(self):
         """Test full stability spectrum analysis."""
@@ -175,7 +175,7 @@ class TestStability:
         
         assert len(stability.modes) > 0
         assert stability.stability_time > 0
-        print(f"  Stability: {len(stability.modes)} modes, τ_e={stability.stability_time:.2e}s ✓")
+        print(f"  Stability: {len(stability.modes)} modes, tau_e={stability.stability_time:.2e}s (OK)")
     
     def test_radial_stability(self):
         """Test radial stability specifically."""
@@ -185,7 +185,7 @@ class TestStability:
         
         assert 'results' in radial
         assert radial['overall_stable']  # SSZ should be stable
-        print(f"  Radial stability: {radial['overall_stable']}, {len(radial['results'])} amplitudes ✓")
+        print(f"  Radial stability: {radial['overall_stable']}, {len(radial['results'])} amplitudes (OK)")
     
     def test_stability_summary(self):
         """Test stability across mass range."""
@@ -197,7 +197,7 @@ class TestStability:
         # Just verify the structure is correct
         assert summary['masses_tested'] == 5
         assert len(summary['results']) == 5
-        print(f"  Stability summary: {summary['masses_tested']} masses tested ✓")
+        print(f"  Stability summary: {summary['masses_tested']} masses tested (OK)")
 
 
 # =============================================================================
@@ -211,7 +211,7 @@ class TestObservationalProof:
         """Test validator setup."""
         validator = ObservationalValidator(data_source="all")
         assert validator.data_source == "all"
-        print("  ObservationalValidator initialized ✓")
+        print("  ObservationalValidator initialized (OK)")
     
     def test_alma_data_loading(self):
         """Test ALMA data loading."""
@@ -220,7 +220,7 @@ class TestObservationalProof:
         m87_data = validator.load_alma_data("M87")
         assert len(m87_data) > 0
         assert m87_data[0].source == "ALMA/EHT"
-        print(f"  ALMA data: {len(m87_data)} M87 observations ✓")
+        print(f"  ALMA data: {len(m87_data)} M87 observations (OK)")
     
     def test_nicer_data_loading(self):
         """Test NICER data loading."""
@@ -229,7 +229,7 @@ class TestObservationalProof:
         nicer_data = validator.load_nicer_data("J0030")
         assert len(nicer_data) > 0
         assert nicer_data[0].source == "NICER"
-        print(f"  NICER data: {len(nicer_data)} pulsar observations ✓")
+        print(f"  NICER data: {len(nicer_data)} pulsar observations (OK)")
     
     def test_prediction_generation(self):
         """Test prediction for observation."""
@@ -246,7 +246,7 @@ class TestObservationalProof:
         
         pred = validator.predict_for_observation(obs)
         assert pred.predicted_value > 0
-        print(f"  Prediction: z_pred={pred.predicted_value:.2e} ✓")
+        print(f"  Prediction: z_pred={pred.predicted_value:.2e} (OK)")
 
 
 # =============================================================================
@@ -262,7 +262,7 @@ class TestEngineering:
         
         assert sim.D_factor > 0
         assert sim.D_factor < 1
-        print(f"  Device simulator: D={sim.D_factor:.10f} ✓")
+        print(f"  Device simulator: D={sim.D_factor:.10f} (OK)")
     
     def test_gate_timing_correction(self):
         """Test gate timing correction."""
@@ -272,7 +272,7 @@ class TestEngineering:
         t_corr = sim.gate_timing_correction(t_nom)
         
         assert t_corr > t_nom  # SSZ slows time
-        print(f"  Gate timing: {t_nom*1e9:.1f}ns → {t_corr*1e9:.3f}ns ✓")
+        print(f"  Gate timing: {t_nom*1e9:.1f}ns -> {t_corr*1e9:.3f}ns (OK)")
     
     def test_phase_accumulation(self):
         """Test phase accumulation."""
@@ -283,7 +283,7 @@ class TestEngineering:
         phase = sim.phase_accumulation(freq, duration)
         
         assert phase > 0
-        print(f"  Phase accumulation: {phase:.2f} rad ✓")
+        print(f"  Phase accumulation: {phase:.2f} rad (OK)")
     
     def test_height_sensitivity(self):
         """Test height sensitivity calculation."""
@@ -291,7 +291,7 @@ class TestEngineering:
         
         sens = sim.height_sensitivity()
         assert sens > 0
-        print(f"  Height sensitivity: {sens:.2e} m⁻¹ ✓")
+        print(f"  Height sensitivity: {sens:.2e} m^-1 (OK)")
     
     def test_tolerance_analysis(self):
         """Test tolerance requirements."""
@@ -299,7 +299,7 @@ class TestEngineering:
         
         assert tolerances.max_height_variation > 0
         assert tolerances.timing_tolerance > 0
-        print(f"  Tolerances: Δh_max={tolerances.max_height_variation*1000:.3f}mm ✓")
+        print(f"  Tolerances: delta_h_max={tolerances.max_height_variation*1000:.3f}mm (OK)")
     
     def test_error_budget(self):
         """Test error budget computation."""
@@ -307,7 +307,7 @@ class TestEngineering:
         
         assert errors.total_error > 0
         assert errors.ssz_contribution >= 0
-        print(f"  Error budget: SSZ={errors.ssz_contribution:.2e}, Total={errors.total_error:.2e} ✓")
+        print(f"  Error budget: SSZ={errors.ssz_contribution:.2e}, Total={errors.total_error:.2e} (OK)")
     
     def test_feasibility_assessment(self):
         """Test complete feasibility assessment."""
@@ -315,7 +315,7 @@ class TestEngineering:
         
         assert 0 <= feas.engineering_confidence <= 1
         assert isinstance(feas.ready_for_prototype, bool)
-        print(f"  Feasibility: confidence={feas.engineering_confidence*100:.0f}%, ready={feas.ready_for_prototype} ✓")
+        print(f"  Feasibility: confidence={feas.engineering_confidence*100:.0f}%, ready={feas.ready_for_prototype} (OK)")
     
     def test_qubit_array_simulation(self):
         """Test multi-qubit simulation."""
@@ -328,7 +328,7 @@ class TestEngineering:
         
         assert result['num_qubits'] == 4
         assert len(result['D_factors']) == 4
-        print(f"  Qubit array: {result['num_qubits']} qubits, mismatch={result['max_timing_mismatch']:.2e} ✓")
+        print(f"  Qubit array: {result['num_qubits']} qubits, mismatch={result['max_timing_mismatch']:.2e} (OK)")
     
     def test_gate_fidelity(self):
         """Test gate fidelity estimation."""
@@ -341,7 +341,7 @@ class TestEngineering:
         
         assert fidelity['fidelity_per_gate'] > 0.99
         assert fidelity['circuit_fidelity'] > 0
-        print(f"  Gate fidelity: {fidelity['fidelity_per_gate']*100:.4f}% per gate ✓")
+        print(f"  Gate fidelity: {fidelity['fidelity_per_gate']*100:.4f}% per gate (OK)")
     
     def test_device_comparison(self):
         """Test multi-device comparison."""
@@ -350,7 +350,7 @@ class TestEngineering:
         
         assert comparison['num_devices'] == 2
         assert comparison['best_candidate'] is not None
-        print(f"  Device comparison: {comparison['num_devices']} devices, best={comparison['best_candidate']} ✓")
+        print(f"  Device comparison: {comparison['num_devices']} devices, best={comparison['best_candidate']} (OK)")
 
 
 if __name__ == "__main__":
