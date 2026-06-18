@@ -6,6 +6,7 @@ Licensed under the Anti-Capitalist Software License v1.4
 """
 
 import pytest
+import numpy as np
 from math import isclose
 from ssz_metric_pure.constants import M_SUN, C
 from ssz_metric_pure.core import characteristic_radius
@@ -48,9 +49,6 @@ def test_lensing_and_shapiro_completion():
     r2 = 1.433e12
     d = 1.391e9
     delay = shapiro_delay_ppn(r_s, r1, r2, d, gamma_ppn=1.0)
-    expected_delay = 2.0 * (r_s / C) * np.log(4.0 * r1 * r2 / (d ** 2)) if 'np' in globals() else 0.0
-    # Let's import numpy to verify it cleanly
-    import numpy as np
     expected_delay = 2.0 * (r_s / C) * np.log(4.0 * r1 * r2 / (d ** 2))
     assert isclose(delay, expected_delay, rel_tol=1e-12)
 
@@ -62,7 +60,6 @@ def test_perihelion_orbit_calculations():
     a = 5.791e10
     e = 0.2056
     precession = perihelion_precession_ppn(M, a, e)
-    import numpy as np
     expected = 3.0 * np.pi * characteristic_radius(M) / (a * (1.0 - e**2))
     
     print(f"  Mercury perihelion precession: {precession:.6e} rad/orbit")

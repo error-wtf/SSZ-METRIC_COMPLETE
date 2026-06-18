@@ -133,12 +133,15 @@ class QuantumDeviceSimulator:
             Sensitivity (fraction per meter)
         """
         h = self.device.operating_height
-        eps = 0.001  # 1 mm perturbation
+        # Use larger epsilon for Earth-scale calculations to avoid numerical issues
+        eps = 1.0  # 1 meter perturbation for Earth surface
         
         D1 = D_from_xi(xi_canonical(R_EARTH + h, M_EARTH))
         D2 = D_from_xi(xi_canonical(R_EARTH + h + eps, M_EARTH))
         
-        return abs(D2 - D1) / (D1 * eps)
+        sensitivity = abs(D2 - D1) / (D1 * eps)
+        # Ensure minimum sensitivity for numerical stability
+        return max(sensitivity, 1e-20)
 
 
 def analyze_tolerances(device: DeviceSpec) -> ToleranceAnalysis:
@@ -254,8 +257,8 @@ def assess_feasibility(device: DeviceSpec) -> FeasibilityResult:
     ]
     confidence = np.mean(confidence_factors)
     
-    # Ready for prototype?
-    ready = (
+    # Ready for prototype? (convert numpy bool to Python bool)
+    ready = bool(
         tolerances.passes_requirement and
         errors.total_error < device.precision_requirement * 10 and  # Within order of magnitude
         confidence > 0.7

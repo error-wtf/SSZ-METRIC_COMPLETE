@@ -78,7 +78,7 @@ def test_shapiro_delay():
     
     delay = predict_shapiro_ppn(r_s, r1, r2, d, gamma_ppn=1.0)
     expected = 2.0 * (r_s / C) * np.log(4.0 * r1 * r2 / (d ** 2))
-    print(f"  Shapiro delay: {delay*1e6:.2f} μs (expected: {expected*1e6:.2f} μs)")
+    print(f"  Shapiro delay: {delay*1e6:.2f} us (expected: {expected*1e6:.2f} us)")
     print(f"  PPN factor (1+gamma): 2.0")
     assert delay > 0.0
     assert isclose(delay, expected, rel_tol=1e-12)
@@ -119,7 +119,7 @@ def test_finite_horizon():
     expected_D = 1.0 / (1.0 + expected_xi)
     print(f"  Xi(r_s): {expected_xi:.6f}")
     print(f"  D(r_s) predicted: {expected_D:.6f}, actual: {D_horizon:.6f}")
-    print(f"  D is FINITE: {D_horizon:.6f} > 0.5 ✓")
+    print(f"  D is FINITE: {D_horizon:.6f} > 0.5 (OK)")
     assert isclose(D_horizon, expected_D, rel_tol=1e-12)
     assert D_horizon > 0.5
 

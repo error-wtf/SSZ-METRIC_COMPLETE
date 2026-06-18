@@ -79,7 +79,7 @@ def run_tests():
     passed_tests = 0
     
     for category_name, test_path in test_categories:
-        print(f"\\n{'-' * 80}")
+        print(f"\n{'-' * 80}")
         print(f"Running: {category_name}")
         print(f"{'-' * 80}")
         
@@ -89,39 +89,43 @@ def run_tests():
             continue
         
         try:
-            result = subprocess.run(
-                [sys.executable, "-m", "pytest", test_path, "-v", "--tb=short"],
-                capture_output=True,
+            # Run pytest and stream output in REAL-TIME
+            process = subprocess.Popen(
+                [sys.executable, "-m", "pytest", test_path, "-vv", "--tb=long", "-s"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
                 text=True,
-                timeout=60
+                bufsize=1
             )
             
-            # Parse output
-            output = result.stdout + result.stderr
+            # Stream output in real-time and collect it
+            output_lines = []
+            print("-" * 40 + " LIVE TEST OUTPUT " + "-" * 40)
+            for line in process.stdout:
+                print(line, end='')  # Print in real-time
+                output_lines.append(line)
+                sys.stdout.flush()
+            print("-" * 88)
             
-            # Count tests
-            if "passed" in output:
-                # Extract number of passed tests
-                import re
-                match = re.search(r"(\d+) passed", output)
-                if match:
-                    passed = int(match.group(1))
-                    passed_tests += passed
-                    total_tests += passed
-                else:
-                    passed = 1
-                    passed_tests += 1
-                    total_tests += 1
-                
-                print(f"[OK] {category_name}: PASSED")
+            # Wait for completion
+            process.wait(timeout=60)
+            output = ''.join(output_lines)
+            
+            # Count tests from output
+            import re
+            match = re.search(r"(\d+) passed", output)
+            if match and process.returncode == 0:
+                passed = int(match.group(1))
+                passed_tests += passed
+                total_tests += passed
+                print(f"[OK] {category_name}: PASSED ({passed} tests)")
                 results.append((category_name, passed, passed, "PASS"))
             else:
                 print(f"[FAIL] {category_name}: FAILED")
-                print(output)
                 results.append((category_name, 0, 0, "FAIL"))
                 
         except subprocess.TimeoutExpired:
-            print(f"[TIME]  {category_name}: TIMEOUT")
+            print(f"[TIME] {category_name}: TIMEOUT (60s limit)")
             results.append((category_name, 0, 0, "TIMEOUT"))
         except Exception as e:
             print(f"[ERR] {category_name}: ERROR - {e}")
@@ -218,7 +222,7 @@ def run_tests():
             total_tests += 1
 
     # Summary
-    print("\\n" + "=" * 80)
+    print("\n" + "=" * 80)
     print("TEST SUMMARY")
     print("=" * 80)
     
@@ -254,7 +258,7 @@ def run_tests():
     
     for category, passed, total, status in results:
         status_badge = "[OK] PASS" if status == "PASS" else "[FAIL] FAIL"
-        report_content += f"| {category} | {status_badge} | {passed}/{total} |\\n"
+        report_content += f"| {category} | {status_badge} | {passed}/{total} |\n"
     
     report_content += f"""
 ## Key Metrics Verified
@@ -272,12 +276,12 @@ def run_tests():
 """
     
     if passed_tests == total_tests and total_tests > 0:
-        report_content += "**ALL TESTS PASSED** [OK]\\n\\nThe pure SSZ metric is mathematically rigorous, verified, and fully isolated.\\n"
+        report_content += "**ALL TESTS PASSED** [OK]\n\nThe pure SSZ metric is mathematically rigorous, verified, and fully isolated.\n"
     else:
-        report_content += f"**{passed_tests}/{total_tests} TESTS PASSED**\\n\\nSome tests need attention.\\n"
+        report_content += f"**{passed_tests}/{total_tests} TESTS PASSED**\n\nSome tests need attention.\n"
     
     report_path.write_text(report_content)
-    print(f"\\n[RPT] Report saved to: {report_path}")
+    print(f"\n[RPT] Report saved to: {report_path}")
     
     return passed_tests == total_tests and total_tests > 0
 

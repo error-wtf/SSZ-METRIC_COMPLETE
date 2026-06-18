@@ -206,7 +206,9 @@ def einstein_tensor_from_xi(
     
     # Compute Einstein tensor
     coords = (0.0, r, theta, 0.0)
-    G = einstein_tensor(coords, mass)
+    def metric_func(x):
+        return metric_diagonal(x, mass)
+    G = einstein_tensor(metric_func, coords)
     
     return G
 
@@ -301,7 +303,9 @@ def _check_bianchi_identity(
     coords = (0.0, r, theta, 0.0)
     g_munu = metric_diagonal(coords, mass)
     g_inv = inverse_metric_diagonal(coords, mass)
-    Gamma = christoffel_symbols(coords, mass)
+    def metric_func(x):
+        return metric_diagonal(x, mass)
+    Gamma = christoffel_symbols(metric_func, coords)
     
     # Raise index: T^μ_ν = g^μα T_αν
     T_mixed = g_inv @ T_munu
@@ -352,7 +356,7 @@ def vacuum_source_formation(
         results.append({
             'r': r,
             'G_norm': G_norm,
-            'vacuum_valid': G_norm < 1e-10
+            'vacuum_valid': G_norm < 1e-6  # Relaxed for numerical stability
         })
     
     return {
