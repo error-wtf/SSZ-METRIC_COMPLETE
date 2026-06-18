@@ -21,8 +21,11 @@ from .constants import (
     PHI,
     C,
     G,
+    HBAR,
     M_SUN,
     R_SUN,
+    M_EARTH,
+    R_EARTH,
     X_BLEND_MIN,
     X_BLEND_MAX,
 )
@@ -206,13 +209,73 @@ from .observable_validation import (
     validate_observable,
 )
 
+# Physical Source Formation (Matter Coupling)
+from .source_formation import (
+    MatterConfig,
+    StressEnergyResult,
+    SourceFormationResult,
+    equation_of_state_parameter,
+    perfect_fluid_stress_energy,
+    scalar_field_stress_energy,
+    einstein_tensor_from_xi,
+    source_consistency_check,
+    vacuum_source_formation,
+    interior_solution_formation,
+)
+
+# Nonlinear Stability Analysis
+from .stability import (
+    PerturbationMode,
+    StabilityResult,
+    LinearizedMetric,
+    standard_perturbation,
+    linearize_metric,
+    compute_perturbed_curvature,
+    analyze_stability_spectrum,
+    radial_stability_analysis,
+    mode_coupling_analysis,
+    stability_summary,
+)
+
+# Enhanced Observational Proof
+from .observational_proof import (
+    ObservationData,
+    ModelPrediction,
+    ValidationResult,
+    StatisticalValidation,
+    ObservationalValidator,
+    generate_validation_report,
+)
+
+# Engineering Feasibility
+from .engineering import (
+    DeviceSpec,
+    ToleranceAnalysis,
+    ErrorBudget,
+    FeasibilityResult,
+    QuantumDeviceSimulator,
+    analyze_tolerances,
+    compute_error_budget,
+    assess_feasibility,
+    simulate_qubit_array,
+    gate_fidelity_estimate,
+    device_comparison,
+    generate_engineering_report,
+    EXAMPLE_QUBIT_DEVICE,
+    EXAMPLE_OPTICAL_CLOCK,
+    EXAMPLE_SENSOR,
+)
+
 __all__ = [
     # Constants
     "PHI",
     "C",
     "G",
+    "HBAR",
     "M_SUN",
     "R_SUN",
+    "M_EARTH",
+    "R_EARTH",
     "X_BLEND_MIN",
     "X_BLEND_MAX",
     
@@ -340,4 +403,53 @@ __all__ = [
     "neutron_star_redshift_prediction",
     "neutron_star_surface_D",
     "neutron_star_usecase_report",
+    
+    # Physical Source Formation (NEW)
+    "MatterConfig",
+    "StressEnergyResult",
+    "SourceFormationResult",
+    "equation_of_state_parameter",
+    "perfect_fluid_stress_energy",
+    "scalar_field_stress_energy",
+    "einstein_tensor_from_xi",
+    "source_consistency_check",
+    "vacuum_source_formation",
+    "interior_solution_formation",
+    
+    # Nonlinear Stability Analysis (NEW)
+    "PerturbationMode",
+    "StabilityResult",
+    "LinearizedMetric",
+    "standard_perturbation",
+    "linearize_metric",
+    "compute_perturbed_curvature",
+    "analyze_stability_spectrum",
+    "radial_stability_analysis",
+    "mode_coupling_analysis",
+    "stability_summary",
+    
+    # Enhanced Observational Proof (NEW)
+    "ObservationData",
+    "ModelPrediction",
+    "ValidationResult",
+    "StatisticalValidation",
+    "ObservationalValidator",
+    "generate_validation_report",
+    
+    # Engineering Feasibility (NEW)
+    "DeviceSpec",
+    "ToleranceAnalysis",
+    "ErrorBudget",
+    "FeasibilityResult",
+    "QuantumDeviceSimulator",
+    "analyze_tolerances",
+    "compute_error_budget",
+    "assess_feasibility",
+    "simulate_qubit_array",
+    "gate_fidelity_estimate",
+    "device_comparison",
+    "generate_engineering_report",
+    "EXAMPLE_QUBIT_DEVICE",
+    "EXAMPLE_OPTICAL_CLOCK",
+    "EXAMPLE_SENSOR",
 ]

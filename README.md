@@ -113,11 +113,36 @@ python run_all_tests.py
 4. **Script Execution** - Runs all 4 scripts in `scripts/` directory
 5. **Example Verification** - Executes `examples/quickstart.py`
 
-**Main runner output includes:**
-- ASCII-formatted report (Windows-compatible, no Unicode)
-- Test category breakdown
-- PASS/FAIL status for each component
-- Summary statistics
+**Main runner output (maximal verbose, LIVE):**
+- **LIVE real-time output** - Every test runs and shows output immediately (not at the end)
+- **All predicted/actual values** - Every assert comparison shown with expected vs actual
+- **Detailed test names** - Each test function name displayed as it runs
+- **Full test output** - All print statements, debug info, calculated values
+- **ASCII formatting** - Windows-compatible, no Unicode encoding issues
+- **Summary statistics** - Final PASS/FAIL count for all 106 tests
+
+**What you will see LIVE:**
+```
+Running: Canonical Xi Primary Tests
+---------------------------------------- LIVE TEST OUTPUT ----------------------------------------
+tests/test_canonical_xi_primary.py::test_xi_canonical_formula PASSED
+  Xi(r_s) predicted: 0.802, actual: 0.8019
+tests/test_canonical_xi_primary.py::test_xi_piecewise_continuity PASSED
+  Blend zone C0 check: predicted < 1e-10, actual: 8.5e-11
+------------------------------------------------------------------------------------------------------
+[OK] Canonical Xi Primary Tests: PASSED (3 tests)
+```
+
+**Verbosity flags used:**
+- `-vv` - Maximum verbosity (shows all test names with parameters)
+- `--tb=long` - Full traceback on errors
+- `-s` - Show all print statements from tests (predicted/actual values)
+
+**Anti-Faker Policy:**
+- **NO fake data generation** (no faker, no random values)
+- **NO mocking** in physics tests
+- **ONLY calculated physical values** from SSZ formulas
+- Guard test: `tests/test_no_faking_in_tests.py` enforces this
 
 **Run individual test categories:**
 ```bash
@@ -235,9 +260,21 @@ print(f"Sun-grazing deflection: {alpha:.4f} arcsec")
 
 ## ⚠️ Current Limitations
 
-This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim:
-- Complete physical source formation
-- Nonlinear stability analysis
-- Complete external observational proof
-- Physical beaming effects
-- Engineering feasibility for devices
+This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim physical source formation, nonlinear stability, complete external observational proof, physical beaming, or engineering feasibility.
+
+---
+
+## 🔗 Related Repositories
+
+All SSZ ecosystem repositories are available at [github.com/error-wtf](https://github.com/error-wtf/):
+
+| Repository | Description | Local Path |
+|------------|-------------|------------|
+| **ssz-qubits** | Quantum computing with SSZ time dilation corrections | `ssz-qubits/` |
+| **ssz-schumann** | Schumann resonance & electromagnetic wave analysis | `ssz-schuhman-experiment/` |
+| **ssz-metric-pure** | Tensoren & symbolische Berechnungen | `ssz-metric-pure/` |
+| **ssz-full-metric** | Vollständige Observable-Pipeline | `ssz-full-metric/` |
+| **ssz-paper-plots** | Paper-Visualisierungen | `ssz-paper-plots/` |
+| **g79-cygnus** | G79 Cygnus A Galactic Core validation | `g79-cygnus-test/` |
+| **Unified-Results** | Segmented Spacetime Mass Projection | `Segmented-Spacetime-Mass-Projection-Unified-Results/` |
+| **Segmented-Spacetime** | Theoretische Grundlagen-Papers | `SEGMENTED-SPACETIME/` |

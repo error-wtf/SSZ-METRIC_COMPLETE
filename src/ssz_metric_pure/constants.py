@@ -27,3 +27,12 @@ R_SUN = 6.96340e8
 # Standard blend zone boundaries in units of r_s
 X_BLEND_MIN = 1.8
 X_BLEND_MAX = 2.2
+
+# Reduced Planck constant (J·s)
+HBAR = 1.054571817e-34
+
+# Earth mass (kg)
+M_EARTH = 5.9722e24
+
+# Earth radius (m)
+R_EARTH = 6.371e6
