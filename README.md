@@ -287,12 +287,9 @@ All SSZ ecosystem repositories are available at [github.com/error-wtf](https://g
 
 | Repository | Description | Local Path |
 |------------|-------------|------------|
-| **ssz-qubits** | Quantum computing with SSZ time dilation corrections | `ssz-qubits/` |
-| **ssz-schumann** | Schumann resonance & electromagnetic wave analysis | `ssz-schuhman-experiment/` |
-| **ssz-metric-pure** | Tensoren & symbolische Berechnungen | `ssz-metric-pure/` |
-| **ssz-full-metric** | Vollständige Observable-Pipeline | `ssz-full-metric/` |
-| **ssz-paper-plots** | Paper-Visualisierungen | `ssz-paper-plots/` |
-| **g79-cygnus** | G79 Cygnus A Galactic Core validation | `g79-cygnus-test/` |
-| **Unified-Results** | Segmented Spacetime Mass Projection | `Segmented-Spacetime-Mass-Projection-Unified-Results/` |
-| **Segmented-Spacetime** | Theoretische Grundlagen-Papers | `SEGMENTED-SPACETIME/` |
-| **ssz-how-to-beam** | Relativistic beaming & jet physics guide | `SSZ-HOW-TO-BEAM/` |
+| [**ssz-qubits**](https://github.com/error-wtf/ssz-qubits) | Quantum computing with SSZ time dilation corrections | `ssz-qubits/` |
+| [**ssz-schumann**](https://github.com/error-wtf/ssz-schumann) | Schumann resonance & electromagnetic wave analysis | `ssz-schuhman-experiment/` |
+| [**ssz-metric-pure**](https://github.com/error-wtf/ssz-metric-pure) | Tensoren & symbolische Berechnungen | `ssz-metric-pure/` |
+| [**ssz-full-metric**](https://github.com/error-wtf/ssz-full-metric) | Vollständige Observable-Pipeline | `ssz-full-metric/` |
+| [**ssz-paper-plots**](https://github.com/error-wtf/ssz-paper-plots) | Paper-Visualisierungen | `ssz-paper-plots/` |
+| [**ssz-how-to-beam**](https://github.com/error-wtf/SSZ-HOW-TO-BEAM) | Relativistic beaming & jet physics guide | `SSZ-HOW-TO-BEAM/` |
