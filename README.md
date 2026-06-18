@@ -98,16 +98,40 @@ To install optional developer, visualization, and external astroquery dependenci
 python -m pip install -e ".[dev,viz,external-data]"
 ```
 
-### 2. Running Verification Tests
-Execute the comprehensive verification test suite verifying all identities, determinants, weak-field PPN limits, and strict core isolation:
+### 2. Running the Main Test Runner (run_all_tests.py)
+
+The **main test runner** is the primary entry point for validating the entire SSZ framework. It executes 106 tests across multiple categories:
+
 ```bash
-python -m pytest -q
+python run_all_tests.py
 ```
 
-To run the external pipeline contract and manifest-schema tests:
+**What the main runner does:**
+1. **Core Purity Tests** - Verifies no GR/Kerr scaffolding in core package
+2. **Internal Tests** (97 tests) - pytest suite for all core functionality
+3. **External Tests** (9 tests) - Pipeline contracts and manifest validation
+4. **Script Execution** - Runs all 4 scripts in `scripts/` directory
+5. **Example Verification** - Executes `examples/quickstart.py`
+
+**Main runner output includes:**
+- ASCII-formatted report (Windows-compatible, no Unicode)
+- Test category breakdown
+- PASS/FAIL status for each component
+- Summary statistics
+
+**Run individual test categories:**
 ```bash
-python -m pytest tests_external -q
+# Only internal tests (fastest)
+python -m pytest tests/ -v
+
+# Only external pipeline tests
+python -m pytest tests_external/ -v
+
+# Only countertests
+python -m pytest tests_external_countertests/ -v
 ```
+
+**Expected result:** All 106 tests PASS with 100% success rate.
 
 ---
 
@@ -150,8 +174,70 @@ python scripts/run_external_metric_countertests.py --nicer-manifest external_val
 
 ---
 
+## 🎯 Quick Start Examples
+
+### Basic SSZ Calculation
+```python
+from ssz_metric_pure import (
+    xi_canonical,      # Segment density Xi(r)
+    D_from_xi,         # Time dilation D(r) = 1/(1+Xi)
+    s_from_xi,         # Scale factor s(r) = 1 + Xi
+    characteristic_radius,
+    M_SUN, PHI
+)
+
+# Solar Schwarzschild radius
+r_s = characteristic_radius(M_SUN)
+print(f"Solar r_s = {r_s:.1f} m")
+print(f"Golden Ratio PHI = {PHI}")
+
+# Xi at different radii
+for x in [1.0, 1.8, 2.0, 2.2, 10.0]:  # in r_s units
+    r = x * r_s
+    xi = xi_canonical(r, M_SUN)
+    D = D_from_xi(xi)
+    print(f"r/r_s = {x:4.1f}: Xi = {xi:.6f}, D = {D:.6f}")
+
+# Key results:
+# - Xi(r_s) = 1 - exp(-PHI) ≈ 0.802 (finite!)
+# - D(r_s) ≈ 0.555 (not zero!)
+# - Xi → r_s/(2r) asymptotically (matches GR weak-field)
+```
+
+### Shapiro Delay Calculation
+```python
+from ssz_metric_pure import shapiro_ssz, shapiro_weak_field_exact
+from ssz_metric_pure.constants import M_SUN, R_SUN
+
+# Sun-Earth Shapiro delay
+r_earth = 1.496e11  # 1 AU
+r_sun = 6.96e8      # Solar radius
+
+# Exact analytical solution
+delay = shapiro_weak_field_exact(r_sun, r_earth, M_SUN)
+print(f"Sun-Earth Shapiro delay: {delay*1e6:.2f} µs")
+# Expected: ~26.5 µs (weak-field SSZ)
+```
+
+### Light Deflection Calculation
+```python
+from ssz_metric_pure import deflection_weak_field_exact
+from ssz_metric_pure.constants import M_SUN, R_SUN
+
+# Sun-grazing light deflection
+b = R_SUN  # Impact parameter = solar radius
+alpha = deflection_weak_field_exact(b, M_SUN)
+print(f"Sun-grazing deflection: {alpha:.4f} arcsec")
+# Expected: ~1.75 arcsec (Einstein limit)
+```
+
+---
+
 ## ⚠️ Current Limitations
 
-The kanonische SSZ-Metrik ist als Xi-primärer Core vollständig definiert und für die dokumentierten Observablenklassen forward/antizirkulär testbar. Für dynamische, rotierende, mehrkörper-, quanten- und engineeringbezogene Usecases ist sie ein Ausgangspunkt, aber noch keine vollständige Lösung.
-
-This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim physical source formation, nonlinear stability, complete external observational proof, physical beaming, or engineering feasibility.
+This repository implements a canonical Xi-primary SSZ metric research framework. It does not claim:
+- Complete physical source formation
+- Nonlinear stability analysis
+- Complete external observational proof
+- Physical beaming effects
+- Engineering feasibility for devices
