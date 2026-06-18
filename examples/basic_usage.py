@@ -1,20 +1,24 @@
 """
 Basic Usage Example for SSZ Metric Pure
+⚠️  LEGACY - NICHT FUNKTIONAL
 
-Demonstrates core functionality of the SSZ metric.
+Dieses Beispiel verwendet veraltete Module (ssz_core) die entfernt wurden.
+Bitte examples/quickstart.py für aktuelles Beispiel verwenden.
 
 © 2025 Carmen N. Wrede & Lino Casu
 """
 
-import numpy as np
-import matplotlib.pyplot as plt
+import sys
+print("="*60)
+print("⚠️  LEGACY EXAMPLE - NICHT FUNKTIONAL")
+print("="*60)
+print("\nDieses Beispiel verwendet veraltete Module (ssz_core).")
+print("Bitte examples/quickstart.py verwenden.")
+print("="*60)
+sys.exit(1)
 
-from src.ssz_core import (
-    Xi, D_SSZ, D_GR, find_intersection,
-    A_Xi, A_phi_series, A_safe,
-    metric_tensor, schwarzschild_radius
-)
-from src.ssz_core.constants import PHI, M_SUN
+# Original imports (nicht funktional):
+# from src.ssz_core import (...)
 
 print("="*60)
 print("SSZ Metric Pure - Basic Usage Example")

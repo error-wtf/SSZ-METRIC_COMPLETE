@@ -31,23 +31,35 @@ Spacetime is **not** a continuous manifold, but consists of **discrete segments*
 - Natural quantum-gravity bridge
 - Emergent metric from segment configuration
 
-### 1.2 Golden Ratio Saturation
+### 1.2 Canonical Ξ-Formula (Piecewise)
 
-Segments fill spacetime according to the **Golden Ratio** φ = (1+√5)/2:
+The canonical SSZ Segment Density follows a **three-regime piecewise** definition:
 
+**Strong-field (r/r_s < 1.8):**
 ```
-Ξ(r) = 1 - exp(-φ · r/r_s)
+Xi(r) = 1 - exp(-PHI * r_s/r)
+```
+
+**Blend zone (1.8 ≤ r/r_s ≤ 2.2):**
+```
+Xi(r) = hermite_c2(Xi_strong, Xi_weak, dXi_strong, dXi_weak)
+```
+
+**Weak-field (r/r_s > 2.2):**
+```
+Xi(r) = r_s / (2*r)
 ```
 
 where:
-- Ξ(r): Segment saturation factor ∈ [0, 1)
-- φ ≈ 1.618033988749: Golden ratio
-- r_s: Schwarzschild radius = 2GM/c²
+- Xi(r): Segment density ∈ (0, 0.5)
+- PHI = (1+sqrt(5))/2 ≈ 1.618
+- r_s = 2GM/c²: Schwarzschild radius
 
 **Physical Interpretation:**
-- Ξ(0) = 0: No saturation at center (empty)
-- Ξ(∞) → 1: Full saturation far away
-- φ provides "natural" exponential scale
+- Xi(r_s) ≈ 0.802: Finite strong-field value
+- Xi → r_s/(2r) asymptotically: Matches GR weak-field
+- Smooth C² transition in blend zone
+- **DEPRECATED**: Xi = 1 - exp(-PHI*r/r_s) is NOT canonical
 
 ---
 
@@ -71,9 +83,10 @@ D_SSZ(r) = 1 / (1 + Ξ(r))
 A_Ξ(r) = D_SSZ(r)² = (1 + Ξ(r))^(-2)
 ```
 
-**Derivative:**
+**Derivative (Strong-field):**
 ```
-dA_Ξ/dr = -2φ/r_s · exp(-φ r/r_s) / (1 + Ξ(r))³
+dXi/dr = -PHI * r_s/r^2 * exp(-PHI * r_s/r)
+dA_Xi/dr = -2 * (1+Xi)^(-3) * dXi/dr
 ```
 
 ### 2.3 GR Time Dilation (Comparison)
@@ -88,13 +101,23 @@ D_GR(r) = √(1 - r_s/r)  for r > r_s
 
 ---
 
-## 3. Outer Solution: φ-Series
+## 3. Observable Calculations
 
-### 3.1 Post-Newtonian Expansion
+### 3.1 Shapiro Delay (Weak-Field Exact)
 
 ```
-A_φ(r) = Σ_{n=0}^6 ε_n (r_s/2r)^n
+Δt_weak = (r_source/c) * (1 + r_s/(2*b) * arccos(b/r_source))
 ```
+
+**Example:** Sun-Earth: Δt ≈ 26.5 µs
+
+### 3.2 Light Deflection (Einstein Limit)
+
+```
+α_weak = 2*r_s/b = 4*G*M/(c^2*b)
+```
+
+**Example:** Sun-grazing: α ≈ 1.75 arcsec
 
 **Coefficients (φ-series):**
 ```

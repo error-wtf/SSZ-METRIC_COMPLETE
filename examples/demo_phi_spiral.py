@@ -2,25 +2,25 @@
 # -*- coding: utf-8 -*-
 """
 Demo: φ-Spiral Segmented Spacetime Metric
+⚠️  LEGACY - NICHT FUNKTIONAL
 
-Demonstrates the pure φ-spiral metric implementation with:
-- Metric component calculations
-- Subspace layer visualization
-- Spiral embedding plots
-- Schwarzschild limit comparison
+Dieses Beispiel verwendet veraltete Module (metric_phi_spiral_ssz_by_human).
+Bitte examples/quickstart.py für aktuelles Beispiel verwenden.
 
 © 2025 Carmen N. Wrede & Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
-import numpy as np
-import matplotlib.pyplot as plt
-from pathlib import Path
-
-# Add parent directory to path
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+print("="*60)
+print("⚠️  LEGACY EXAMPLE - NICHT FUNKTIONAL")
+print("="*60)
+print("\nDieses Beispiel verwendet veraltete Module.")
+print("Bitte examples/quickstart.py verwenden.")
+print("="*60)
+sys.exit(1)
 
-from ssz_metric_pure.metric_phi_spiral_ssz_by_human import PhiSpiralSSZMetric
+# Original imports (nicht funktional):
+# from ssz_metric_pure.metric_phi_spiral_ssz_by_human import PhiSpiralSSZMetric
 
 # Physical constants
 M_SUN = 1.98847e30  # Solar mass [kg]

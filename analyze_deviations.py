@@ -2,31 +2,40 @@
 # -*- coding: utf-8 -*-
 """
 SSZ Metric Deviation Analysis
+⚠️  LEGACY SCRIPT - NICHT FUNKTIONAL
 
-Quantitative analysis of differences between Kerr-SSZ and φ-Spiral metrics.
-Shows percentage deviations, statistical analysis, and convergence behavior.
+Dieses Skript referenziert Module die nicht mehr existieren:
+- metric_phi_spiral_ssz_by_human (entfernt)
+- metric_kerr_ssz_kerr_by_ki (entfernt)
+
+Verwendung: NUR als historische Referenz - nicht ausführen!
+Die aktuelle SSZ-Implementation verwendet ausschließlich:
+- src/ssz_metric_pure/core.py (kanonische Ξ-Formel)
+- src/ssz_metric_pure/metric.py (Metrik-Tensor)
 
 © 2025 Carmen N. Wrede & Lino Casu
 Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
 import sys
-import os
-import numpy as np
-from pathlib import Path
 
-# UTF-8 encoding for Windows
-os.environ['PYTHONIOENCODING'] = 'utf-8'
-if sys.platform.startswith('win'):
-    try:
-        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-    except:
-        pass
+# ⚠️  ABORT - Legacy Script
+print("=" * 80)
+print("⚠️  LEGACY SCRIPT - ABORT")
+print("=" * 80)
+print("\nDieses Skript referenziert nicht-existente Module:")
+print("  - metric_phi_spiral_ssz_by_human")
+print("  - metric_kerr_ssz_kerr_by_ki")
+print("\nDiese Module wurden aus dem kanonischen SSZ-Repo entfernt.")
+print("Die aktuelle Implementation verwendet:")
+print("  - src/ssz_metric_pure/core.py (kanonisch)")
+print("  - src/ssz_metric_pure/metric.py")
+print("\nBitte tests/test_shapiro_deflection.py für aktuelle Tests.")
+print("=" * 80)
+sys.exit(1)
 
-# Add src to path
-sys.path.insert(0, str(Path(__file__).parent / "src"))
-
-from ssz_metric_pure.metric_phi_spiral_ssz_by_human import PhiSpiralSSZMetric
-from ssz_metric_pure.metric_kerr_ssz_kerr_by_ki import KerrSSZMetric, KerrSSZParams
+# Original imports (Module existieren NICHT):
+# from ssz_metric_pure.metric_phi_spiral_ssz_by_human import PhiSpiralSSZMetric
+# from ssz_metric_pure.metric_kerr_ssz_kerr_by_ki import KerrSSZMetric, KerrSSZParams
 
 # Physical constants
 M_SUN = 1.98847e30  # Solar mass [kg]

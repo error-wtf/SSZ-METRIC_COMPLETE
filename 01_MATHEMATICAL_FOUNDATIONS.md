@@ -89,15 +89,26 @@ U = GM/(rc²)
 - No crossover at α=1.0
 - SSZ corrections at ALL radii
 
-### 3.2 Exponential Form (strong-field, r < 100r_s)
+### 3.2 Exponential Form (strong-field, r/r_s < 1.8) - CANONICAL
 ```
-Ξ(r) = 1 - e^(-φr/r_s)     [Ξ_max = 1 explicit]
+Ξ(r) = 1 - e^(-φ·r_s/r)     [Ξ_max = 1 explicit]
 ```
 
 **Properties:**
 - Ξ(0) = 0 (singularity-free!)
 - Ξ(r_s) = 1 - e^(-φ) = 0.802
 - **Universal crossover at r* = 1.386562 r_s**
+- **Note:** This is the CANONICAL strong-field form used in `xi_canonical()`
+
+### 3.3 Weak-Field Form (r/r_s > 2.2) - CANONICAL
+```
+Ξ(r) = r_s / (2r)
+```
+
+**Properties:**
+- Matches GR in weak-field limit
+- Continuous transition via C² Hermite blend (1.8 < r/r_s < 2.2)
+- Used in `core.py` as the standard Ξ formulation
 - For r > 100r_s: use weak-field Ξ = r_s/(2r) → 0 as r → ∞ (asymptotic behavior)
 
 ---

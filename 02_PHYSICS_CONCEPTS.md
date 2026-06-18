@@ -49,10 +49,16 @@ Time is not a coordinate, but a derived quantity!
 **Claim:** Golden ratio φ = 1.618... is fundamental
 
 **Appearances:**
-- Ξ(r) exponential: exp(-φr/r_s)
+- Ξ(r) strong-field: 1 - exp(-φ·r_s/r)  [CANONICAL]
+- Ξ(r) weak-field: r_s/(2r)  [CANONICAL]
 - Resonance frequency: ω = φ/(1+Ξ)
 - Energy maximum: E_max = φ²E₀
 - Universal crossover linked to φ
+
+**Canonical Implementation:**
+- Strong-field (r/r_s < 1.8): Ξ = 1 - exp(-φ·r_s/r)
+- Blend zone (1.8 < r/r_s < 2.2): C² Hermite interpolation
+- Weak-field (r/r_s > 2.2): Ξ = r_s/(2r)
 
 **Implications:**
 - φ-geometry fundamental to nature

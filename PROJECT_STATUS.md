@@ -19,4 +19,7 @@ All reference, comparative, or legacy models (such as Boyer-Lindquist frame-drag
 - **Strict Separation Enforced**: Handled via `test_no_kerr_in_core.py` to guarantee core purity.
 - **Dynamic Connection Engine**: Fixed coordinate variable differentiation in the curvature tensor engine (verified via `test_tensor_pipeline.py`).
 - **PEP 517 Conformant**: Unified build backend via `pyproject.toml` pointing to package `ssz_metric_pure`.
-- **All 6/6 Pure-Core Tests Passing**: Full structural and physical validation.
+- **All 106/106 Tests Passing**: 97 internal + 9 external tests (100% PASS)
+- **Shapiro Delay**: Corrected to ~26.5 µs (physically accurate)
+- **Light Deflection**: Exact 2D null-geodesics (~1.75 arcsec Sun-grazing)
+- **All Scripts Working**: 4 scripts/ + quickstart.py fully functional

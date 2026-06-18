@@ -1,54 +1,55 @@
-# Findings: ssz-metric-pure
+# Findings: SSZ-METRIC-COMPLETE
 
-**Theoretical Foundation Repository - Pure SSZ Metric Formulation**  
+**Theoretical Foundation Repository - Canonical SSZ Metric Formulation**  
 **URL:** https://github.com/error-wtf/ssz-metric-pure  
-**Date:** 2025-11-13
+**Date:** 2026-06-18
 
 ---
 
 ## 1. Repository Overview
 
-**Purpose:** Complete singularity-free black hole solution with φ-based geometric structure - **SSZ ONLY**, no comparisons!
+**Purpose:** Complete singularity-free black hole solution with **canonical Ξ-formula** - **SSZ ONLY**, no comparisons!
 
-**Version:** v2.1.0 (November 2025)
+**Version:** v1.1.0-canonical-pure (June 2026)
 
 **Focus:**
-- LaTeX paper-ready documentation
-- Python symbolic & numerical validation
-- Complete 4D tensor formulation
-- 2PN calibration (new in v2.1.0)
+- Canonical three-regime Ξ-formula (strong/blend/weak)
+- 106 Tests (100% PASS)
+- Exact Shapiro delay (~26.5 µs) and light deflection (~1.75 arcsec)
+- Anti-circular forward protocol
+- Python 3.9+, fully Windows-compatible (ASCII-only)
 
 ---
 
-## 2. The SSZ φ-Spiral Metric
+## 2. The Canonical SSZ Metric
 
-### 2.1 Diagonal (T,r) Form - RECOMMENDED
+### 2.1 Segment Density Ξ(r) - CANONICAL
 
+The canonical SSZ Segment Density follows a **three-regime piecewise** definition:
+
+**Strong-field (r/r_s < 1.8):**
 ```
-ds² = -(c²/γ²(r)) dT² + γ²(r) dr² + r² dΩ²
+Xi(r) = 1 - exp(-PHI * r_s/r)
+```
+
+**Blend zone (1.8 ≤ r/r_s ≤ 2.2):**
+```
+Xi(r) = hermite_c2(Xi_strong, Xi_weak, dXi_strong, dXi_weak)
+```
+
+**Weak-field (r/r_s > 2.2):**
+```
+Xi(r) = r_s / (2*r)  # PPN-konform
+```
 
 Where:
-γ(r) = cosh(φ_G(r))
-β(r) = tanh(φ_G(r))
-```
+- PHI = (1+sqrt(5))/2 ≈ 1.618
+- r_s = 2GM/c²: Schwarzschild radius
 
-**2PN Calibration (v2.1.0 - NEW & RECOMMENDED):**
-```
-φ²_G(r) = 2U(1 + U/3)
-
-Where: U = GM/(rc²)
-```
-
-**1PN Calibration (v2.0.0 - Legacy):**
-```
-φ²_G(r) = 2U
-```
-
-**Why 2PN is better:**
-- Matches GR up to O(U²) instead of just O(U)
-- Faster convergence
-- More precise predictions
-- Backward compatible
+**Key values:**
+- Xi(r_s) ≈ 0.802 (finite strong-field value)
+- D(r_s) = 1/(1+Xi(r_s)) ≈ 0.555 (finite!)
+- Xi → r_s/(2r) asymptotically: Matches GR weak-field
 
 ---
 

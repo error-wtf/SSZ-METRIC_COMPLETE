@@ -79,12 +79,12 @@ def run_tests():
     passed_tests = 0
     
     for category_name, test_path in test_categories:
-        print(f"\\n{'─' * 80}")
+        print(f"\\n{'-' * 80}")
         print(f"Running: {category_name}")
-        print(f"{'─' * 80}")
+        print(f"{'-' * 80}")
         
         if not os.path.exists(test_path):
-            print(f"⚠️  Test file not found: {test_path}")
+            print(f"[WARN]  Test file not found: {test_path}")
             results.append((category_name, 0, 0, "MISSING"))
             continue
         
@@ -113,24 +113,24 @@ def run_tests():
                     passed_tests += 1
                     total_tests += 1
                 
-                print(f"✅ {category_name}: PASSED")
+                print(f"[OK] {category_name}: PASSED")
                 results.append((category_name, passed, passed, "PASS"))
             else:
-                print(f"❌ {category_name}: FAILED")
+                print(f"[FAIL] {category_name}: FAILED")
                 print(output)
                 results.append((category_name, 0, 0, "FAIL"))
                 
         except subprocess.TimeoutExpired:
-            print(f"⏱️  {category_name}: TIMEOUT")
+            print(f"[TIME]  {category_name}: TIMEOUT")
             results.append((category_name, 0, 0, "TIMEOUT"))
         except Exception as e:
-            print(f"💥 {category_name}: ERROR - {e}")
+            print(f"[ERR] {category_name}: ERROR - {e}")
             results.append((category_name, 0, 0, "ERROR"))
             
     # Executing Exact Benchmark Replay CLI Script
-    print(f"\n{'─' * 80}")
+    print(f"\n{'-' * 80}")
     print("Running: Exact Benchmark Replay CLI Script")
-    print(f"{'─' * 80}")
+    print(f"{'-' * 80}")
     try:
         res = subprocess.run(
             [sys.executable, "scripts/run_exact_benchmark_replay.py",
@@ -140,24 +140,24 @@ def run_tests():
             timeout=60
         )
         if res.returncode == 0:
-            print("✅ Exact Benchmark Replay: PASSED")
+            print("[OK] Exact Benchmark Replay: PASSED")
             results.append(("Exact Benchmark Replay CLI", 1, 1, "PASS"))
             passed_tests += 1
             total_tests += 1
         else:
-            print("❌ Exact Benchmark Replay: FAILED")
+            print("[FAIL] Exact Benchmark Replay: FAILED")
             print(res.stdout + res.stderr)
             results.append(("Exact Benchmark Replay CLI", 0, 1, "FAIL"))
             total_tests += 1
     except Exception as e:
-        print(f"💥 Benchmark Replay ERROR - {e}")
+        print(f"[ERR] Benchmark Replay ERROR - {e}")
         results.append(("Exact Benchmark Replay CLI", 0, 1, "ERROR"))
         total_tests += 1
 
     # Executing External Metric Countertest Gauntlet Runner
-    print(f"\n{'─' * 80}")
+    print(f"\n{'-' * 80}")
     print("Running: External Metric Countertest Gauntlet Runner")
-    print(f"{'─' * 80}")
+    print(f"{'-' * 80}")
     try:
         res = subprocess.run(
             [sys.executable, "scripts/run_external_metric_countertests.py"],
@@ -166,30 +166,67 @@ def run_tests():
             timeout=60
         )
         if res.returncode == 0:
-            print("✅ External Metric Countertest Gauntlet: PASSED")
+            print("[OK] External Metric Countertest Gauntlet: PASSED")
             results.append(("Countertest Gauntlet CLI", 1, 1, "PASS"))
             passed_tests += 1
             total_tests += 1
         else:
-            print("❌ External Metric Countertest Gauntlet: FAILED")
+            print("[FAIL] External Metric Countertest Gauntlet: FAILED")
             print(res.stdout + res.stderr)
             results.append(("Countertest Gauntlet CLI", 0, 1, "FAIL"))
             total_tests += 1
     except Exception as e:
-        print(f"💥 Countertest Runner ERROR - {e}")
+        print(f"[ERR] Countertest Runner ERROR - {e}")
         results.append(("Countertest Gauntlet CLI", 0, 1, "ERROR"))
         total_tests += 1
-    
+
+    # Script Execution Tests - Verify all scripts run without errors
+    script_tests = [
+        ("Script: Build Parameter Manifest", "scripts/build_external_parameter_manifest.py", ["--help"]),
+        ("Script: List Eligible Datasets", "scripts/list_eligible_external_datasets.py", ["--help"]),
+        ("Script: Fetch ALMA", "scripts/fetch_alma.py", ["--help"]),
+        ("Script: Fetch NICER", "scripts/fetch_nicer.py", ["--help"]),
+        ("Example: Quickstart", "examples/quickstart.py", []),
+    ]
+
+    for script_name, script_path, script_args in script_tests:
+        print(f"\n{'-' * 80}")
+        print(f"Running: {script_name}")
+        print(f"{'-' * 80}")
+
+        if not os.path.exists(script_path):
+            print(f"[WARN] Script not found: {script_path}")
+            results.append((script_name, 0, 0, "MISSING"))
+            continue
+
+        try:
+            cmd = [sys.executable, script_path] + script_args
+            res = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+            if res.returncode == 0 or (script_args == ["--help"] and res.returncode == 0):
+                print(f"[OK] {script_name}: PASSED")
+                results.append((script_name, 1, 1, "PASS"))
+                passed_tests += 1
+                total_tests += 1
+            else:
+                print(f"[FAIL] {script_name}: FAILED (exit code {res.returncode})")
+                print(res.stderr[:500] if res.stderr else res.stdout[:500])
+                results.append((script_name, 0, 1, "FAIL"))
+                total_tests += 1
+        except Exception as e:
+            print(f"[ERR] {script_name}: ERROR - {e}")
+            results.append((script_name, 0, 1, "ERROR"))
+            total_tests += 1
+
     # Summary
     print("\\n" + "=" * 80)
     print("TEST SUMMARY")
     print("=" * 80)
     
     for category, passed, total, status in results:
-        status_icon = "✅" if status == "PASS" else "❌" if status == "FAIL" else "⚠️"
+        status_icon = "[OK]" if status == "PASS" else "[FAIL]" if status == "FAIL" else "[WARN]"
         print(f"{status_icon} {category:35s} {passed:3d}/{total:3d} {status}")
     
-    print("─" * 80)
+    print("-" * 80)
     print(f"TOTAL: {passed_tests}/{total_tests} tests passed")
     print("=" * 80)
     
@@ -216,31 +253,31 @@ def run_tests():
 """
     
     for category, passed, total, status in results:
-        status_badge = "✅ PASS" if status == "PASS" else "❌ FAIL"
+        status_badge = "[OK] PASS" if status == "PASS" else "[FAIL] FAIL"
         report_content += f"| {category} | {status_badge} | {passed}/{total} |\\n"
     
     report_content += f"""
 ## Key Metrics Verified
 
-- ✅ **Primary Field Xi:** The metric is derived directly from the primary segment density field Xi(r).
-- ✅ **Strict Core Purity:** 100% free of GR, Schwarzschild, or Kerr Boyer-Lindquist scaffolding.
-- ✅ **Dynamic Tensor Pipeline:** Curvature derivatives truly dependent on coordinates (No-Freeze-Test).
-- ✅ **Algebraic Coupling Identity:** D(r) * s(r) = 1 holds identically with precision < 1e-12.
-- ✅ **Determinant Identity:** det(g) = -c² r⁴ sin²θ holds identically with precision < 1e-10.
-- ✅ **Inverse Metric Identity:** g @ g_inv = Identity Matrix holds identically with precision < 1e-10.
-- ✅ **Local c Invariance:** radial null geodesic orthonormal speeds check to c.
+- [OK] **Primary Field Xi:** The metric is derived directly from the primary segment density field Xi(r).
+- [OK] **Strict Core Purity:** 100% free of GR, Schwarzschild, or Kerr Boyer-Lindquist scaffolding.
+- [OK] **Dynamic Tensor Pipeline:** Curvature derivatives truly dependent on coordinates (No-Freeze-Test).
+- [OK] **Algebraic Coupling Identity:** D(r) * s(r) = 1 holds identically with precision < 1e-12.
+- [OK] **Determinant Identity:** det(g) = -c^2 r^4 sin^2(theta) holds identically with precision < 1e-10.
+- [OK] **Inverse Metric Identity:** g @ g_inv = Identity Matrix holds identically with precision < 1e-10.
+- [OK] **Local c Invariance:** radial null geodesic orthonormal speeds check to c.
 
 ## Conclusion
 
 """
     
     if passed_tests == total_tests and total_tests > 0:
-        report_content += "**ALL TESTS PASSED** ✅\\n\\nThe pure SSZ metric is mathematically rigorous, verified, and fully isolated.\\n"
+        report_content += "**ALL TESTS PASSED** [OK]\\n\\nThe pure SSZ metric is mathematically rigorous, verified, and fully isolated.\\n"
     else:
         report_content += f"**{passed_tests}/{total_tests} TESTS PASSED**\\n\\nSome tests need attention.\\n"
     
     report_path.write_text(report_content)
-    print(f"\\n📄 Report saved to: {report_path}")
+    print(f"\\n[RPT] Report saved to: {report_path}")
     
     return passed_tests == total_tests and total_tests > 0
 

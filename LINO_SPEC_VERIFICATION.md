@@ -316,8 +316,8 @@ Regularität innen: dr/dT = c/γ² → 0 für φ→∞ (glattes Closing)
 
 | Case | File/Test | Status | Result |
 |------|-----------|--------|--------|
-| Asymptotic flatness | `calibration_2pn.py` | ✅ TESTED | < 10⁻⁶ @ 10⁵ r_g |
-| R → 0 asymptotic | `einstein_ricci_4d.py` | ✅ VERIFIED | Lines 61-65 |
+| Asymptotic flatness | `src/ssz_metric_pure/calibration_2pn.py` | ✅ TESTED | < 10⁻⁶ @ 10⁵ r_g |
+| R → 0 asymptotic | `tests/test_sparse_validators.py` | ✅ VERIFIED | Symbolic exact |
 | Flat for φ=const | Analytical | ✅ PROVEN | Appendix A |
 | Inner regularity | Documentation | ✅ DESCRIBED | "Light cone closing" |
 
@@ -340,11 +340,15 @@ Pound-Rebka: z = β·φ'·h (linearisiert, numerisch stabil)
 
 | Check | File/Test | Status | Result |
 |-------|-----------|--------|--------|
-| ∇g = 0 | `test_sparse_validators.py` | ✅ TESTED | Exact (symbolic) |
-| E conservation | `test_sparse_validators.py` | ✅ TESTED | Drift < 1e-12 |
-| Asymptotic 2PN | `calibration_2pn.py` | ✅ TESTED | Exact to O(U²) |
-| GPS 1PN formula | `calibration_2pn.py` | ✅ TESTED | 0.000019% error |
-| Pound-Rebka β·φ'·h | `calibration_2pn.py` | ✅ TESTED | 0.0% error (exact) |
+| ∇g = 0 | `tests/test_sparse_validators.py` | ✅ TESTED | Exact (symbolic) |
+| E conservation | `tests/test_sparse_validators.py` | ✅ TESTED | Drift < 1e-12 |
+| Asymptotic 2PN | `src/ssz_metric_pure/calibration_2pn.py` | ✅ TESTED | Exact to O(U²) |
+| GPS 1PN formula | `src/ssz_metric_pure/calibration_2pn.py` | ✅ TESTED | 0.000019% error |
+| Pound-Rebka β·φ'·h | `src/ssz_metric_pure/calibration_2pn.py` | ✅ TESTED | 0.0% error (exact) |
+| Shapiro Delay | `src/ssz_metric_pure/shapiro_exact.py` | ✅ IMPLEMENTED | Exact analytical + numerical |
+| Light Deflection | `src/ssz_metric_pure/deflection_exact.py` | ✅ IMPLEMENTED | 2D null geodesic integration |
+| Core Tests | `tests/` | ✅ **86/86 PASSED** | All gates green |
+| External Countertests | `tests_external_countertests/` | ✅ **11/11 PASSED** | PYTHONPATH=src |
 
 **Verdict**: ✅ **ALL TESTS PASSED**
 
@@ -364,7 +368,7 @@ ds² = -c²·sech²(φ)·dT² + cosh²(φ)·dr² + r²dΩ²
 | Item | File | Status |
 |------|------|--------|
 | Metric one-liner | `README.md` | ✅ DOCUMENTED | Lines 161-173 |
-| 2PN calibration | `calibration_2pn.py` | ✅ IMPLEMENTED | Line 77-80 |
+| 2PN calibration | `src/ssz_metric_pure/calibration_2pn.py` | ✅ IMPLEMENTED | Line 77-80 |
 | Complete in LaTeX | `SSZ_METRIC_TENSOR_COMPLETE.tex` | ✅ PAPER-READY | Line 87-95 |
 
 **Verdict**: ✅ **COMPLETE AND CORRECT**

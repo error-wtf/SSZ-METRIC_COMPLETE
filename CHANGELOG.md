@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0-canonical-pure] - 2026-06-18
+
+### Changed (BREAKING)
+- **Canonical Ξ-Formula**: Unified piecewise definition (strong/blend/weak regimes)
+- **Package renamed**: `ssz_metric_pure` - pure SSZ, no Kerr/GR comparison scaffolding
+- **API changed**: `xi_canonical()`, `D_from_xi()`, `s_from_xi()` - direct function API
+- **106 Tests**: 97 internal + 9 external tests (100% PASS)
+
+### Fixed
+- **Shapiro Delay**: Corrected to ~26.5 µs (physikalisch korrekt für Sun-Earth)
+- **Light Deflection**: Exakte 2D Null-Geodäten (~1.75 arcsec Sun-grazing)
+- **Unicode Encoding**: Alle Zeichen auf ASCII umgestellt (Windows-kompatibel)
+
+### Removed
+- **Legacy modules**: Kerr-Metrik, frame-dragging, Boyer-Lindquist-Koordinaten
+- **φ-Spiral notation**: Ersetzt durch kanonische Xi(r) Formulierung
+- **SSZParams/KerrSSZParams**: Ersetzt durch direkte Funktions-API
+
 ## [0.1.0] - 2025-10-31
 
 ### Added

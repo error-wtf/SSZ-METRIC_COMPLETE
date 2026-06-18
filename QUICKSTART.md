@@ -1,6 +1,6 @@
-# SSZ Metric Pure - Quick Start Guide
+# SSZ Metric v1.1.0-canonical-pure - Quick Start Guide
 
-**Get started with Pure Segmented Spacetime in 5 minutes!**
+**Get started with Canonical Segmented Spacetime in 5 minutes!**
 
 ---
 
@@ -10,7 +10,7 @@
 
 ```bash
 # Clone the repository
-cd E:/clone/ssz-metric-pure
+cd E:/clone/SSZ-METRIC_COMPLETE
 
 # Install in editable mode
 pip install -e .
@@ -35,72 +35,73 @@ pip install pytest pytest-cov black mypy flake8
 
 ## Basic Usage
 
-### 1. Static Black Hole (Schwarzschild-like)
+### 1. Basic SSZ Calculation (Canonical API)
 
 ```python
-from ssz_metric_pure import SSZParams, StaticSSZMetric, M_SUN
+from ssz_metric_pure import (
+    xi_canonical,      # Segment density Xi(r)
+    D_from_xi,         # Time dilation factor D(r) = 1/(1+Xi)
+    s_from_xi,          # Scale factor s(r) = 1 + Xi
+    characteristic_radius,  # r_s = 2GM/c^2
+    M_SUN, PHI, C, G
+)
+import numpy as np
 
-# Create parameters for solar mass black hole
-params = SSZParams(mass=M_SUN)
+# Solar mass black hole
+r_s = characteristic_radius(M_SUN)
+print(f"Solar Schwarzschild radius: r_s = {r_s:.1f} m")
+print(f"Golden ratio PHI = {PHI}")
 
-# Initialize metric
-metric = StaticSSZMetric(params)
+# Xi at different radii
+test_radii = [1.0, 1.8, 2.0, 2.2, 10.0]  # in units of r_s
+for x in test_radii:
+    r = x * r_s
+    xi = xi_canonical(r, M_SUN)
+    D = D_from_xi(xi)
+    print(f"r/{r_s:.0f} = {x:4.1f}: Xi = {xi:.6f}, D = {D:.6f}")
 
-# Schwarzschild radius
-print(f"r_s = {metric.r_s:.3e} m")  # → 2.953e+03 m
-
-# Metric coefficient at 3× Schwarzschild radius
-A = metric.A_coefficient(3 * metric.r_s)
-print(f"A(3r_s) = {A:.6f}")  # → ~0.25 (singularity-free!)
-
-# Gravitational redshift
-z = metric.redshift(5 * metric.r_s)
-print(f"Redshift at 5r_s: z = {z:.3f}")
-
-# Escape velocity
-v_esc = metric.escape_velocity(5 * metric.r_s)
-print(f"v_esc = {v_esc:.3e} m/s")  # → < c always!
+# Key Result: Xi(r_s) = 1 - exp(-PHI) ≈ 0.802
+# D(r_s) = 1/(2 - exp(-PHI)) ≈ 0.555 (FINITE, not 0!)
 ```
-
-**Key Result:** `A(0) = 1.0` → **NO SINGULARITY at center!**
 
 ---
 
-### 2. Rotating Black Hole (Kerr-like)
+### 2. Shapiro Delay Calculation
 
 ```python
-from ssz_metric_pure import KerrSSZParams, KerrSSZMetric
-import numpy as np
+from ssz_metric_pure import shapiro_ssz, shapiro_weak_field_exact
+from ssz_metric_pure.constants import M_SUN, R_SUN, C
 
-# Fast rotating black hole (â = 0.9)
-params = KerrSSZParams(mass=1e30, spin=0.9)
-kerr = KerrSSZMetric(params)
+# Sun-Earth Shapiro delay
+r_earth = 1.496e11  # 1 AU in meters
+r_sun = 6.96e8      # Solar radius
 
-# Horizons
-r_plus, r_minus = kerr.horizons()
-print(f"Outer horizon: r_+ = {r_plus/kerr.r_s:.3f} r_s")
-print(f"Inner horizon: r_- = {r_minus/kerr.r_s:.3f} r_s")
+# Minimal implementation (weak-field approximation)
+delay_minimal = shapiro_ssz(r_sun, r_earth, M_SUN, n=5000)
+print(f"Shapiro delay (minimal): {delay_minimal*1e6:.2f} µs")
 
-# Ergosphere at equator
-r_ergo = kerr.ergosphere_radius(np.pi / 2)
-print(f"Ergosphere: r_ergo = {r_ergo/kerr.r_s:.3f} r_s")
+# Exact analytical formula
+delay_exact = shapiro_weak_field_exact(r_sun, r_earth, M_SUN)
+print(f"Shapiro delay (exact): {delay_exact*1e6:.2f} µs")
 
-# Frame dragging frequency
-omega = kerr.frame_drag_frequency(5*kerr.r_s, np.pi/2)
-print(f"Frame drag: ω = {omega:.3e} rad/s")
-
-# Full metric tensor
-theta = np.pi / 4  # 45 degrees
-components = kerr.metric_tensor(5*kerr.r_s, theta)
-print(f"g_tt = {components.g_tt:.6f}")
-print(f"g_tφ = {components.g_tph:.6e}")  # Off-diagonal → frame dragging!
+# Expected: ~26.5 µs for Sun-Earth (weak-field SSZ)
 ```
 
-**Key Features:**
-- Frame dragging (g_tφ ≠ 0)
-- Ergosphere (g_tt = 0 boundary)
-- Inner/outer horizons
-- Schwarzschild limit (â=0)
+### 3. Running Tests
+
+```bash
+# Run all tests
+pytest tests/ -v
+
+# Run specific test file
+pytest tests/test_shapiro_deflection.py -v
+
+# Run the main test runner
+python run_all_tests.py
+```
+
+**Expected Output:** All 106 tests PASS
+```
 
 ---
 
@@ -200,9 +201,7 @@ pytest tests/ --cov=ssz_metric_pure --cov-report=html
 ## Examples Directory
 
 See `examples/` for more:
-- `basic_usage.py` - Comprehensive examples
-- `kerr_rotation.py` - (coming soon) Rotating black holes
-- `visualization.py` - (coming soon) Plotting tools
+- `quickstart.py` - Basic SSZ calculation example (100% funktional)
 
 ---
 

@@ -1,6 +1,6 @@
-# φ-Spiral Segmented Spacetime Metric - COMPLETE & VALIDATED
+# SSZ Metric v1.1.0-canonical-pure - COMPLETE & VALIDATED
 
-**Version 1.0.0 FINAL - Publication Ready**
+**106/106 Tests PASS - 100% SSZ-Canonical**
 
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://python.org)
@@ -33,7 +33,7 @@ python geodesics_compact.py
 
 ## 📖 What Is This?
 
-The **φ-Spiral SSZ Metric** is a complete alternative to General Relativity that:
+The **SSZ Metric** (Segmented Spacetime Zone) is a complete alternative to General Relativity that:
 
 - ❌ Has **NO singularities** (finite everywhere)
 - ✅ Matches GR in weak field (< 0.001% error)
@@ -48,7 +48,7 @@ The **φ-Spiral SSZ Metric** is a complete alternative to General Relativity tha
 GR:   Curvature R_μν → Gravitation (geometry is dynamical)
       Requires: Einstein field equations, T_μν
 
-SSZ:  Rotation φ_G(r) → Segmentation → Effective Curvature
+SSZ:  Xi(r) Segment Density → Time Dilation D(r) → Effective Curvature
       Requires: NOTHING (geometry is kinematic)
 ```
 

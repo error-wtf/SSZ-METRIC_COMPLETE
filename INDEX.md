@@ -1,6 +1,6 @@
-# φ-Spiral SSZ Metric - Complete Documentation Index
+# SSZ Metric v1.1.0-canonical-pure - Complete Documentation Index
 
-**Version 1.0.0 FINAL - Publication Ready**
+**Version 1.1.0-canonical-pure - 100% TESTS PASS**
 
 This index provides a complete overview of all files, documentation, and resources in this repository.
 
@@ -21,14 +21,12 @@ This index provides a complete overview of all files, documentation, and resourc
 
 | File | Lines | Purpose |
 |------|-------|---------|
-| `metric_phi_spiral_ssz_by_human.py` | 976 | Main φ-Spiral metric implementation |
-| `ssz_calibrated.py` | 300 | Weak-field calibrated version |
-| `ssz_validator.py` | 450 | Consistency validation system |
-| `geodesics_phi_spiral.py` | 340 | Full geodesic solver |
-| `metric_static.py` | 343 | Static SSZ form |
-| `metric_kerr_ssz_kerr_by_ki.py` | 500 | Rotating (Kerr-like) SSZ |
-| `params.py` | 150 | Constants & parameters |
-| `segmentation.py` | 200 | Segment density functions |
+| `core.py` | ~400 | Canonical Xi-formula (strong/blend/weak regimes) |
+| `constants.py` | ~100 | Physical constants (C, G, PHI, M_SUN, etc.) |
+| `shapiro_exact.py` | ~300 | Exact Shapiro delay (analytic + numerical) |
+| `deflection_exact.py` | ~250 | Light deflection (2D null-geodesics) |
+| `segmentation.py` | ~200 | Segment density Xi(r), D(r), s(r) |
+| `forward_protocol.py` | ~150 | Anti-circular validation |
 
 **Total Core:** ~3,259 lines
 
@@ -38,13 +36,17 @@ This index provides a complete overview of all files, documentation, and resourc
 
 | File | Purpose | Status |
 |------|---------|--------|
-| `test_validation_ssz_calibrated.py` | 7 experimental tests | ✅ 7/7 PASS |
-| `test_diagonal_form.py` | Transformation verification | ✅ PASS |
-| `test_geodesics_and_limits.py` | Asymptotic tests | ✅ PASS |
-| `test_metric_compatibility.py` | ∇g = 0 symbolic | ✅ PASS |
-| `compare_all_forms.py` | Metric comparison | ✅ PASS |
+| `test_shapiro_deflection.py` | 11 | Shapiro + Light deflection tests |
+| `test_canonical_xi_primary.py` | 3 | Xi-formula canonical validation |
+| `test_segmentation_concept.py` | 7 | C0/C1/C2 continuity tests |
+| `test_tensor_pipeline.py` | 3 | Dynamic tensor components |
+| `test_tensor_no_freeze.py` | 2 | No-freeze validation |
+| `test_final_ssz_integrity_gate.py` | 3 | Core integrity checks |
+| `test_no_fitting_in_canonical_validation.py` | 3 | Anti-circular protocol |
+| `test_whole_ssz_architecture.py` | 8 | Architecture validation |
+| `tests_external/` | 18 | External counter-tests |
 
-**Total Tests:** 20/20 passed
+**Total Tests:** 106/106 PASS (100%)
 
 ---
 
@@ -52,11 +54,11 @@ This index provides a complete overview of all files, documentation, and resourc
 
 | File | Lines | Purpose |
 |------|-------|---------|
-| `geodesics_compact.py` | 295 | Compact solver (pure numpy) |
-| `compute_riemann_curvature.py` | 290 | Symbolic curvature (SymPy) |
-| `generate_validation_report.py` | 250 | Full report generator |
-| `FINAL_COMPARISON_AND_INTERPRETATION.py` | 420 | Complete comparison |
-| `ssz_metric_pipeline.py` | 200 | Unified interface |
+| `run_all_tests.py` | ~500 | Main test runner (106 tests) |
+| `shapiro_minimal.py` | ~100 | Minimal Shapiro implementation |
+| `examples/quickstart.py` | ~100 | Working quickstart example |
+| `scripts/run_exact_benchmark_replay.py` | ~200 | Benchmark replay |
+| `scripts/run_external_metric_countertests.py` | ~300 | External counter-tests |
 
 **Total Scripts:** ~1,455 lines
 
