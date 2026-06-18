@@ -29,15 +29,20 @@ def test_segment_properties():
     s_vals = segment_scale(r_vals, M_SUN)
     
     # 1. Non-negativity
+    print(f"  Xi range: [{np.min(xi_vals):.6f}, {np.max(xi_vals):.6f}]")
+    print(f"  s range: [{np.min(s_vals):.6f}, {np.max(s_vals):.6f}]")
     assert np.all(xi_vals >= 0.0)
     assert np.all(s_vals >= 1.0)
     
     # 2. Asymptotics: Xi -> 0 for large r
+    print(f"  Xi at r=10^5 r_s: {xi_vals[-1]:.2e} (expected ~0)")
     assert isclose(xi_vals[-1], 0.0, abs_tol=1e-5)
     
-    # 3. Monotonic decrease (Xi must strictly decrease or stay within floating point precision)
+    # 3. Monotonic decrease
     diffs = np.diff(xi_vals)
-    assert np.all(diffs <= 1e-12), f"Xi is not monotonic! Max diff: {np.max(diffs)}"
+    max_diff = np.max(diffs)
+    print(f"  Max Xi increase: {max_diff:.2e} (must be <= 1e-12)")
+    assert np.all(diffs <= 1e-12), f"Xi is not monotonic! Max diff: {max_diff}"
 
 
 def test_algebraic_complementary_identity():
@@ -45,12 +50,16 @@ def test_algebraic_complementary_identity():
     r_s = characteristic_radius(M_SUN)
     r_vals = np.logspace(0, 6, 500) * r_s
     
+    print(f"  Testing D*s = 1 identity at {len(r_vals)} radii...")
+    max_error = 0.0
     for r in r_vals:
         xi = segment_density(r, M_SUN)
         D = D_from_xi(xi)
         s = s_from_xi(xi)
-        
+        error = abs(D * s - 1.0)
+        max_error = max(max_error, error)
         assert isclose(D * s, 1.0, rel_tol=1e-12)
+    print(f"  Max D*s deviation from 1: {max_error:.2e}")
 
 
 def test_segment_distance():
@@ -61,6 +70,10 @@ def test_segment_distance():
     
     coord_dist = r2 - r1
     seg_dist = segment_distance(r1, r2, M_SUN)
+    
+    print(f"  Coordinate distance: {coord_dist:.3e} m")
+    print(f"  Segment distance: {seg_dist:.3e} m")
+    print(f"  Segment > Coordinate: {seg_dist > coord_dist}")
     
     # Segment distance must be strictly greater than coordinate distance since Xi > 0
     assert seg_dist > coord_dist

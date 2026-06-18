@@ -38,8 +38,8 @@ def test_gps_time_dilation_clocks():
     r = 2.656e7
     M = 5.972e24
     dilation = predict_time_dilation(r, M)
+    print(f"  GPS time dilation: {dilation:.2e} (expected: < 1e-8)")
     assert dilation > 0.0
-    # Expected approximate Earth surface-to-orbit dilation rate difference (GR order of magnitude)
     assert dilation < 1.0e-8
 
 
@@ -49,7 +49,7 @@ def test_redshift_predictions():
     r_obs = 6378122.5  # 22.5m elevation (Pound-Rebka)
     M = 5.972e24
     z = predict_redshift(r_emit, r_obs, M)
-    # Gravitational redshift from emitter to observer: z should be positive for outwards frequency shift
+    print(f"  Pound-Rebka redshift z: {z:.2e} (expected: ~2.44e-15)")
     assert z > 0.0
     assert isclose(z, 2.44e-15, rel_tol=1e-2)
 
@@ -62,6 +62,9 @@ def test_lensing_deflection():
     # Under PPN completion, gamma_ppn = 1.0 implies factor of 2
     angle = predict_lensing_ppn(r_s, b, gamma_ppn=1.0)
     expected_angle = 2.0 * r_s / b
+    angle_arcsec = angle * (180/np.pi) * 3600
+    print(f"  Lensing angle: {angle_arcsec:.4f} arcsec (expected: ~1.75 arcsec)")
+    print(f"  PPN factor (1+gamma): 2.0, angle: {angle:.6e} rad")
     assert isclose(angle, expected_angle, rel_tol=1e-12)
     assert isclose(angle, 8.4834e-6, rel_tol=1e-3)
 
@@ -74,9 +77,10 @@ def test_shapiro_delay():
     d = 1.391e9
     
     delay = predict_shapiro_ppn(r_s, r1, r2, d, gamma_ppn=1.0)
-    assert delay > 0.0
-    # Verify PPN scale factor of 2.0 is included in calculation
     expected = 2.0 * (r_s / C) * np.log(4.0 * r1 * r2 / (d ** 2))
+    print(f"  Shapiro delay: {delay*1e6:.2f} μs (expected: {expected*1e6:.2f} μs)")
+    print(f"  PPN factor (1+gamma): 2.0")
+    assert delay > 0.0
     assert isclose(delay, expected, rel_tol=1e-12)
 
 
@@ -87,8 +91,9 @@ def test_perihelion_orbit_precession():
     e = 0.2056
     
     precession = predict_perihelion_ppn(M, a, e)
-    # Value must correspond to exact standard PPN orbit formula
     expected = 3.0 * np.pi * characteristic_radius(M) / (a * (1.0 - e**2))
+    print(f"  Mercury perihelion precession: {precession:.6e} rad/orbit")
+    print(f"  Expected (PPN): {expected:.6e} rad/orbit")
     assert isclose(precession, expected, rel_tol=1e-12)
 
 
@@ -97,6 +102,9 @@ def test_dual_velocity_invariant():
     r = 1.0e7
     M = 5.972e24
     product = predict_dual_velocity_product(r, M)
+    print(f"  Dual velocity product: {product:.6e} m^2/s^2")
+    print(f"  C^2: {C**2:.6e} m^2/s^2")
+    print(f"  Difference: {abs(product - C**2):.2e}")
     assert isclose(product, C ** 2, rel_tol=1e-12)
 
 
@@ -109,6 +117,9 @@ def test_finite_horizon():
     # D = 1 / (1 + Xi_strong(r_s)) = 1 / (2 - e^-phi)
     expected_xi = 1.0 - np.exp(-PHI)
     expected_D = 1.0 / (1.0 + expected_xi)
+    print(f"  Xi(r_s): {expected_xi:.6f}")
+    print(f"  D(r_s) predicted: {expected_D:.6f}, actual: {D_horizon:.6f}")
+    print(f"  D is FINITE: {D_horizon:.6f} > 0.5 ✓")
     assert isclose(D_horizon, expected_D, rel_tol=1e-12)
     assert D_horizon > 0.5
 

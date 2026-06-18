@@ -12,6 +12,9 @@ from ssz_metric_pure.observable_validation import run_full_validation_suite
 def test_validation_suite_execution():
     """Verify that running the validation suite completes and passes all internal consistency checks."""
     suite = run_full_validation_suite()
+    print(f"  Validation suite executed")
+    print(f"  Total tests: {suite['summary']['total']}")
+    print(f"  FAIL count: {suite['summary']['FAIL']}")
     assert "results" in suite
     assert "summary" in suite
     

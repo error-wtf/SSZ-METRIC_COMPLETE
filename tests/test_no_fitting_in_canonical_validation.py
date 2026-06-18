@@ -49,4 +49,6 @@ def test_no_fitting_terms_in_canonical_paths():
                             if re.search(r"\b" + re.escape(term) + r"\b", line):
                                 violations.append(f"{file}:{idx} - Term: {term} - {line.strip()}")
                                 
+    print(f"  Scanned for banned fitting terms")
+    print(f"  Violations found: {len(violations)}")
     assert len(violations) == 0, f"Banned fitting terms detected in canonical files:\n" + "\n".join(violations)

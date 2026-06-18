@@ -11,7 +11,9 @@ from ssz_metric_pure.scale_domains import list_scale_domains
 
 def test_multiscale_anti_circularity_registry_records():
     """Verify that all scale domain records are configured for anti-circular forward propagation."""
-    for dom in list_scale_domains():
+    domains = list_scale_domains()
+    print(f"  Found {len(domains)} scale domains")
+    for dom in domains:
         assert "name" in dom
         assert "primary_quantities" in dom
         assert "implemented_functions" in dom

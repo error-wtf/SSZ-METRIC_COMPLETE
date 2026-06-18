@@ -22,7 +22,12 @@ from ssz_metric_pure.phase_frequency import (
 
 def test_local_c_invariance():
     """Verify local Light-Speed invariance check equals C identically."""
-    val = local_c_invariance_check(3.0 * characteristic_radius(M_SUN), M_SUN)
+    r_test = 3.0 * characteristic_radius(M_SUN)
+    val = local_c_invariance_check(r_test, M_SUN)
+    print(f"  r = 3r_s = {r_test:.3e} m")
+    print(f"  Local c check: {val:.6e} m/s")
+    print(f"  Expected C: {C:.6e} m/s")
+    print(f"  Difference: {abs(val - C):.2e}")
     assert isclose(val, C, rel_tol=1e-12)
 
 
@@ -31,10 +36,11 @@ def test_frequency_ratio_uses_D():
     r_emit = 2.0 * characteristic_radius(M_SUN)
     r_obs = 10.0 * characteristic_radius(M_SUN)
     f_ratio = frequency_ratio_from_D(r_emit, r_obs, M_SUN)
+    print(f"  r_emit = 2r_s, r_obs = 10r_s")
+    print(f"  Frequency ratio f_emit/f_obs: {f_ratio:.10f}")
+    print(f"  Expected: < 1.0 (gravitational redshift)")
     assert f_ratio > 0.0
-    # Higher observer altitude -> higher potential/higher f -> f_obs > f_emit
-    assert f_ratio < 1.0  # f_emit / f_obs = D_obs/D_emit, so f_obs/f_emit < 1.0 is wrong, wait
-    # f_obs/f_emit = D_emit / D_obs. Since D_emit < D_obs, D_emit/D_obs < 1.0! Correct!
+    assert f_ratio < 1.0
 
 
 def test_wavelength_ratio_uses_s():
@@ -42,8 +48,10 @@ def test_wavelength_ratio_uses_s():
     r_emit = 2.0 * characteristic_radius(M_SUN)
     r_obs = 10.0 * characteristic_radius(M_SUN)
     lambda_ratio = wavelength_ratio_from_s(r_emit, r_obs, M_SUN)
+    print(f"  r_emit = 2r_s, r_obs = 10r_s")
+    print(f"  Wavelength ratio lambda_obs/lambda_emit: {lambda_ratio:.10f}")
+    print(f"  Expected: < 1.0")
     assert lambda_ratio > 0.0
-    # Since lambda_obs / lambda_emit = s_obs / s_emit, and s_obs < s_emit, ratio < 1.0
     assert lambda_ratio < 1.0
 
 
@@ -51,16 +59,28 @@ def test_phase_integral_finite():
     """Verify radial phase accumulation integrals evaluate successfully and are positive."""
     path = [2.0 * characteristic_radius(M_SUN), 5.0 * characteristic_radius(M_SUN)]
     accum = phase_path_integral(path, M_SUN)
+    print(f"  Path: 2r_s -> 5r_s")
+    print(f"  Phase accumulation: {accum:.6e} rad")
+    print(f"  Expected: > 0")
     assert accum > 0.0
 
 
 def test_frequency_curvature_proxy():
     """Verify frequency curvature proxy returns finite values."""
-    proxy = frequency_curvature_proxy(3.0 * characteristic_radius(M_SUN), M_SUN)
+    r_test = 3.0 * characteristic_radius(M_SUN)
+    proxy = frequency_curvature_proxy(r_test, M_SUN)
+    print(f"  r = 3r_s")
+    print(f"  Frequency curvature proxy: {proxy:.6e}")
+    print(f"  Expected: > 0")
     assert proxy > 0.0
 
 
 def test_clock_ratio():
     """Verify clock comparisons use clock_ratio."""
-    rat = clock_ratio(2.0 * characteristic_radius(M_SUN), 5.0 * characteristic_radius(M_SUN), M_SUN)
+    r1 = 2.0 * characteristic_radius(M_SUN)
+    r2 = 5.0 * characteristic_radius(M_SUN)
+    rat = clock_ratio(r1, r2, M_SUN)
+    print(f"  Clock A at 2r_s, Clock B at 5r_s")
+    print(f"  Clock ratio dT_A/dT_B: {rat:.10f}")
+    print(f"  Expected: > 0")
     assert rat > 0.0

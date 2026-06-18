@@ -34,6 +34,10 @@ def test_tensor_no_freeze_dynamic():
     gammas_dynamic = christoffel_symbols(g_func_dynamic, coords, h=1e-5)
     gammas_frozen = christoffel_symbols(g_func_frozen, coords, h=1e-5)
     
+    print(f"  r = 5r_s = {5.0 * r_s:.3e} m")
+    print(f"  Dynamic Christoffel max: {np.max(np.abs(gammas_dynamic)):.6e}")
+    print(f"  Frozen Christoffel max: {np.max(np.abs(gammas_frozen)):.6e}")
+    
     # Dynamic symbols must contain non-zero gradients and physical elements
     assert np.any(np.abs(gammas_dynamic) > 1e-15)
     

@@ -29,18 +29,21 @@ def test_tensor_pipeline_no_freeze():
         
     Gamma_dynamic = christoffel_symbols(dynamic_g_func, coords)
     
-    # Under dynamic diagonal metric, Γ¹_00 = -0.5 * g¹¹ * ∂_r g_00 should be non-zero
-    assert not np.allclose(Gamma_dynamic, 0.0), "Dynamic connection symbols must be non-trivial"
-    
-    # 2. Artificially frozen metric function (freezes the coordinate variable x to static values)
+    # 2. Artificially frozen metric function
     def frozen_g_func(x):
-        # Always returns the metric evaluated at the fixed coords point, ignoring perturbations!
         return metric_diagonal(coords, M_SUN)
         
     Gamma_frozen = christoffel_symbols(frozen_g_func, coords)
     
-    # For a completely frozen metric function, all coordinate derivatives are zero,
-    # so all Christoffel symbols must be identically zero!
+    print(f"  r = {r_val:.1f} m, theta = {np.degrees(theta_val):.1f} deg")
+    print(f"  Dynamic Gamma max: {np.max(np.abs(Gamma_dynamic)):.6e}")
+    print(f"  Frozen Gamma max: {np.max(np.abs(Gamma_frozen)):.6e}")
+    print(f"  Dynamic != Frozen: {not np.allclose(Gamma_dynamic, Gamma_frozen)}")
+    
+    # Under dynamic diagonal metric, Γ¹_00 should be non-zero
+    assert not np.allclose(Gamma_dynamic, 0.0), "Dynamic connection symbols must be non-trivial"
+    
+    # For a frozen metric function, all Christoffel symbols must be zero
     assert np.allclose(Gamma_frozen, 0.0), "Frozen metric derivatives must produce zero connection"
     
     # The dynamic and frozen results must differ significantly!

@@ -33,6 +33,11 @@ def test_metric_from_xi_construction():
     det_expected = -(C ** 2) * (r ** 4) * (np.sin(theta) ** 2)
     det_numerical = np.linalg.det(g)
     
+    print(f"  r = 5r_s = {r:.3e} m")
+    print(f"  det_analytical = {det_analytical:.6e}")
+    print(f"  det_expected = {det_expected:.6e}")
+    print(f"  det_numerical = {det_numerical:.6e}")
+    
     assert isclose(det_analytical, det_expected, rel_tol=1e-12)
     assert isclose(det_numerical, det_expected, rel_tol=1e-10)
     

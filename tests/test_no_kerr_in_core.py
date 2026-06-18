@@ -53,4 +53,6 @@ def test_no_kerr_in_core():
             if matches:
                 violations.append((file_name, list(set(matches))))
                 
+    print(f"  Scanned {len(core_files)} core files for forbidden terms")
+    print(f"  Violations found: {len(violations)}")
     assert not violations, f"Forbidden GR/Kerr scaffolds found in pure core executive code: {violations}"

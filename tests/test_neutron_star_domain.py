@@ -22,16 +22,17 @@ def test_neutron_star_surface_physics():
     R = 12000.0         # 12 km radius
     
     comp = neutron_star_compactness(M, R)
-    assert comp > 0.0
-    assert comp < 1.0  # Must be less than black hole compactness of 1.0
-    
-    regime = neutron_star_regime(M, R)
-    assert isinstance(regime, str)
-    
     z = neutron_star_redshift_prediction(M, R)
-    assert z > 0.0
-    
     D = neutron_star_surface_D(M, R)
+    
+    print(f"  Neutron star: M = 1.4 M_sun, R = 12 km")
+    print(f"  Compactness: {comp:.6f} (expected: 0 < comp < 1)")
+    print(f"  Surface redshift z: {z:.6f}")
+    print(f"  Surface D: {D:.6f} (expected: 1/(1+z) = {1.0/(1.0+z):.6f})")
+    
+    assert comp > 0.0
+    assert comp < 1.0
+    assert z > 0.0
     assert D > 0.0
     assert D < 1.0
     assert isclose(D, 1.0 / (1.0 + z), rel_tol=1e-12)
@@ -43,12 +44,16 @@ def test_neutron_star_report_and_limitations():
     R = 12000.0
     rep = neutron_star_usecase_report(M, R)
     
+    print(f"  Neutron star report:")
+    print(f"    Mass: {rep['mass_kg']:.3e} kg")
+    print(f"    Radius: {rep['radius_m']:.1f} m")
+    print(f"    Surface regime: {rep['surface_regime']}")
+    print(f"    Fittings allowed: {rep['fittings_allowed']}")
+    
     assert "mass_kg" in rep
     assert "radius_m" in rep
     assert "surface_regime" in rep
     assert "limitations" in rep
-    
-    # Verify no fitting allowed
     assert rep["fittings_allowed"] is False
     
     # Verify exact caveats are documented

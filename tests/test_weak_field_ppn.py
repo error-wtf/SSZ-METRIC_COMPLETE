@@ -30,5 +30,12 @@ def test_weak_field_limit():
     # Therefore, γ = 1 + Xi = 1 + U
     expected_gamma = 1.0 + U
     
+    print(f"  r_far = {r_far:.3e} m (100,000 r_s)")
+    print(f"  U = r_s/(2r) = {U:.6e}")
+    print(f"  Xi(r_far) = {xi:.6e}")
+    print(f"  Gamma = {gam:.10f}")
+    print(f"  Expected (1+U) = {expected_gamma:.10f}")
+    print(f"  Error = {abs(gam - expected_gamma):.2e}")
+    
     # The relative difference must be extremely small
     assert abs(gam - expected_gamma) < 1e-15

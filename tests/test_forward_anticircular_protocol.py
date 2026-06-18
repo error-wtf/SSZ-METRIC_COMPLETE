@@ -20,6 +20,9 @@ from ssz_metric_pure.forward_protocol import (
 def test_no_fitting_validation_protocol():
     """Verify that the fitting ban scan executes and passes successfully."""
     res = validate_no_fitting_used()
+    print(f"  Protocol: {res['gate']}")
+    print(f"  Status: {res['status']}")
+    print(f"  Files checked: {res.get('files_checked', 'N/A')}")
     assert res["status"] == "PASS"
     assert "reason" in res
 
@@ -27,37 +30,49 @@ def test_no_fitting_validation_protocol():
 def test_inputs_fixed_before_comparison():
     """Verify that inputs are statically declared beforehand."""
     res = validate_inputs_fixed_before_comparison()
+    print(f"  Protocol: {res['gate']}")
+    print(f"  Status: {res['status']}")
     assert res["status"] == "PASS"
 
 
 def test_formula_source_declared():
     """Verify that all observables declare an explicit documentation source."""
     res = validate_formula_source_declared()
+    print(f"  Protocol: {res['gate']}")
+    print(f"  Status: {res['status']}")
     assert res["status"] == "PASS"
 
 
 def test_observable_method_assignment():
     """Verify that only valid Prime Directive classes and methods are assigned."""
     res = validate_observable_method_assignment()
+    print(f"  Protocol: {res['gate']}")
+    print(f"  Status: {res['status']}")
     assert res["status"] == "PASS"
 
 
 def test_reference_not_used_in_prediction():
     """Verify that prediction functions have zero access to reference datasets."""
     res = validate_reference_not_used_in_prediction()
+    print(f"  Protocol: {res['gate']}")
+    print(f"  Status: {res['status']}")
     assert res["status"] == "PASS"
 
 
 def test_claim_scope():
     """Verify that there are no marketing overclaims in prediction docstrings."""
     res = validate_claim_scope()
+    print(f"  Protocol: {res['gate']}")
+    print(f"  Status: {res['status']}")
     assert res["status"] == "PASS"
 
 
 def test_all_protocols():
     """Verify that running all protocols returns a consistent passing outcome."""
     protocols = run_all_protocols()
+    print(f"  Total protocols run: {len(protocols)}")
     for prot in protocols:
+        print(f"    {prot['gate']}: {prot['status']}")
         assert isinstance(prot, dict)
         assert prot["status"] == "PASS"
         assert "gate" in prot

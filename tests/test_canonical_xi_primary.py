@@ -26,6 +26,7 @@ def test_canonical_xi_values():
     # 1. Strong-field value at Schwarzschild radius: Xi(r_s) == 1 - e^-phi
     xi_rs_analytical = 1.0 - np.exp(-PHI)
     xi_rs_numerical = xi_strong(r_s, M_SUN)
+    print(f"  Xi(r_s) predicted: {xi_rs_analytical:.10f}, actual: {xi_rs_numerical:.10f}, diff: {abs(xi_rs_numerical - xi_rs_analytical):.2e}")
     assert isclose(xi_rs_numerical, xi_rs_analytical, rel_tol=1e-12)
     
     # 2. Weak-field values at r = 10, 100, 1000 r_s
@@ -36,6 +37,7 @@ def test_canonical_xi_values():
         
         # Verify match with standard analytical decay
         expected = r_s / (2.0 * r)
+        print(f"  r/r_s = {scale:.0f}: Xi_weak = {xi_w:.10f}, Xi_canonical = {xi_c:.10f}, expected = {expected:.10f}")
         assert isclose(xi_w, expected, rel_tol=1e-12)
         assert isclose(xi_c, expected, rel_tol=1e-12)
 
@@ -44,6 +46,10 @@ def test_regime_routing():
     """Verify that regime routing matches canonical specifications."""
     r_s = characteristic_radius(M_SUN)
     
+    print(f"  Regime at r_s: {regime_of_r(1.0 * r_s, M_SUN)}")
+    print(f"  Regime at 2r_s: {regime_of_r(2.0 * r_s, M_SUN)}")
+    print(f"  Regime at 2.5r_s: {regime_of_r(2.5 * r_s, M_SUN)}")
+    print(f"  Regime at 5r_s: {regime_of_r(5.0 * r_s, M_SUN)}")
     assert regime_of_r(1.0 * r_s, M_SUN) == "very_close"
     assert regime_of_r(2.0 * r_s, M_SUN) == "blended"
     assert regime_of_r(2.5 * r_s, M_SUN) == "photon_sphere"
@@ -60,6 +66,13 @@ def test_xi_is_primary():
     D = D_from_xi(xi)
     s = s_from_xi(xi)
     
+    D_expected = 1.0 / (1.0 + xi)
+    s_expected = 1.0 + xi
+    
+    print(f"  Xi at 3r_s: {xi:.6f}")
+    print(f"  D predicted: {D_expected:.10f}, actual: {D:.10f}")
+    print(f"  s predicted: {s_expected:.10f}, actual: {s:.10f}")
+    
     # Assert that D and s are derived mathematically and causally from Xi
-    assert isclose(D, 1.0 / (1.0 + xi), rel_tol=1e-15)
-    assert isclose(s, 1.0 + xi, rel_tol=1e-15)
+    assert isclose(D, D_expected, rel_tol=1e-15)
+    assert isclose(s, s_expected, rel_tol=1e-15)

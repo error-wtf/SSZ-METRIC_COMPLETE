@@ -28,10 +28,19 @@ def test_metric_diagonal_properties():
     g_det_numerical = np.linalg.det(g)
     
     relative_diff = abs(g_det_numerical - g_det_analytical) / abs(g_det_analytical)
+    
+    print(f"  r = {r:.1f} m, theta = {np.degrees(theta):.1f} deg")
+    print(f"  det(g) analytical = {g_det_analytical:.6e}")
+    print(f"  det(g) numerical = {g_det_numerical:.6e}")
+    print(f"  Relative diff = {relative_diff:.2e} (must be < 1e-10)")
+    
     assert relative_diff < 1e-10
     
     # 2. Inverse identity: g @ g_inv == Identity Matrix
     prod = g @ g_inv
     identity = np.identity(4)
+    max_diff = np.max(np.abs(prod - identity))
+    
+    print(f"  Max diff from Identity = {max_diff:.2e} (must be < 1e-10)")
     
     assert np.allclose(prod, identity, rtol=1e-10, atol=1e-10)

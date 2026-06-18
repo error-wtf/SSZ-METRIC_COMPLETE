@@ -10,6 +10,12 @@ import pytest
 def test_package_import():
     """Verify that the ssz_metric_pure package imports successfully and exposes canonical API."""
     import ssz_metric_pure
+    
+    print(f"  Package version: {ssz_metric_pure.__version__}")
+    print(f"  xi_canonical available: {'xi_canonical' in dir(ssz_metric_pure)}")
+    print(f"  D_from_xi available: {'D_from_xi' in dir(ssz_metric_pure)}")
+    print(f"  s_from_xi available: {'s_from_xi' in dir(ssz_metric_pure)}")
+    
     assert ssz_metric_pure.__version__ == "1.1.0-canonical-pure"
     assert "xi_canonical" in dir(ssz_metric_pure)
     assert "D_from_xi" in dir(ssz_metric_pure)

@@ -26,6 +26,11 @@ def test_readme_purity():
     assert readme_path.exists(), "README.md is missing!"
     content = readme_path.read_text(encoding="utf-8")
     
+    print(f"  README.md found: {len(content)} characters")
+    print(f"  Version v1.1.0-canonical-pure present: {'v1.1.0-canonical-pure' in content}")
+    print(f"  Xi-primary present: {'Xi-primary' in content or 'Xi(r) primary' in content}")
+    print(f"  Limitations section present: {'Limitations' in content}")
+    
     # Required terms and structures
     assert "v1.1.0-canonical-pure" in content
     assert "Xi-primary" in content or "Xi(r) primary" in content
@@ -63,6 +68,11 @@ def test_install_scripts_purity():
     repo_root = Path(__file__).resolve().parent.parent
     
     sh_path = repo_root / "install.sh"
+    bat_path = repo_root / "install.bat"
+    
+    print(f"  install.sh exists: {sh_path.exists()}")
+    print(f"  install.bat exists: {bat_path.exists()}")
+    
     assert sh_path.exists()
     sh_content = sh_path.read_text(encoding="utf-8")
     

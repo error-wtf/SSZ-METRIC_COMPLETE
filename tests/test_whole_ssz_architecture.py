@@ -65,6 +65,12 @@ def test_whole_ssz_architecture_integration():
     D_val = D_from_xi(xi_val)
     s_val = s_from_xi(xi_val)
     
+    print(f"  r_s = {r_s:.3e} m (characteristic radius)")
+    print(f"  Xi(3r_s) = {xi_val:.6f}")
+    print(f"  D(3r_s) = {D_val:.6f}")
+    print(f"  s(3r_s) = {s_val:.6f}")
+    print(f"  D*s = {D_val * s_val:.10f} (expected: 1.0)")
+    
     g = metric_diagonal((1.0, r_val, np.pi/2.0, 0.0), M_SUN)
     assert isclose(g[0, 0], -(D_val ** 2) * (C ** 2))
     assert isclose(g[1, 1], s_val ** 2)
