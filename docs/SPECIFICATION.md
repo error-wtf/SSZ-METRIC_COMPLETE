@@ -8,7 +8,7 @@
 
 ## ⚠️ Canonical Definition Update (v1.1.0-canonical-pure)
 
-In order to resolve the conflict between various legacy representations of Segment Density $\Xi(r)$ (e.g. the toy exponential growth $1 - e^{-\varphi r / r_s}$ versus the strong field decay $1 - e^{-\varphi r_s / r}$), the canonical core theory of SSZ has been mathematically unified:
+In order to resolve the conflict between various legacy representations of Segment Density $\Xi(r)$ (e.g. the toy exponential growth $1 - e^{-\varphi r_s / r}$ versus the strong field decay $1 - e^{-\varphi r_s / r}$), the canonical core theory of SSZ has been mathematically unified:
 
 - **Canonical Core Segment Density**: Defined directly as $\Xi(r) = \gamma(r) - 1$, where $\gamma(r) = \cosh(\varphi_G(r))$ is the Lorentz-like rapidity factor.
 - **Physical Identities**: All core identities ($\gamma \ge 1$, $|\beta| < 1$, $D \cdot s = 1$) are derived directly from this core definition.
@@ -59,7 +59,7 @@ where:
 - Xi(r_s) ≈ 0.802: Finite strong-field value
 - Xi → r_s/(2r) asymptotically: Matches GR weak-field
 - Smooth C² transition in blend zone
-- **DEPRECATED**: Xi = 1 - exp(-PHI*r/r_s) is NOT canonical
+- **DEPRECATED**: Xi = 1 - exp(-PHI*r_s / r) is NOT canonical
 
 ---
 
@@ -313,7 +313,7 @@ K_SSZ(0) finite
 ### 10.1 Segment Saturation Derivative
 
 ```
-dΞ/dr = (φ/r_s) · exp(-φ r/r_s)
+dΞ/dr = (φ/r_s) · exp(-φ r_s / r)
 ```
 
 ### 10.2 Metric Coefficient Derivative
@@ -371,7 +371,7 @@ SSZ: Finite and well-defined
 ```python
 # Segment saturation
 def Xi(r, r_s):
-    return 1 - np.exp(-PHI * r / r_s)
+    return 1 - np.exp(-PHI * r_s / r)
 
 # SSZ time dilation
 def D_SSZ(r, r_s):

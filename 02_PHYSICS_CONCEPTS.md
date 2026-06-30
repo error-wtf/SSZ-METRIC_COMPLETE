@@ -219,7 +219,7 @@ Properties:
 
 **Exponential (saturation form, strong-field r < 100r_s only):**
 ```
-Ξ(r) = 1 - e^(-φr/r_s)     [Ξ_max = 1 as normalization]
+Ξ(r) = 1 - e^(-φr_s / r)     [Ξ_max = 1 as normalization]
 
 Note: Ξ_max = 1 is a normalization choice (asymptote never reached in practice), 
 not a claim that spacetime becomes fully discrete.
@@ -243,7 +243,7 @@ single global function or matched C¹/C²-smoothly across regimes.
 **Important:** 
 The two Ξ-formulations serve **different purposes**:
 - **Hyperbolic** (∝ r_s/r): Ξ → ∞ as r → 0 (must be capped at Ξ_max)
-- **Exponential** (1 - e^{-φr/r_s}): Ξ → 0 as r → 0 (singularity-free by design)
+- **Exponential** (1 - e^{-φr_s / r}): Ξ → 0 as r → 0 (singularity-free by design)
 
 Both give **finite D(r_s)** at the horizon. The exponential form is preferred for 
 strong-field calculations because it naturally avoids the r=0 divergence.

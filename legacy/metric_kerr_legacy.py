@@ -23,7 +23,7 @@ def segment_density_N(r: Union[float, np.ndarray], r_s: float) -> Union[float, n
     """
     Segment count N(r) used for saturation in rotating spacetime.
     Formula:
-        N(r) = XI_MAX * (1 - exp(-φ * r / r_s))
+        N(r) = XI_MAX * (1 - exp(-φ * r_s / r))
     """
     r_safe = np.maximum(r, 0.0)
     exponent = -PHI * r_safe / r_s

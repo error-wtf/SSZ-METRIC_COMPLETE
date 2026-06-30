@@ -169,7 +169,7 @@ Xi(r) = hermite_c2_interpolation(r, Xi_strong, Xi_weak, dXi_strong, dXi_weak)
 Xi(r) = r_s / (2*r)  # PPN-konform, asymptotisch Newton
 ```
 
-**WICHTIG:** Die veraltete Form `Xi = 1 - exp(-PHI*r/r_s)` ist NICHT kanonisch!
+**WICHTIG:** Die veraltete Form `Xi = 1 - exp(-PHI*r_s / r)` ist NICHT kanonisch!
 
 ---
 
