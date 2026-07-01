@@ -89,7 +89,7 @@ U = GM/(rc²)
 - No crossover at α=1.0
 - SSZ corrections at ALL radii
 
-### 3.2 Exponential Form (strong-field, r/r_s < 1.8) - CANONICAL
+### 3.2 Exponential Form (strong-field, r_s/r < 1.8) - CANONICAL
 ```
 Ξ(r) = 1 - e^(-φ·r_s/r)     [Ξ_max = 1 explicit]
 ```
@@ -618,18 +618,18 @@ D_SSZ = 1/(1 + 6.96e-10) = 0.999999999303892
 
 **Segment Density (Saturation Form):**
 ```
-Ξ(r) = 1 - exp(-φ × r / r_s)
+Ξ(r) = 1 - exp(-φ × r_s / r)
 ```
 
 **Time Dilation Factor:**
 ```
 D_SSZ(r) = 1 / (1 + Ξ(r))
-        = 1 / (2 - exp(-φ × r / r_s))
+        = 1 / (2 - exp(-φ × r_s / r))
 ```
 
 **Gradient:**
 ```
-dΞ/dr = (φ / r_s) × exp(-φ × r / r_s)  > 0  (Ξ increases with r)
+dΞ/dr = (φ / r_s) × exp(-φ × r_s / r)  > 0  (Ξ increases with r)
 ```
 
 **Properties:**
@@ -894,7 +894,7 @@ z_SSZ = 1/D_SSZ - 1 = Ξ(r)
 
 **Strong Field:**
 ```
-z_SSZ = 1 - exp(-φ·r/r_s)
+z_SSZ = 1 - exp(-φ·r_s / r)
 ```
 
 **Weak Field:**

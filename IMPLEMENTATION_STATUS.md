@@ -13,7 +13,7 @@
 
 **Implementiert:**
 - `src/ssz_metric_pure/core.py` - `xi(r)` mit kanonischer SSZ-Formel
-  - Strong-field: `Ξ = 1 - exp(-φ·r_s/r)` für `r/r_s < 1.8`
+  - Strong-field: `Ξ = 1 - exp(-φ·r_s/r)` für `r_s/r < 1.8`
   - Blend-zone: C² Hermite-Interpolation für `1.8 < r/r_s < 2.2`
   - Weak-field: `Ξ = r_s/(2r)` für `r/r_s > 2.2`
 - Automatische Regime-Erkennung via `SCALE_DOMAINS`
@@ -159,7 +159,7 @@ Die Christoffel-Symbole werden via automatischer Differentiation berechnet:
 ## 📊 KANONISCHE Ξ-FORMEL (100% SSZ)
 
 ```python
-# Strong-field (r/r_s < 1.8):
+# Strong-field (r_s/r < 1.8):
 Xi(r) = 1 - exp(-PHI * r_s/r)  # PHI = (1+sqrt(5))/2 ≈ 1.618
 
 # Blend zone (1.8 < r/r_s < 2.2):

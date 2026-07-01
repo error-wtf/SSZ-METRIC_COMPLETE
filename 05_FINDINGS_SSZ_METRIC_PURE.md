@@ -27,7 +27,7 @@
 
 The canonical SSZ Segment Density follows a **three-regime piecewise** definition:
 
-**Strong-field (r/r_s < 1.8):**
+**Strong-field (r_s/r < 1.8):**
 ```
 Xi(r) = 1 - exp(-PHI * r_s/r)
 ```

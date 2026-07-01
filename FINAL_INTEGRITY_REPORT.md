@@ -24,7 +24,7 @@ This gate guarantees that Segmented Spacetime is implemented as an axiom-first, 
 
 ### 1. Primary Segment Density Field $\Xi(r)$
 $$\Xi(r) = \begin{cases} 
-1 - \exp\left(-\varphi \frac{r_s}{r}\right), & r/r_s < 1.8 \\
+1 - \exp\left(-\varphi \frac{r_s}{r}\right), & r_s/r < 1.8 \\
 \text{C}^2 \text{ quintic Hermite blend}, & 1.8 \le r/r_s \le 2.2 \\
 \frac{r_s}{2r}, & r/r_s > 2.2
 \end{cases}$$

@@ -55,7 +55,7 @@ For $\Xi > 0$, $\rho(r_1, r_2) > r_2 - r_1$, representing the physical radial st
 
 To ensure physical smoothness and $C^2$ differentiability, the segment density field is routed across three distinct spatial regimes:
 
-1. **Strong Field Zone** ($r/r_s < 1.8$):
+1. **Strong Field Zone** ($r_s/r < 1.8$):
    $$\Xi_{\text{strong}}(r) = 1 - \exp\left(-\varphi \frac{r_s}{r}\right)$$
 2. **Blend Zone** ($1.8 \le r/r_s \le 2.2$):
    $$\Xi_{\text{blend}}(r) = \text{quintic Hermite C}^2\text{-spline}$$

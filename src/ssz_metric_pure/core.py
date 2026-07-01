@@ -59,7 +59,7 @@ def xi_weak(r: ArrayLike, M: float, G_CONST: float = G, c_CONST: float = C) -> A
 
 def xi_strong(r: ArrayLike, M: float, G_CONST: float = G, c_CONST: float = C) -> ArrayLike:
     """
-    Strong-field / inner branch of Segment Density, valid for r/r_s < 1.8.
+    Strong-field / inner branch of Segment Density, valid for r_s/r < 1.8.
     Formula:
         Xi_strong(r) = 1 - exp(-phi * r_s / r)
     """
@@ -214,7 +214,7 @@ def regime_of_r(r: float, M: float) -> str:
     """
     Return the physical regime of a coordinate radius r.
     Regime table:
-    r/r_s < 1.8       -> very_close
+    r_s/r < 1.8       -> very_close
     1.8 - 2.2         -> blended
     2.2 - 3.0         -> photon_sphere
     3.0 - 10.0        -> strong

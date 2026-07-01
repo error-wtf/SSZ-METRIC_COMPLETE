@@ -56,7 +56,7 @@ Time is not a coordinate, but a derived quantity!
 - Universal crossover linked to φ
 
 **Canonical Implementation:**
-- Strong-field (r/r_s < 1.8): Ξ = 1 - exp(-φ·r_s/r)
+- Strong-field (r_s/r < 1.8): Ξ = 1 - exp(-φ·r_s/r)
 - Blend zone (1.8 < r/r_s < 2.2): C² Hermite interpolation
 - Weak-field (r/r_s > 2.2): Ξ = r_s/(2r)
 
@@ -1019,7 +1019,7 @@ Future: More sensitive to SSZ effects
 
 ```
 φ appears in:
-├── Segment density: Ξ(r) = 1 - exp(-φ·r/r_s)
+├── Segment density: Ξ(r) = 1 - exp(-φ·r_s / r)
 ├── Time emergence: Δt = (1+Ξ)/φ
 ├── Universal crossover: r* ≈ 1.387 r_s (φ-linked)
 ├── Horizon calibration: Ξ(r_s) = 1 - exp(-φ) ≈ 0.802
