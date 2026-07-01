@@ -1,12 +1,12 @@
 # SSZ-METRIC-PURE Validation Report
 
-**Generated:** 2026-06-18 10:48:30  
+**Generated:** 2026-07-01 01:53:10  
 **Version:** 1.1.0-canonical-pure  
 
 ## Summary
 
-- **Total Tests:** 85
-- **Passed:** 85
+- **Total Tests:** 100
+- **Passed:** 100
 - **Success Rate:** 100.0%
 
 ## Test Categories
@@ -21,7 +21,7 @@
 | Curvature Tensor Pipeline Stability | [OK] PASS | 1/1 |
 | Observable Prime Directive Routing | [OK] PASS | 2/2 |
 | Final SSZ Core Integrity Gate | [OK] PASS | 1/1 |
-| Repository Metadata and Install Docs | [FAIL] FAIL | 0/0 |
+| Repository Metadata and Install Docs | [OK] PASS | 3/3 |
 | Whole-SSZ System Architecture | [OK] PASS | 3/3 |
 | Multiscale Forward Anti-Circularity | [OK] PASS | 1/1 |
 | Multiscale Use-Case Matrix Check | [OK] PASS | 3/3 |
@@ -39,26 +39,26 @@
 | General Covariance Orthonormal Speed | [OK] PASS | 1/1 |
 | Tensor Pipeline Verification | [OK] PASS | 1/1 |
 | Forward Anti-Circular Protocol Gate | [OK] PASS | 7/7 |
-| NICER Astroquery Fetch Contract | [OK] PASS | 3/3 |
-| ALMA Astroquery Fetch Contract | [OK] PASS | 3/3 |
+| NICER Astroquery Fetch Contract | [FAIL] FAIL | 0/0 |
+| ALMA Astroquery Fetch Contract | [FAIL] FAIL | 0/0 |
 | Fetch Scripts CLI Smoke | [OK] PASS | 1/1 |
 | External Data Manifest Contract | [OK] PASS | 1/1 |
 | External Anti-Circularity Scan | [OK] PASS | 2/2 |
 | External Validation Report Contract | [OK] PASS | 1/1 |
-| Fetch Common Methods Check | [FAIL] FAIL | 0/0 |
-| NICER Pipeline Fetch Contract | [FAIL] FAIL | 0/0 |
-| ALMA Pipeline Fetch Contract | [FAIL] FAIL | 0/0 |
-| Exact Comparison Modes Contract | [FAIL] FAIL | 0/0 |
-| Parameter Manifest Schema | [FAIL] FAIL | 0/0 |
-| Observable Derivation Layer Contract | [FAIL] FAIL | 0/0 |
-| Prediction Binding Layer Contract | [FAIL] FAIL | 0/0 |
-| NICER Exact Countertest Contract | [FAIL] FAIL | 0/0 |
-| ALMA Exact Countertest Contract | [FAIL] FAIL | 0/0 |
-| Countertest Anti-Circularity Scan | [FAIL] FAIL | 0/0 |
-| Countertest Negative Controls Gate | [FAIL] FAIL | 0/0 |
-| Countertest Report Generation Gate | [FAIL] FAIL | 0/0 |
-| Countertest CLI Smoke | [FAIL] FAIL | 0/0 |
-| Exact Benchmark Replay Verification | [FAIL] FAIL | 0/0 |
+| Fetch Common Methods Check | [OK] PASS | 5/5 |
+| NICER Pipeline Fetch Contract | [OK] PASS | 1/1 |
+| ALMA Pipeline Fetch Contract | [OK] PASS | 1/1 |
+| Exact Comparison Modes Contract | [OK] PASS | 1/1 |
+| Parameter Manifest Schema | [OK] PASS | 1/1 |
+| Observable Derivation Layer Contract | [OK] PASS | 1/1 |
+| Prediction Binding Layer Contract | [OK] PASS | 1/1 |
+| NICER Exact Countertest Contract | [OK] PASS | 1/1 |
+| ALMA Exact Countertest Contract | [OK] PASS | 1/1 |
+| Countertest Anti-Circularity Scan | [OK] PASS | 1/1 |
+| Countertest Negative Controls Gate | [OK] PASS | 1/1 |
+| Countertest Report Generation Gate | [OK] PASS | 1/1 |
+| Countertest CLI Smoke | [OK] PASS | 1/1 |
+| Exact Benchmark Replay Verification | [OK] PASS | 1/1 |
 | Exact Benchmark Replay CLI | [OK] PASS | 1/1 |
 | Countertest Gauntlet CLI | [OK] PASS | 1/1 |
 | Script: Build Parameter Manifest | [OK] PASS | 1/1 |
