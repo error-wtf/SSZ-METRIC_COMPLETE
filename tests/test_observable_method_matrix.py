@@ -9,7 +9,10 @@ Licensed under the Anti-Capitalist Software License v1.4
 """
 
 import pytest
+import numpy as np
 from ssz_metric_pure.observable_registry import get_observable, list_observables
+from ssz_metric_pure.constants import M_SUN, R_SUN
+from ssz_metric_pure.observables import SSZObservableSuite
 
 
 @pytest.mark.parametrize("obs_id, expected_class, expected_method", [
@@ -49,3 +52,11 @@ def test_entire_registry_routing_rules():
     for obs in observables:
         assert obs["class"] in allowed_classes, f"Observable {obs['id']} has invalid class {obs['class']}"
         assert obs["method"] in allowed_methods, f"Observable {obs['id']} has invalid method {obs['method']}"
+
+
+def test_null_ppn_completion_recovers_full_solar_limb_deflection():
+    """Regression: the completed null result is alpha=2*r_s/b, about 1.75 arcsec."""
+    angle = SSZObservableSuite(M_SUN).evaluate_light_deflection(R_SUN)
+    angle_arcsec = angle * (180.0 / np.pi) * 3600.0
+    print(f"  Completed SSZ solar-limb deflection: {angle_arcsec:.6f} arcsec")
+    assert 1.5 < angle_arcsec < 2.0
