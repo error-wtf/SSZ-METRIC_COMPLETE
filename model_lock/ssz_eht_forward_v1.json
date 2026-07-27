@@ -1,0 +1,13 @@
+{
+  "candidate_metric": "canonical static spherical SSZ lapse",
+  "control_metric": "static Schwarzschild lapse",
+  "fit_to_target_lag": false,
+  "freeze_timestamp": "2026-07-27",
+  "full_grmhd": "NOT_IMPLEMENTED",
+  "model_id": "SSZ-GR-EHT-FORWARD-V1",
+  "polarized_transfer": "NOT_IMPLEMENTED",
+  "rotating_metric": "NOT_IMPLEMENTED",
+  "same_emission_nuisance": true,
+  "status": "FORWARD_ONLY_NO_EVIDENCE",
+  "target_radio_lag_used": false
+}
