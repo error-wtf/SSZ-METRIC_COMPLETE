@@ -146,7 +146,9 @@ class SSZObservableSuite:
         # PPN parameter gamma = 1 for SSZ
         gamma_ppn = 1.0
         
-        xi_only_deflection = self.r_s / (2.0 * impact_param)
+        # Temporal weak-field contribution. Canonical null PPN completion
+        # multiplies by (1 + gamma_ppn)=2, yielding alpha=2*r_s/b.
+        xi_only_deflection = self.r_s / impact_param
         return self.null_ppn_completion(xi_only_deflection, gamma_ppn)
         
     def evaluate_perihelion_precession(self, semi_major_axis: float, eccentricity: float) -> float:
