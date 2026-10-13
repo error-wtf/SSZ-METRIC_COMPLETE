@@ -26,10 +26,12 @@ class TestShapiroDelay:
         
         delay = shapiro_ssz(r_sun, r_earth, M_SUN, n=5000)
         
-        # Weak-field SSZ: Δt = (r_s/2c) * ln(r2/r1)
-        # For Sun-Earth: ~26.5 microseconds (physically correct)
-        print(f"  Sun-Earth Shapiro delay: {delay*1e6:.2f} μs (expected: 20-40 μs)")
-        assert 20e-6 < delay < 40e-6  # 20-40 microseconds (weak-field)
+        # FORENSIC AUDIT: with the corrected integrand (2 Xi + Xi^2) the
+        # Sun-Earth excess delay doubles vs the old (Xi-only) implementation:
+        # dt ~ (r_s/c) * ln(r2/r1) ~ 49.4 microseconds (weak field, radial).
+        # The old window 20-40 us baked in the factor-0.5 bug.
+        print(f"  Sun-Earth Shapiro delay: {delay*1e6:.2f} μs (expected: 40-60 μs)")
+        assert 40e-6 < delay < 60e-6  # corrected weak-field window
     
     def test_shapiro_weak_field_exact(self):
         """Exact analytical Shapiro delay for weak field."""

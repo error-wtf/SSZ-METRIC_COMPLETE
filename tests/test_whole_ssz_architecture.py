@@ -86,10 +86,12 @@ def test_whole_ssz_architecture_integration():
     assert isclose(coord_c, C / n_index)
     
     # 3. Post-Newtonian (PPN) layer
-    assert beta_ppn_parameter() == 1.0
-    assert gamma_ppn_parameter() == 1.0
-    assert ppn_gamma() == 1.0
-    assert ppn_beta() == 1.0
+    # FORENSIC AUDIT: SSZ metric-derived values are beta = 5/2, gamma = 1
+    # (sympy-exact; NOT GR's (1,1) — the old asserts hardcoded GR).
+    assert isclose(beta_ppn_parameter(), 2.5, abs_tol=1e-4)
+    assert isclose(gamma_ppn_parameter(), 1.0, abs_tol=1e-4)
+    assert isclose(ppn_gamma(), 1.0, abs_tol=1e-4)
+    assert isclose(ppn_beta(), 2.5, abs_tol=1e-4)
     
     coeffs = weak_field_expansion_coeffs(100.0 * r_s, M_SUN)
     assert coeffs["U"] == r_s / (2.0 * (100.0 * r_s))

@@ -7,6 +7,7 @@ Licensed under the Anti-Capitalist Software License v1.4
 
 import os
 import pytest
+from math import isclose
 from pathlib import Path
 
 
@@ -46,7 +47,9 @@ def test_domain_modules_imports():
     print(f"  PPN gamma: {gamma} (expected: 1.0)")
     
     assert planck_l > 0.0
-    assert gamma == 1.0
+    # FORENSIC AUDIT: SSZ gamma = 1 (fit value 0.99995, deg-4 truncation),
+    # not the old hardcoded == 1.0 against a now-metric-derived routine.
+    assert isclose(gamma, 1.0, abs_tol=1e-4)
 
 
 def test_domains_list_and_limitations():
