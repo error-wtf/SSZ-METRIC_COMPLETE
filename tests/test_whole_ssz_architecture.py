@@ -30,6 +30,7 @@ from ssz_metric_pure import (
     gamma_ppn_parameter,
     weak_field_expansion_coeffs,
     photon_sphere_radius,
+    photon_sphere_report,
     strong_field_redshift_limit,
     check_weak_energy_condition,
     check_strong_energy_condition,
@@ -98,8 +99,16 @@ def test_whole_ssz_architecture_integration():
     assert coeffs["g_tt_coeff_order1"] == -2.0
     
     # 4. Strong Field layer
-    r_photon = photon_sphere_radius(M_SUN)
-    assert isclose(r_photon, 3.0 * r_s)
+    # Forensic audit 2026-10-13: metric-derived — the canonical metric has NO
+    # circular null orbit (r*(1+Xi) monotone up to float-level blend ripple
+    # ~1e-29·r_s around 2 r_s); the old hard-coded 3*r_s was an unmarked
+    # convention and is withdrawn (fail-closed nan).
+    assert np.isnan(photon_sphere_radius(M_SUN))
+    rep = photon_sphere_report(M_SUN)
+    assert rep["photon_sphere_exists"] is True
+    assert rep["all_stationary_points_in_blend_zone"] is True
+    assert rep["verdict"] == "BLEND_ARTIFACT"
+    assert 1.8 < rep["stationary_points_r_over_rs"][0] < rep["stationary_points_r_over_rs"][1] < 2.2
     
     z_limit = strong_field_redshift_limit(M_SUN)
     xi_rs = segment_density(r_s, M_SUN)

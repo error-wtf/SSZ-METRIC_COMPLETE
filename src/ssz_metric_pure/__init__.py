@@ -105,6 +105,7 @@ from .ppn import (
 
 from .strong_field import (
     photon_sphere_radius,
+    photon_sphere_report,
     strong_field_redshift_limit,
     Xi_at_schwarzschild_radius,
     Xi_at_characteristic_radius,
@@ -339,6 +340,7 @@ __all__ = [
     "ppn_beta",
     "weak_field_expansion_coeffs",
     "photon_sphere_radius",
+    "photon_sphere_report",
     "strong_field_redshift_limit",
     "Xi_at_schwarzschild_radius",
     "Xi_at_characteristic_radius",
