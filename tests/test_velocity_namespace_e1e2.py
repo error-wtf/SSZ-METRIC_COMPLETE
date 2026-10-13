@@ -42,6 +42,16 @@ class TestE1Namespace:
         expected = {"v_dual", "v_esc_dual", "v_local", "v_buch", "v_segment", "v_newton"}
         assert set(VELOCITY_NAMESPACE_DOC.keys()) == expected
 
+    def test_functional_roles_documented(self):
+        # Lino-Go addendum: the two additional functional roles (Materie->Frequenz,
+        # Singularitaet als Grenzflaeche max. Fallgeschwindigkeit) must be present
+        # in the module source map — as interpretations, NOT as equations.
+        import ssz_metric_pure.velocity_namespace as vnm
+        src = vnm.__doc__ or ""
+        assert "ROLE_FREQ" in src and "ROLE_SING" in src
+        assert "matter transforms into frequency" in src or "frequency" in src
+        assert "NOT be promoted" in src or "not be promoted" in src or "CRITICAL RULE" in src
+
     def test_each_entry_has_four_fields(self):
         for key, entry in VELOCITY_NAMESPACE_DOC.items():
             assert len(entry) == 4, f"{key}: name/def/frame/validity required"
@@ -116,6 +126,27 @@ class TestE2Identities:
         # limit r -> r_s+: v_dual -> c (Z.204: 'v_fall ↓ c at the horizon')
         eps = 1e-10
         assert abs(v_dual(R_S * (1.0 + eps), M) / C - 1.0) < 1e-5
+
+    def test_I7_additive_decomposition_frame_dependence_open(self):
+        # Lino-Go E2 point 3: v_total = v_fall + v_eigen is galilean in the
+        # corpus WITHOUT a transformation rule -> status stays OPEN. The only
+        # testable consequence: V_LOCAL is subluminal everywhere on its domain,
+        # so it cannot be the "v_fall" of a galilean split of physical velocities.
+        rep = identity_test_report(M=M)
+        assert rep["I7_pass"]
+        assert rep["I7_v_local_max_over_c"] < 1.0
+        assert "OPEN" in rep["I7_additive_decomposition_status"]
+
+    def test_I8_segment_transport_lambda_is_not_EM(self):
+        # Lino-Go E2 point 4: v_fall = lambda*f exists in the corpus as a
+        # bookkeeping relation only; lambda is the SEGMENT-STRUCTURE wavelength
+        # ("the wave must match local segment structure"), explicitly not the
+        # EM wavelength of the radiowave carrier. No formula -> no numerics.
+        rep = identity_test_report(M=M)
+        assert rep["I8_pass"]
+        assert rep["I8_segment_transport_status"] == "OPEN_no_transport_law_in_corpus"
+        assert rep["I8_lambda_interpretation"] == (
+            "segment_structure_wavelength_not_EM_wavelength")
 
 
 # ============================================================================

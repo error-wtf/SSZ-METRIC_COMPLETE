@@ -25,6 +25,21 @@ Source map (pdftotext line refs, extraction 2026-10-13):
   V_NEWTON  : AdditiveDecomposition Z.76  v_fall := sqrt(2GM/r) — escape-
               expression under a different name, radially inverted usage
 
+E1 addendum (Lino-Go 13.10., second instruction set): two additional
+FUNCTIONAL ROLES (interpretations, not new equations, not new sizes):
+  ROLE_FREQ : OntheMetricofBlackHoles Z.193 — "matter transforms into
+              frequency, losing spatial identity": inside the strong-
+              segmentation region, v_fall is the rate at which spatial
+              extent converts to oscillatory (frequency) description.
+              Theoretical interpretation only — no dynamics derived.
+  ROLE_SING : same paper Z.282-295 — the singularity is "a limit surface
+              of maximal fall velocity", segmental and directional, NOT a
+              curvature endpoint; a transition surface. Again: functional
+              role of v_fall in the singularity model, not a field law.
+CRITICAL RULE (Lino): NO v_fall definition may silently be promoted to
+"the canonical physical velocity". Each stays in its own reference frame,
+domain, and interpretation.
+
 © 2026 Carmen N. Wrede, Lino P. Casu & Bingsi
 Licensed under the Anti-Capitalist Software License v1.4
 """
@@ -178,6 +193,16 @@ def identity_test_report(M: float = 1.0, n: int = 200) -> dict:
       I5  V_NEWTON == V_ESC_DUAL expression-wise (same formula, diff. name):
           v_newton(r, M) == v_esc_dual(r, M) for all r > 0
       I6  V_DUAL superluminal strictly outside r_s, equals c at r_s (limit)
+      I7  additive decomposition v_total = v_fall + v_eigen (Radiowaves
+          Z.107-118): galilean vector addition with NO transformation rule
+          between frames in the corpus -> frame-dependence is documented as
+          OPEN; check only that V_LOCAL < c everywhere it is defined (so the
+          decomposition cannot be read as a local 4-velocity split)
+      I8  segment transport relation v_fall = lambda*f (Metrik Z.376-381):
+          NO transport law exists in the corpus (C3 OPEN); check documents
+          that (a) lambda here is the SEGMENT-STRUCTURE wavelength, not the
+          electromagnetic wavelength of the radiowave carrier, and (b) no
+          code path implements it — purely a bookkeeping assertion
     """
     r_s = characteristic_radius(M)
     rs_grid = r_s * np.linspace(1.0 + 1e-9, 20.0, n)
@@ -212,6 +237,24 @@ def identity_test_report(M: float = 1.0, n: int = 200) -> dict:
     outside = v_dual(r_s * np.linspace(1.0 + 1e-9, 10.0, n), M) / C
     i6_ok = bool(np.all(outside > 1.0))
 
+    # I7: additive decomposition (Radiowaves Z.107-118) — frame-dependence OPEN.
+    # Corpus states v_total = v_fall + v_eigen (galilean) WITHOUT a transformation
+    # rule; hence we can only verify the subluminality of V_LOCAL on its domain
+    # (V_LOCAL cannot be the "v_fall" of a galilean split of physical velocities
+    # near the core where geometry maximises it). Document, don't repair.
+    grid_all = r_s * np.geomspace(1.0 + 1e-9, 100.0, n)
+    vloc = np.asarray(v_local(grid_all, M), dtype=float) / C
+    i7_local_subluminal = bool(np.all(vloc < 1.0))
+    i7_v_loc_max = float(np.max(vloc))
+
+    # I8: segment transport v_fall = lambda*f (Metrik Z.376-381) — OPEN, no law.
+    # Bookkeeping assertion: no formula exists; lambda is the SEGMENT-STRUCTURE
+    # wavelength (the wave "must match local segment structure"), explicitly NOT
+    # the EM wavelength of the radiowave. Nothing to compute; assert the
+    # qualitative status from the source map stays intact.
+    i8_status = "OPEN_no_transport_law_in_corpus"
+    i8_lambda_is = "segment_structure_wavelength_not_EM_wavelength"
+
     return {
         "I1_dual_product_max_residual_over_c2": i1_max,
         "I1_pass": i1_max < 1e-12,
@@ -229,6 +272,14 @@ def identity_test_report(M: float = 1.0, n: int = 200) -> dict:
         "I5_newton_equals_esc_dual_max_diff_over_c": i5_max,
         "I5_pass": i5_max < 1e-12,
         "I6_dual_superluminal_outside_rs": i6_ok,
+        "I7_additive_decomposition_status": (
+            "OPEN_galilean_no_transformation_rule (Radiowaves Z.107-118)"),
+        "I7_v_local_subluminal_everywhere": i7_local_subluminal,
+        "I7_v_local_max_over_c": i7_v_loc_max,
+        "I7_pass": i7_local_subluminal,
+        "I8_segment_transport_status": i8_status,
+        "I8_lambda_interpretation": i8_lambda_is,
+        "I8_pass": True,
         "M": M, "n_grid": n,
     }
 
