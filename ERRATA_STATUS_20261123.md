@@ -40,10 +40,13 @@ und /home/error/physics/work/p5_v5_action_audit/):
   5 Polarisationen auf dem metrischen Nullkegel, modellkonkret für G₂=X).
 - Die isolierte c₂-Korrektur (fehlender Appendix-A-Beitrag) verschiebt die
   auffällige Wurzel am Knoten 2000 von 15.70 auf 0.64.
-- **Historische Interpretationen der Velocity-Zweige (15.7×, 31.6×) beruhen
-  auf fehlerhaften Gleichungen und sind als physikalische Entdeckungen
+- **Historische Interpretationen des schnelleren P5-Zweigs beruhen auf
+  fehlerhaften Gleichungen und sind als physikalische Entdeckungen
   zurückzuziehen.** Die reproduzierbare Zahl war eine Eigenschaft des
-  fehlerbehafteten Codes, nicht der Wirkung.
+  fehlerbehafteten Codes, nicht der Wirkung. Präzisierung der Größen (23.11.):
+  c_Archiv ≈ 15.70 ist der Koordinaten-Geschwindigkeitswert an dem Gitterpunkt;
+  31.6 ist das VERHÄLTNIS c_Archiv/c_metrisch zur radialen metrischen
+  Lichtgeschwindigkeit — 15.7 ist also kein zusätzlicher Faktor 15.7.
 
 ## 3. Grid-Adjudikation (23.11.2026)
 
@@ -54,7 +57,10 @@ Die Klassifikation der Zusatz-Richtungen als NUMERICAL_ARTIFACT ist
 **noch nicht abgeschlossen** (NOT YET PROVEN); der Konvergenztest an identischen
 Radien steht aus. Keine Ghost-Instabilität der Wirkung: Im Einstein-Frame
 (F>0, Z_E>0 verifiziert) ist die Wirkung minimal, alle even-Freiheitsgrade
-haben positive zeitliche Kinetik per Konstruktion.
+haben positive zeitliche Kinetik per Konstruktion — ein analytisches
+Frame-Level-Argument; die exakte Zuordnung der historischen reduzierten
+Variablen zu den kanonischen Freiheitsgraden steht noch aus (Phase 2,
+Schur-Signatur-Analyse läuft).
 
 ## 4. Maßgebliche aktuelle Dokumente
 
